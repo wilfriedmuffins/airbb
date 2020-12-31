@@ -1,0 +1,151 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+//@import "bootstrap/scss/bootstrap";
+
+// div ul li{
+//     list-style: none;
+//     margin-top: 16px;
+//     font-size: 14px;
+// }
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-Regular.ttf');
+ }
+
+ body {
+   // background-color: #F2F0EB;
+    font-family: "Roboto";
+    color: #484848;
+ }
+
+ .main{
+    height: 800px;
+    background-image: asset-url('main.jpg'); //rajouter une image au jumbotron
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+.item-main{
+    font-size: 50px;
+    font-weight: bold;
+    color: #ff6347;
+    position: absolute;
+    left: 80px;
+    top: 500px;
+
+}
+
+.button-main{
+    position: absolute;
+    padding: 10px;
+    left: 80px;
+    top: 630px;
+    background-color: #ff6347;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 10px;
+    border-width: 0px;
+}
+
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-top: 60px;
+    margin-bottom:60px;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.img-flex{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px; 
+    object-fit: cover;
+ } 
+ 
+.img-div{
+    width: 70px;
+    height: 70px;
+    margin-right: 16px ;
+    background-color: yellow;
+ }
+
+/*FOOTER*/
+
+.footer {
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.f1 {
+    display: flex;
+}
+
+.ul-f1{
+    padding: 0px;
+    font-size: 14px;
+}
+
+.ul-f2-left{
+    padding: 0px;
+    border-top: 1px solid black;
+    font-size: 14px;
+}
+
+.ul-f2-right{
+    float: right;
+    display: flex;
+    list-style: none;
+    margin: 0px;
+    padding: 9px 0px 9px;
+}
+
+.f2-item-left{
+    float: left;
+    list-style: none;
+    padding: 24px 0px;
+    margin-right: 10px;
+}
+.lang{
+    margin-right: 24px;
+}
+
+.social{
+    margin-right: 24px;
+}
+
+
+.f2-item-right{
+    padding: 0px 0px;
+}
+
+.col{
+    margin-right: auto;
+}
+
+.col-item{
+    list-style: none;
+    margin-top: 16px;
+}
+
+.first-col {
+  text-transform: uppercase;
+}
+
+a{
+    color: #484848;
+    text-decoration: none;
+ }
+
+ a:hover{
+    text-decoration: underline;
+ }
