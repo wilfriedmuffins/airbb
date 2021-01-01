@@ -1,59 +1,94 @@
-<div classs="menu">
-    
+<div class="menu">
 </div>
 <div class="main">
-    <!--<%= image_tag('main.jpg', class:'img-main') %>-->
-    <p class ="item-main">Voyagez local</p>
-    <button class ="button-main">Découvrir les logements à proximité</button>
+  <p class="item-main">Voyagez <br>
+    local</p>
+  <input class="button-main" type="button" value="Découvrir les logements à proximité">
 </div>
 
 <div class="flex-container">
-    <div class="row">
-        <%= link_to "#" do %>
+    <div class="row1">
+        <div class="test-1">
             <div class="img-div">
-               <%= image_tag "saint_malo.jpeg", class:'img-flex' %>
-
+                <%= image_tag "saint_malo.jpeg", class:"img-flex" %>
             </div>
-        <% end %>
-        <%= link_to "#" do %>
-            <div class="img-div">        
-               <%= image_tag "tours.webp", class:'img-flex'%>
-
+            <div class="h-route">
+                <p class="city">Saint Malo</p>
+                <p>5 heure de route</p>
             </div>
-        <% end %>
-        <%= link_to "#" do %>
+        </div>
+        <div class="test-2">
             <div class="img-div">
-            <%= image_tag "trouville_sur_mer.jpeg", class:'img-flex'%>
-
+                <%= image_tag "tours.webp", class:'img-flex'%>
             </div>
-        <% end %>
-        <%= link_to "#" do %>
-            <div class="img-div" >
-               <%= image_tag "quiberon.webp", class:'img-flex'%>
-
+            <div class="h-route">
+                <p class="city">Tours</p>
+                <p>heure de route</p>
             </div>
-        <% end %>
+        </div>
     </div>
-   <div class="row">
-        <%= link_to "#" do %>
+
+    <div class="row1">
+        <div class="test-1">
+            <div class="img-div">
+                <%= image_tag "trouville_sur_mer.jpeg", class:'img-flex'%>
+            </div>
+            <div class="h-route">
+                <p class="city">Trouville sur mer</p>
+                <p>heure de route</p>
+            </div>
+        </div>
+        <div class="test-2">
+            <div class="img-div">
+                <%= image_tag "quiberon.webp", class:'img-flex'%>
+            </div>
+            <div class="h-route">
+                <p class="city">Quiberon</p>
+                <p>heure de route</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row1">
+        <div class="test-1">
             <div class="img-div">
                 <%= image_tag "honfleur.jpeg", class: 'img-flex'%>
             </div>
-        <% end %>
-        <%= link_to "#" do %>
-            <div class="img-div">
-                <%= image_tag "la_bresse.webp", class: 'img-flex'%>
+            <div class="h-route">
+                <p class="city">Honfleur</p>
+                <p>heure de route</p>
             </div>
-        <% end %>
-        <%= link_to "#" do %>
+        </div>
+
+        <div class="test-2">
             <div class="img-div">
                 <%= image_tag "granville.jpeg", class: 'img-flex'%>
             </div>
-        <% end %>
-        <%= link_to "#" do %>
+            <div class="h-route">
+                <p class="city">Granville</p>
+                <p>heure de route</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row1">
+        <div class="test-1">
+            <div class="img-div">
+                <%= image_tag "la_bresse.webp", class: 'img-flex'%>
+            </div>
+            <div class="h-route">
+                <p class="city">La bresse</p>
+                <p>heure de route</p>
+            </div>
+        </div>
+        <div class="test-2">
             <div class="img-div">
                 <%= image_tag "annecy.webp", class: 'img-flex'%>
             </div>
-        <% end %>
-    </div> 
+            <div class="h-route">
+                <p class="city">Annecy</p>
+                <p>heure de route</p>
+            </div>
+        </div>
+    </div>
 </div>

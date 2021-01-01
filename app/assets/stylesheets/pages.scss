@@ -12,20 +12,20 @@
 @font-face {
     font-family: 'Roboto';
     src: url('Roboto-Regular.ttf');
- }
+}
 
- body {
+body{
    // background-color: #F2F0EB;
     font-family: "Roboto";
     color: #484848;
- }
+}
 
- .main{
+.main{
     height: 800px;
     background-image: asset-url('main.jpg'); //rajouter une image au jumbotron
     background-repeat: no-repeat;
     background-size: cover;
-  }
+}
 
 .item-main{
     font-size: 50px;
@@ -53,16 +53,11 @@
 
 .flex-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding-left: 80px;
     padding-right: 80px;
     margin-top: 60px;
     margin-bottom:60px;
-}
-
-.row{
-    display: flex;
-    flex-direction: row;
 }
 
 .img-flex{
@@ -70,23 +65,58 @@
     width: 100%;
     border-radius: 5px; 
     object-fit: cover;
- } 
- 
+} 
+
 .img-div{
     width: 70px;
     height: 70px;
     margin-right: 16px ;
-    background-color: yellow;
- }
+}
+
+p{
+    margin:0px;
+}
+
+.h-route{
+    margin: 15px;
+    font-size: 18px;
+    
+}
+.city{
+    font-weight: bold;
+}
+
+.row1{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+}
+
+.test-1{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+}
+
+.test-2{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+}
+//  .row2{
+//     display: flex;
+//     flex-direction: row;
+//     margin-bottom: 5px
+// }
 
 /*FOOTER*/
 
-.footer {
+.footer{
     padding-left: 80px;
     padding-right: 80px;
 }
 
-.f1 {
+.f1{
     display: flex;
 }
 
@@ -138,14 +168,14 @@
 }
 
 .first-col {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 a{
     color: #484848;
     text-decoration: none;
- }
+}
 
- a:hover{
+a:hover{
     text-decoration: underline;
- }
+}
