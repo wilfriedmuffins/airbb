@@ -53,8 +53,6 @@ body{
 .navbar{
     display: flex;
     justify-content: space-between;
-    //justify-content: center;
-    //align-items: center;
     padding-left: 80px;
     padding-right: 80px;
     padding-top: 25px;
@@ -62,7 +60,6 @@ body{
 
 .nav-item{
     list-style: none;
-    //margin: 0px 20px;
     padding: 0px 16px;
 }
 
@@ -78,32 +75,45 @@ body{
 }
 
 .navbar-end, .navbar-logo{
-    // height:30px;
-    // width: 150px;
     display: flex;
+    justify-content: center;
     align-items: center;
-   
+    
 }
 
 .navbar-end-items{
-     padding: 0px 16px;   
-    // height: 30px;
-    // width: 50px;
-   // background-color: white;
+    padding: 0px 16px;
+}
+
+.devenir_hote:hover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:40px;
+    background-color:LightGray;
     border-radius: 20px;
 }
-//devnir_hote:hover{}
-//lang_and_region:hover{}
+.lang_and_region:hover{
+    display: flex;
+    align-items: center;
+    // height: 40px;
+    background-color:LightGray;
+    border-radius: 20px;
+}
 
 .end{   
+    height:40px;
+    width: 60px;
     display:flex;
+    justify-content: center;
     align-items: center;
-//      height: 30px;
-//     width: 50px;
-//    background-color: white;
-   
+    background-color: white;
+    border-radius: 20px;
+}    
+
+end:hover{
+    box-shadow: #484848;
 }
-// end:hover{}
 
 .flex-container1 {
     display: flex;
