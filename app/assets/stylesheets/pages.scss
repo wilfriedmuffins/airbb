@@ -30,7 +30,7 @@ body{
 .item-main{
     font-size: 50px;
     font-weight: bold;
-    color: #ff6347;
+    color: rgb(244, 92, 102);
     position: absolute;
     left: 80px;
     top: 500px;
@@ -42,7 +42,7 @@ body{
     padding: 10px;
     left: 80px;
     top: 630px;
-    background-color: #ff6347;
+    background-color: rgb(244, 92, 102);
     color: white;
     font-weight: bold;
     font-size: 15px;
@@ -53,35 +53,40 @@ body{
 .navbar{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    //justify-content: center;
+    //align-items: center;
     padding-left: 80px;
     padding-right: 80px;
-    padding-top: 50px;
+    padding-top: 25px;
 }
 
 .nav-item{
     list-style: none;
+    //margin: 0px 20px;
+    padding: 0px 16px;
 }
 
 .menu{
     display: flex;
-    justify-content: space-between;
-    padding-inline-start: 0px;
+    justify-content: center;
+    padding-inline-start: 100px;
 }
 .navbar-end{
     display: flex;
     justify-content: space-between; 
-    
+    align-items: center;
 }
 
-.navbar-end{
+.navbar-end, .navbar-logo{
     // height:30px;
     // width: 150px;
     display: flex;
     align-items: center;
+   
 }
 
-.navbar-end-2{   
+.navbar-end-items{
+     padding: 0px 16px;   
     // height: 30px;
     // width: 50px;
    // background-color: white;
@@ -93,6 +98,10 @@ body{
 .end{   
     display:flex;
     align-items: center;
+//      height: 30px;
+//     width: 50px;
+//    background-color: white;
+   
 }
 // end:hover{}
 
