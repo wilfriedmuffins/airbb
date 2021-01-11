@@ -74,11 +74,10 @@ body{
     align-items: center;
 }
 
-.navbar-end, .navbar-logo{
+.navbar-end, .navbar-logo, .lang_and_region{
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 .navbar-end-items{
@@ -93,8 +92,10 @@ body{
     background-color:LightGray;
     border-radius: 20px;
 }
+
 .lang_and_region:hover{
     display: flex;
+    justify-content: center;
     align-items: center;
     // height: 40px;
     background-color:LightGray;
