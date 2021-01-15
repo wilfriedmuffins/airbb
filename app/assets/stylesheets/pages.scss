@@ -9,6 +9,7 @@
 //     font-size: 14px;
 // }
 
+
 @font-face {
     font-family: 'Roboto';
     src: url('Roboto-Regular.ttf');
@@ -115,6 +116,26 @@ body{
 end:hover{
     box-shadow: #484848;
 }
+
+.bar-menu-form{
+    display:flex;
+    justify-content: center;
+    width: 800px;
+    background-color: white;
+    border-radius: 20px;
+
+}
+
+.bar-menu{
+    display: flex;
+    justify-content: center;
+}
+
+.item-bar-menu{
+    height:40px;
+    width: 160px;
+    
+} 
 
 .flex-container1 {
     display: flex;
