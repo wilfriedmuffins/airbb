@@ -3,17 +3,15 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-import 'bootstrap';
-
-import flatpickr from "flatpickr";
-require("flatpickr/dist/themes/airbnb.css");
-
+//= require jquery3
 
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+import flatpickr from "flatpickr";
+require("flatpickr/dist/themes/airbnb.css");
 
 document.addEventListener("turbolinks:load", () => {
     flatpickr("[class='flatpickr_1']", {
@@ -22,18 +20,24 @@ document.addEventListener("turbolinks:load", () => {
         dateFormat: "y-m-d",
         mode: 'range',
     }),
-    flatpickr("[class='flatpickr_2']", {
-        altInput: true,
-        altFormat: "F j, Y",
-        dateFormat: "y-m-d",
-        mode: 'range',
-    })
+        flatpickr("[class='flatpickr_2']", {
+            altInput: true,
+            altFormat: "F j, Y",
+            dateFormat: "y-m-d",
+            mode: 'range',
+        })
+
+    $(".dropbtn").on("click", function () {
+        $(".dropdown-content").toggleClass("show");
+    });
+
 })
 
-//= require jquery3
-//= require popper
-//= require bootstrap-sprockets
-//= require bootstrap-modal
+
+
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -42,6 +46,6 @@ document.addEventListener("turbolinks:load", () => {
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-//= require flatpickr
+
 
 

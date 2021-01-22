@@ -1,7 +1,7 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-//@import "bootstrap/scss/bootstrap";
+@import "bootstrap/scss/bootstrap";
 
 // div ul li{
 //     list-style: none;
@@ -9,10 +9,14 @@
 //     font-size: 14px;
 // }
 
+@import "bootstrap";
 
 @font-face {
     font-family: 'Roboto';
     src: url('Roboto-Regular.ttf');
+}
+li{
+    list-style: none;
 }
 
 body{
@@ -83,6 +87,34 @@ body{
 
 .navbar-end-items{
     padding: 0px 16px;
+    box-sizing: initial;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    z-index: 1;
+    height:200px;
+    width: 270px;
+    top: 48px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    
+}
+
+// .dropbtn {
+//     background-color: #3498DB;
+//     color: white;
+//     padding: 16px;
+//     font-size: 16px;
+//     border: none;
+//     cursor: pointer;
+// }
+
+.show {
+    display: block;   
 }
 
 .devenir_hote:hover{
@@ -123,7 +155,6 @@ end:hover{
     width: 800px;
     background-color: white;
     border-radius: 20px;
-
 }
 
 .bar-menu{
@@ -136,6 +167,7 @@ end:hover{
     width: 160px;
     
 } 
+
 
 .flex-container1 {
     display: flex;
@@ -253,7 +285,6 @@ p{
 .dm{
     height: 400px;
     width: 400px;
-    
 }
 
 
@@ -323,7 +354,6 @@ p{
 .ul-f2-right{
     float: right;
     display: flex;
-    list-style: none;
     margin: 0px;
     padding: 9px 0px 9px;
 }
