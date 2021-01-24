@@ -1,7 +1,7 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-@import "bootstrap/scss/bootstrap";
+
 
 // div ul li{
 //     list-style: none;
@@ -9,18 +9,20 @@
 //     font-size: 14px;
 // }
 
-@import "bootstrap";
 
 @font-face {
     font-family: 'Roboto';
     src: url('Roboto-Regular.ttf');
 }
+
 li{
     list-style: none;
 }
 
 ul{
     padding-inline-start: 0px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
 }
 
 body{
@@ -29,42 +31,13 @@ body{
     color: #000000;
 }
 
-.main{
-    height: 800px;
-    background-image: asset-url('main.jpg'); //rajouter une image au jumbotron
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 
-.item-main{
-    font-size: 50px;
-    font-weight: bold;
-    color: rgb(244, 92, 102);
-    position: absolute;
-    left: 80px;
-    top: 500px;
-
-}
-
-.button-main{
-    position: absolute;
-    padding: 10px;
-    left: 80px;
-    top: 630px;
-    background-color: rgb(244, 92, 102);
-    color: white;
-    font-weight: bold;
-    font-size: 15px;
-    border-radius: 10px;
-    border-width: 0px;
-}
 
 .navbar{
     display: flex;
     justify-content: space-between;
-    padding-left: 80px;
-    padding-right: 80px;
-    padding-top: 25px;
+    align-items: center;
+    padding: 20px 80px;
 }
 
 .nav-item{
@@ -95,7 +68,7 @@ body{
 }
 
 .dropdown-content {
-    display: block;
+    display: none;
     position: absolute;
     background-color: #ffffff;
     z-index: 1;
@@ -145,7 +118,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    // height: 40px;
+    height: 40px;
     background-color:LightGray;
     border-radius: 20px;
 }
@@ -164,25 +137,115 @@ end:hover{
     box-shadow: #484848;
 }
 
-.bar-menu-form{
-    display:flex;
-    justify-content: center;
-    width: 800px;
-    background-color: white;
-    border-radius: 20px;
-}
-
 .bar-menu{
     display: flex;
     justify-content: center;
 }
 
+.bar-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    height: 55px;
+    background: white;
+    border-radius: 35px;
+    padding: 5px;
+}
+
+.title-flatpikcr, .title{
+    margin: 0px;
+}
+
+.form-control, .flatpickr, .input-flatpickr, .input, .flatpickr-input, .input-bar{
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    height: 20px;
+    width: 100px;
+    text-overflow: ellipsis;
+}
+
+form {
+    width: 120px;
+}
+
 .item-bar-menu{
-    height:40px;
-    width: 160px;
-    
+    padding: 5px; 
 } 
 
+.border{
+    height: 32px;
+    border-right: 1px solid #e2e2e2;
+}
+
+.voyageurs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.show-hbgt{
+    //display:block;
+    background-color: yellow;
+}
+
+.show-exp{
+    display:none;
+}
+
+.search{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(244, 92, 102);
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.title-buttton{
+    display:none;
+}
+
+.show-label{
+    display:flex;
+    //border-radius: 10%;
+}
+
+.raduis{
+    width: 90px;
+}
+
+.main{
+    height: 800px;
+    background-image: asset-url('main.jpg'); //rajouter une image au jumbotron
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.item-main{
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(244, 92, 102);
+    position: absolute;
+    left: 80px;
+    top: 500px;
+
+}
+
+.button-main{
+    position: absolute;
+    padding: 10px;
+    left: 80px;
+    top: 630px;
+    background-color: rgb(244, 92, 102);
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 10px;
+    border-width: 0px;
+}
 
 .flex-container1 {
     display: flex;

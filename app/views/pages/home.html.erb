@@ -12,31 +12,29 @@
 
         <div class="navbar-menu">
             <ul class="menu">
-                <li class="nav-item"><%= link_to "Hébergements", "#" %></li>
-                <li class="nav-item"><%= link_to "Expérience", "#" %></li>
+                <li class="nav-item hebergement-dropdown">Hébergements</li>
+                <li class="nav-item experience-dropdown">Expérience</li> 
                 <li class="nav-item"><%= link_to "Expérience en ligne", "#" %></li>
+                   
             </ul>
         </div>
 
         <div class="dropdown">
             <div class="navbar-end">
                 <%= link_to "Devenir hote", "#", class:"navbar-end-items devenir_hote" %>
-                <%= link_to "#", class:"navbar-end-items lang_and_region" do %>
+                <div class="navbar-end-items lang_and_region">  
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 0.4);transform:scaleY(-1);-ms-filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)">
                         <path d="M12,2C6.486,2,2,6.486,2,12s4.486,10,10,10s10-4.486,10-10S17.514,2,12,2z M19.931,11h-2.764 c-0.116-2.165-0.73-4.3-1.792-6.243C17.813,5.898,19.582,8.228,19.931,11z M12.53,4.027c1.035,1.364,2.427,3.78,2.627,6.973H9.03 c0.139-2.596,0.994-5.028,2.451-6.974C11.653,4.016,11.825,4,12,4C12.179,4,12.354,4.016,12.53,4.027z M8.688,4.727 C7.704,6.618,7.136,8.762,7.03,11H4.069C4.421,8.204,6.217,5.857,8.688,4.727z M4.069,13h2.974c0.136,2.379,0.665,4.478,1.556,6.23 C6.174,18.084,4.416,15.762,4.069,13z M11.45,19.973C10.049,18.275,9.222,15.896,9.041,13h6.113 c-0.208,2.773-1.117,5.196-2.603,6.972C12.369,19.984,12.187,20,12,20C11.814,20,11.633,19.984,11.45,19.973z M15.461,19.201 c0.955-1.794,1.538-3.901,1.691-6.201h2.778C19.587,15.739,17.854,18.047,15.461,19.201z"></path>
                     </svg>
-                <% end %>
+                </div>
             
-            
-                <div data-turbolinks="false" >
-                    <%= link_to "#", class:"navbar-end-items end dropbtn", id:"myBtn" do %>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 0.4);transform:;-ms-filter:">
-                            <path d="M4 6H20V8H4zM4 11H20V13H4zM4 16H20V18H4z"></path>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 0.4);transform:;-ms-filter:">
-                            <path d="M12,2C6.579,2,2,6.579,2,12s4.579,10,10,10s10-4.579,10-10S17.421,2,12,2z M12,7c1.727,0,3,1.272,3,3s-1.273,3-3,3 c-1.726,0-3-1.272-3-3S10.274,7,12,7z M6.894,16.772c0.897-1.32,2.393-2.2,4.106-2.2h2c1.714,0,3.209,0.88,4.106,2.2 C15.828,18.14,14.015,19,12,19S8.172,18.14,6.894,16.772z"></path>
-                        </svg>
-                    <% end %>
+                <div class="navbar-end-items end dropbtn", id="myBtn"  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 0.4);transform:;-ms-filter:">
+                        <path d="M4 6H20V8H4zM4 11H20V13H4zM4 16H20V18H4z"></path>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 0.4);transform:;-ms-filter:">
+                        <path d="M12,2C6.579,2,2,6.579,2,12s4.579,10,10,10s10-4.579,10-10S17.421,2,12,2z M12,7c1.727,0,3,1.272,3,3s-1.273,3-3,3 c-1.726,0-3-1.272-3-3S10.274,7,12,7z M6.894,16.772c0.897-1.32,2.393-2.2,4.106-2.2h2c1.714,0,3.209,0.88,4.106,2.2 C15.828,18.14,14.015,19,12,19S8.172,18.14,6.894,16.772z"></path>
+                    </svg>
                 </div>
             </div>
 
@@ -53,36 +51,64 @@
         </div>    
     </div>
 
+    
     <div class="bar-menu">
-        <div class="bar-menu-form div">
-            <div class="item-bar-menu">
-            </div>
-
-            <div class="item-bar-menu">
-                <%= form_with do |form|%> 
-                    <%= form.label :start_date, "DATE" %><br>
-                    <%= form.text_field :start_date, class: "flatpickr_1", placeholder:"Ajoutes des dates" %>
+        <div class="bar-content">
+            <div class="item-bar-menu adresse">
+            <%= form_with do |form|%> 
+                    <%= form.label :lieu, "Adresse", class:"title" %><br>
+                    <%= form.text_field :lieu, class:"input-bar", placeholder:"Où allez-vous?" %>
                 <% end %>
             </div>
 
-            <div class="item-bar-menu">
+            <div class="border"></div>
+
+            <div class="item-bar-menu ">
                 <%= form_with do |form|%> 
-                    <%= form.label :end_date, "DATE" %><br>
-                    <%= form.text_field :end_date, id:"myBtn", placeholder:"Ajoutes des dates" %>
+                    <%= form.label :start_date, "Date", class:"title-flatpikcr" %><br>
+                    <%= form.text_field :start_date, class: "flatpickr", placeholder:"Ajoutes des dates" %>
+                <% end %>
+            </div>
+
+            <div class="border"></div>
+
+            <div class="item-bar-menu ">
+                <%= form_with do |form|%> 
+                    <%= form.label :end_date, "Date", class:"title-flatpikcr " %><br>
+                    <%= form.text_field :end_date, class: "flatpickr", placeholder:"Ajoutes des voyageurs" %>
                 <% end %>
             </div>
             
-            
+            <div class="border"></div>
+
             <div class="item-bar-menu">
+                <div class="voyageurs">
+                    <div class="input-voyageur ">
+                        <%= form_with do |form|%> 
+                            <%= form.label :voyageurs, "voyageurs", class:"title" %><br>
+                            <%= form.text_field :voyageurs, class:"input-bar", placeholder:"Ajoutes des voyageurs" %>
+                        <% end %>
+                    </div>
+                    <div class="search">
+                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"
+                        viewBox="0 0 192.904 192.904" style="enable-background:new 0 0 192.904 192.904;" xml:space="preserve">
+                            <path d="M190.707,180.101l-47.078-47.077c11.702-14.072,18.752-32.142,18.752-51.831C162.381,36.423,125.959,0,81.191,0
+                            C36.422,0,0,36.423,0,81.193c0,44.767,36.422,81.187,81.191,81.187c19.688,0,37.759-7.049,51.831-18.751l47.079,47.078
+                            c1.464,1.465,3.384,2.197,5.303,2.197c1.919,0,3.839-0.732,5.304-2.197C193.637,187.778,193.637,183.03,190.707,180.101z M15,81.193
+                            C15,44.694,44.693,15,81.191,15c36.497,0,66.189,29.694,66.189,66.193c0,36.496-29.692,66.187-66.189,66.187
+                            C44.693,147.38,15,117.689,15,81.193z"/>
+                        </svg>
+                        <p class="title-buttton">Rechercher</p>
+                    </div>
+                </div>
             </div>
-            
         </div>
-    </div>
-    
-    <p class="item-main">Voyagez <br>local</p>
-    <input class="button-main" type="button" value="Découvrir les logements à proximité">
+        
+        <p class="item-main">Voyagez<br>local</p>
 
+        <input class="button-main" type="button" value="Découvrir les logements à proximité">
     
+    </div>
 </div>
 
 <div class="flex-container1">

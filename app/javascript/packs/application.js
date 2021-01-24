@@ -14,23 +14,26 @@ import flatpickr from "flatpickr";
 require("flatpickr/dist/themes/airbnb.css");
 
 document.addEventListener("turbolinks:load", () => {
-    flatpickr("[class='flatpickr_1']", {
+    flatpickr("[class='flatpickr']", {
         altInput: true,
         altFormat: "F j, Y",
         dateFormat: "y-m-d",
         mode: 'range',
     }),
-        flatpickr("[class='flatpickr_2']", {
-            altInput: true,
-            altFormat: "F j, Y",
-            dateFormat: "y-m-d",
-            mode: 'range',
-        })
-
     $(".dropbtn").on("click", function () {
         $(".dropdown-content").toggleClass("show");
-    });
+    }),
 
+    $(".search").on("click", function () {
+        $(".title-buttton").toggleClass("show-label"),
+        $(".adresse").toggleClass("raduis");
+    });
+    $(".hebergement-dropdown").on("click", function () {
+        $(".input-voyageur").toggleClass("show-hbgt");
+    }),
+    $(".experience-dropdown").on("click", function () {
+        $(".input-voyageur").toggleClass("show-exp");
+    });
 })
 
 
