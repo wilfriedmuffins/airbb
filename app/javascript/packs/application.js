@@ -29,10 +29,12 @@ document.addEventListener("turbolinks:load", () => {
         $(".adresse").toggleClass("raduis");
     });
     $(".hebergement-dropdown").on("click", function () {
-        $(".input-voyageur").toggleClass("show-hbgt");
+        $(".input-voyageur").show();
+        $(".border-3").show();
     }),
     $(".experience-dropdown").on("click", function () {
-        $(".input-voyageur").toggleClass("show-exp");
+        $(".input-voyageur").hide();
+        $(".border-3").hide();
     });
 })
 

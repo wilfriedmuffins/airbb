@@ -177,24 +177,15 @@ form {
     padding: 5px; 
 } 
 
-.border{
+.border-1, .border-2, .border-3{
     height: 32px;
-    border-right: 1px solid #e2e2e2;
+    border-left: 1px solid #e2e2e2;
 }
 
 .voyageurs{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.show-hbgt{
-    //display:block;
-    background-color: yellow;
-}
-
-.show-exp{
-    display:none;
 }
 
 .search{
