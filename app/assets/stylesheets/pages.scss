@@ -10,10 +10,12 @@
 // }
 
 
-@font-face {
-    font-family: 'Roboto';
-    src: url('Roboto-Regular.ttf');
-}
+// @font-face {
+//     font-family: 'Roboto';
+//     src: url('Roboto-Regular.ttf');
+// }
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 li{
     list-style: none;
@@ -27,7 +29,7 @@ ul{
 
 body{
    // background-color: #F2F0EB;
-    font-family: "Roboto";
+    font-family: 'Open Sans', sans-serif;
     color: #000000;
 }
 
