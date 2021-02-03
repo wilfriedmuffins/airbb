@@ -149,7 +149,7 @@ end:hover{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 700px;
+    width: 620px;
     height: 55px;
     background: white;
     border-radius: 35px;
@@ -176,6 +176,12 @@ form {
 .item-bar-menu{
     padding: 5px; 
 } 
+
+.item-bar-menu:hover{
+    border-radius: 25px;
+    background-color: #e2e2e2;
+} 
+
 
 .border-1, .border-2, .border-3{
     height: 32px;
