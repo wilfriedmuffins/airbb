@@ -15,7 +15,6 @@
                 <li class="nav-item hebergement-dropdown">Hébergements</li>
                 <li class="nav-item experience-dropdown">Expérience</li> 
                 <li class="nav-item"><%= link_to "Expérience en ligne", "#" %></li>
-                   
             </ul>
         </div>
 
@@ -40,7 +39,7 @@
 
             <div class="dropdown-content" id="myDropdown">
                 <ul class="dropdown-container">
-                    <li class="dropdown-content-items">Inscription</li>
+                    <li class="dropdown-content-items"><%= link_to "Inscription", sign_up_path %></li>
                     <li class="dropdown-content-items">Connexion</li>
                     <li><hr></li>
                     <li class="dropdown-content-items">Heberger des voyageurs</li>
@@ -49,6 +48,14 @@
                 </ul>
             </div>
         </div>    
+    </div>
+
+    <div class="modal" id="mymodal">
+        <div class="modal_content">
+            <h1>Sign up</h1>
+            <p>formulaire</p> 
+            <a href="#" class="modal_close">&times;</a>
+        </div>
     </div>
 
     

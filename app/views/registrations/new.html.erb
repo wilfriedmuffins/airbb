@@ -1,0 +1,40 @@
+<h1>Sign up</h1>
+
+<%= form_with model: @user, url: sign_up_path do |form| %>
+
+<%= render "shared/flash_errors" %>
+
+    <% if flash[:alert] %>
+        <div class="notice">
+            <%= flash[:alert] %>
+        </div>
+    <% end %>
+
+    <div>
+        <%= form.label  :first_name %>
+        <%= form.text_field  :first_name, class:"form-controle" %>
+    </div>
+
+    <div>
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name, class:"form-controle" %>
+    </div>
+    <div>
+        <%= form.label :email %>
+        <%= form.text_field :email, class:"form-controle", placeholder:"email@example.com" %>
+    </div>
+    <div>
+        <%= form.label :password %>
+        <%= form.password_field :password, class:"form-controle" %>
+    </div>
+    <div>
+        <!--#form.password_field affiche des rond noir-->
+        <%= form.label :password_confirmation %>
+        <%= form.password_field :password_confirmation, class:"form-controle" %>
+    </div>
+
+    <div>
+        <%= form.submit "Sign Up" %>
+    </div>
+
+<% end %>

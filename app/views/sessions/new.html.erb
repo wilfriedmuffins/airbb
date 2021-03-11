@@ -1,0 +1,12 @@
+<h1>Connection</h1>
+
+<%= form_with url: sign_in_path do |form| %>
+
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+
+    <%= form.submit "Connection"%>
+<% end %>
