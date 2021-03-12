@@ -8,19 +8,19 @@ class SessionsController < ApplicationController
 
         # .present? si la variable est no nil 
         if user.present? && user.authenticate(params[:password])
-            session[:user_id]= @user_id
+            session[:user_id]= user.id
             #flash[notice] = "bonjour vous étes connected?"
 
             redirect_to root_path, notice: "bonjour vous étes connecté deh!"
         else 
-
-            redirect_to sign_in_path
+            #flash[]
+            render :new
         end    
         
     end
 
     def destroy
         session[:user_id] = nil
-        
+        redirect_to root_path
     end
 end

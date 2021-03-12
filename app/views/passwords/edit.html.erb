@@ -1,0 +1,17 @@
+<h1>Mise à jour smot de passe</h1>
+
+<%= form_with url: edit_password_path do |form| %>
+
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+    <%= link_to "Mot de pass oublié" %>
+
+    <%= form.label :nouveau_password %>
+    <%= form.password_field :password %>
+
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
+
+    <%= form.submit "Mise à jour du mot de passe" %>
+
+<% end %>
