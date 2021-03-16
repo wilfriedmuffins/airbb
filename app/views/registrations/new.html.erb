@@ -1,14 +1,8 @@
 <h1>Sign up</h1>
 
-<%= form_with model: @user, url: sign_up_path do |form| %>
+<%= form_with model: @user, url: sign_up_path, local: true do |form| %>
 
-<%= render "shared/flash_errors" %>
-
-    <% if flash[:alert] %>
-        <div class="notice">
-            <%= flash[:alert] %>
-        </div>
-    <% end %>
+    <%= render partial: "shared/flash_errors", locals: { obj: form.object } %>
 
     <div>
         <%= form.label  :first_name %>

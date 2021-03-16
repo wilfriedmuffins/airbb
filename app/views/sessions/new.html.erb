@@ -1,6 +1,8 @@
 <h1>Connection</h1>
 
-<%= form_with url: sign_in_path do |form| %>
+<%= render partial: "shared/flash" %>
+
+<%= form_with url: sign_in_path, local: true do|form| %>
 
     <%= form.label :email %>
     <%= form.text_field :email %>
@@ -9,5 +11,5 @@
     <%= form.password_field :password %>
     <%= link_to "Mot de pass oublié" %>
 
-    <%= form.submit "Connection"%>
+    <%= form.submit "Connection" %>
 <% end %>
