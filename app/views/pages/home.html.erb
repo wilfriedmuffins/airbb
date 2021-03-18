@@ -45,7 +45,7 @@
                         <li><hr></li>
                         <li class="dropdown-content-items"><%= link_to "Deconnection", logout_path, method: :delete %></li>
                     <% else %>
-                        <li class="dropdown-content-items"><%= link_to "Inscription", sign_up_path %></li>
+                        <li class="dropdown-content-items link_modal"><%= link_to "Inscription",remote: true %></li>
                         <li class="dropdown-content-items"><%= link_to "Connexion", sign_in_path %></li>
                         <li><hr></li>
                         <li class="dropdown-content-items">Heberger des voyageurs</li>
@@ -58,13 +58,31 @@
         </div>    
     </div>
 
-    <div class="modal" id="mymodal">
+    <!-- Trigger/Open The Modal -->
+        <button id="myBtn" class="button-modal">Open Modal</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+            </div>
+
+        </div>
+
+    <%
+=begin%>
+ <div class="modal" id="mymodal">
         <div class="modal_content">
             <h1>Sign up</h1>
             <p>formulaire</p> 
             <a href="#" class="modal_close">&times;</a>
         </div>
-    </div>
+    </div> 
+<%
+=end%>
 
     
     <div class="bar-menu">
