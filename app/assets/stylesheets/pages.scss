@@ -74,7 +74,7 @@ body{
     position: absolute;
     background-color: #ffffff;
     z-index: 1;
-    height:230px;
+    height:250px;
     width: 270px;
     top: 48px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -182,7 +182,7 @@ form {
     background-color: #e2e2e2;
 } 
 
-.modal {
+.modalSign_in {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -200,6 +200,7 @@ form {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
+    border-radius: 25px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
 }
@@ -217,14 +218,6 @@ form {
     color: black;
     text-decoration: none;
     cursor: pointer;
-}
-
-.show_modal_open{
-    display: block;
-}
-
-.show_modal_close{
-    display: none;
 }
 
 .border-1, .border-2, .border-3{

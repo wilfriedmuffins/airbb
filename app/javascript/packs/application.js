@@ -37,12 +37,12 @@ document.addEventListener("turbolinks:load", () => {
         $(".border-3").hide();
     }),
     
-    $('.link_modal').on("click", function(){
-      $(".modal").show();//toggleClass("show_modal_open");
+    $('.modal_sign_in').on("click", function(){
+        $(".modalSign_in").show();//toggleClass("show_modal_open");
     }),
 
     $('.close').on("click", function(){
-      $(".modal").hide();
+        $(".modalSign_in").hide();
     })
     ;
 

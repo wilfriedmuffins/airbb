@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
         end 
     end
 
-
     def require_user_logged_in!
         redirect_to sign_in_path, alert: "o o tu dois d'abord te connecter!" if Current.user.nil?
     end
