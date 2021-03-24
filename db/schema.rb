@@ -10,20 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_065037) do
+ActiveRecord::Schema.define(version: 2021_03_23_073725) do
 
   create_table "logements", force: :cascade do |t|
-    t.string "adress"
-    t.string "city"
-    t.string "state"
-    t.integer "zip_code"
-    t.integer "price"
-    t.datetime "start_date_ofavailability"
-    t.string "end_date_of_availability"
+    t.string "title"
+    t.string "adresse"
+    t.datetime "start_date_of_availability"
+    t.datetime "end_date_of_availability"
     t.integer "voyageur"
-    t.integer "chambre"
-    t.integer "lit"
-    t.integer "salle_de_bain"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

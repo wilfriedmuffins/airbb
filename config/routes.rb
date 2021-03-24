@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   post "sign_in", to: "pages#create" 
   delete "logout", to: "pages#destroy"
 
+  get "new_logement", to: "logements#new"
+  post "new_logement", to: "logements#create"
+
   get "password", to: "passwords#edit", as: :edit_password
   patch "password", to: "passwords#update"
   

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  adresse: MyString
+  start_date_ofavailability: 2021-03-23 07:54:40
+  end_date_of_availability: 2021-03-23 07:54:40
+  voyageur: 1
+
+two:
+  title: MyString
+  adresse: MyString
+  start_date_ofavailability: 2021-03-23 07:54:40
+  end_date_of_availability: 2021-03-23 07:54:40
+  voyageur: 1

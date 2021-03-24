@@ -1,0 +1,2 @@
+class Logement < ApplicationRecord
+end
