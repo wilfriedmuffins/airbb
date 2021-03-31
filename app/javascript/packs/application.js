@@ -9,7 +9,6 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-
 import flatpickr from "flatpickr";
 require("flatpickr/dist/themes/airbnb.css");
 
@@ -47,6 +46,16 @@ document.addEventListener("turbolinks:load", () => {
     ;
 
 })
+
+
+import "controllers"
+
+window.initMap = function(...args) {
+    const event = document.createEvent("Events")
+    event.initEvent("google-maps-callback", true, true)
+    event.args = args
+    window.dispatchEvent(event)
+}
 
 
 // // Get the modal
@@ -87,6 +96,3 @@ toggle between hiding and showing the dropdown content */
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
-
-

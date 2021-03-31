@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get "new_logement", to: "logements#new"
   post "new_logement", to: "logements#create"
+  get "logements", to: "logements#index"
 
   get "password", to: "passwords#edit", as: :edit_password
   patch "password", to: "passwords#update"

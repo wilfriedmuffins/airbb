@@ -3,6 +3,10 @@ class LogementsController < ApplicationController
         @logement = Logement.new
     end
 
+    def index
+        @logements = Logement.all
+    end
+
     def create
         @logement = Logement.new(logement_params)
         if @logement.save

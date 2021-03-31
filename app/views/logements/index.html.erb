@@ -1,0 +1,33 @@
+<h1>Logements</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title </th>
+            <th>Adresse</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @logements.each do |logement| %>
+            <tr>
+                <td>  <%= logement.title %></td>
+                <td>  <%= logement.adresse %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= form_with local: true, data: {controller: "places", action: "google-maps-callback@window->places#initMap"} do |form| %>
+
+    <%= form.label :adresse %>
+    <%= form.search_field :adresse, data: {target: "places.field"} %>
+
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude, data: {target: "places.longitude"} %>
+
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude, data: {target: "places.latitude"} %>
+
+    <div data-target="places.map" style="height:400px; width:800px" ></div>
+
+<%end%>
