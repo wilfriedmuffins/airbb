@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_23_073725) do
+ActiveRecord::Schema.define(version: 2021_04_07_135206) do
 
   create_table "logements", force: :cascade do |t|
     t.string "title"
     t.string "adresse"
-    t.datetime "start_date_of_availability"
-    t.datetime "end_date_of_availability"
+    t.date "start_date_of_availability"
+    t.date "end_date_of_availability"
     t.integer "voyageur"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

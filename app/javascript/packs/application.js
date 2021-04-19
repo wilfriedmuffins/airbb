@@ -17,16 +17,16 @@ document.addEventListener("turbolinks:load", () => {
         altInput: true,
         altFormat: "F j, Y",
         dateFormat: "y-m-d",
-        mode: 'range',
+        mode: 'single',
     }),
     $(".dropbtn").on("click", function () {
         $(".dropdown-content").toggleClass("show");
     }),
 
-    $(".search").on("click", function () {
-        $(".title-buttton").toggleClass("show-label"),
-        $(".adresse").toggleClass("raduis");
-    });
+    // $(".search").on("click", function () {
+    //     $(".title-buttton").toggleClass("show-label"),
+    //     $(".adresse").toggleClass("raduis");
+    // });
     $(".hebergement-dropdown").on("click", function () {
         $(".input-voyageur").show();
         $(".border-3").show();
@@ -46,7 +46,6 @@ document.addEventListener("turbolinks:load", () => {
     ;
 
 })
-
 
 import "controllers"
 

@@ -16,6 +16,10 @@ class LogementsController < ApplicationController
         end
     end
 
+    def show
+        @log = Logement.where("title = ?", params[:title])
+    end
+
     private
 
     def logement_params

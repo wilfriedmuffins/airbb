@@ -1,33 +1,67 @@
 <h1>Logements</h1>
 
-<table>
+<table data-controller="places">
     <thead>
         <tr>
             <th>Title </th>
-            <th>Adresse</th>
+            <th data-places-target="adresse">Adresse</th>
+            <th>Date de début de disponibilité</th>
+            <th>Date de fin de disponibilité</th>
         </tr>
     </thead>
     <tbody>
         <% @logements.each do |logement| %>
             <tr>
-                <td>  <%= logement.title %></td>
-                <td>  <%= logement.adresse %></td>
+                <td><%= logement.title %></td>
+                <td><%= logement.adresse %></td>
+                <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
+                <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
             </tr>
         <% end %>
     </tbody>
 </table>
 
+
 <%= form_with local: true, data: {controller: "places", action: "google-maps-callback@window->places#initMap"} do |form| %>
 
-    <%= form.label :adresse %>
-    <%= form.search_field :adresse, data: {target: "places.field"} %>
 
-    <%= form.label :longitude %>
-    <%= form.text_field :longitude, data: {target: "places.longitude"} %>
+<div data-places-target="output"></div>
+
+    <%= form.label :adresse %>
+    <%= form.search_field :adresse, data: { places_target: "field" } %>
+    
 
     <%= form.label :latitude %>
-    <%= form.text_field :latitude, data: {target: "places.latitude"} %>
+    <%= form.text_field :latitude, class: 'form-control', data: { places_target: "latitude" } %>
 
-    <div data-target="places.map" style="height:400px; width:800px" ></div>
+    <%= form.label :longitude %> 
+    <%= form.text_field :longitude, class: 'form-control', data: { places_target: "longitude" } %>
+    
+    <button type="button" data-action="click->places#taken">map</button>
+    <div data-places-target="map" style="height:400px; width:800px" ></div>
 
 <%end%>
+
+<%= form_with url: "log_dispo", method: :get, local: true do |form|%>
+    <%= form.label :title, "search for:" %><br>
+    <%= form.text_field :title %>            
+                
+    <%= form.submit "Recherche"%>          
+<% end %>
+
+
+ 
+ <%
+=begin%>
+ <%= form.label :start_date, "Date", class:"title-flatpikcr" %><br>
+    <%= form.text_field :start_date, class: "flatpickr", placeholder:"Ajoutes des dates" %>
+
+    <%= form.label :end_date, "Date", class:"title-flatpikcr " %><br>
+    <%= form.text_field :end_date, class: "flatpickr", placeholder:"Ajoutes des voyageurs" %>
+
+    <%= form.label :voyageurs, "voyageurs", class:"title" %><br>
+    <%= form.text_field :voyageurs, class:"input-bar", placeholder:"Ajoutes des voyageurs" %>  
+<%
+=end%>
+
+
