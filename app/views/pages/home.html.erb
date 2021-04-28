@@ -46,7 +46,7 @@
                         <li class="dropdown-content-items"><%= link_to "Compte", "#" %></li>
                         <li><hr>Admin<hr></li>
                         <li class="dropdown-content-items"><%= link_to "Liste des utilisateurs", users_path %></li>
-                        <li class="dropdown-content-items"><%= link_to "Liste des logements", "#" %></li>
+                        <li class="dropdown-content-items"><%= link_to "Liste des logements", logements_path %></li>
                         <li class="dropdown-content-items"><%= link_to "Deconnection", logout_path, method: :delete %></li>
                     <% elsif Current.user %>
                         <li class="dropdown-content-items"><%= link_to "Profil", "#" %></li>
@@ -77,7 +77,7 @@
     <div class="bar-menu">
         <div class="bar-content">
             <div class="item-bar-menu adresse">
-                <%= form_with url: log_dispo_path, method: :get, local: true do |form|%>
+                <%= form_with local: true do |form|%> ,
                     <%= form.label :title, "Adresse", class:"title" %><br>
                     <%= form.text_field :title, class:"input-bar", placeholder:"Où allez-vous?" %>
                 

@@ -1,20 +1,12 @@
-<h1>Logements disponibles</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th>Title </th>
-            <th >Adresse</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @log.each do |logement| %>
-            <tr>
-                <td><%= logement.title %></td>
-                <td><%= logement.adresse %></td>
-                <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
-                <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
-            </tr>
-        <% end %>
-    </tbody>
-</table>
+<h1><%= @logement.title %></h1>
+
+
+<p><%= @logement.adresse %></p>             
+
+<ul>
+    <li><%= link_to "Edit", edit_logement_path(@logement) %></li>
+    <li><%= link_to "Suprimer", logement_path(@logement), method: :delete %></li>
+    <li><%= link_to "Retour", logements_path %></li>
+</ul>
+

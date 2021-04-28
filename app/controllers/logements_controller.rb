@@ -7,17 +7,44 @@ class LogementsController < ApplicationController
         @logements = Logement.all
     end
 
+    def show
+        @logement = Logement.find(params[:id])
+    end
+
     def create
         @logement = Logement.new(logement_params)
         if @logement.save
-            redirect_to root_path
+            redirect_to logement_path(@logement)
+        else
+            render 'new'
+        end
+    end
+
+    def edit
+        @logement = Logement.find(params[:id])
+    end
+
+    def update
+        @logement = Logement.find(params[:id])
+
+        if @logement.update(logement_params)
+            redirect_to logement_path(@logement)
         else
             render :new
         end
     end
 
-    def show
-        @log = Logement.where("title = ?", params[:title])
+    def destroy
+        @logement = Logement.find(params[:id])
+        @logement.destroy
+        redirect_to logements_path
+    end
+
+    def search
+        @depart = params[:depart]
+        @arrive = params[:arrive]
+        @voyageurs = params[:voyageurs]
+        @log = Logement.where(["start_date_of_availability = ? and end_date_of_availability = ? and voyageur = ?", @depart, @arrive, @voyageurs])
     end
 
     private

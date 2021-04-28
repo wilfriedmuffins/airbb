@@ -1,10 +1,13 @@
 <h1>Logements</h1>
 
+<%= link_to "nouveau logement", new_logement_path %>
+
 <table data-controller="places">
     <thead>
         <tr>
             <th>Title </th>
             <th data-places-target="adresse">Adresse</th>
+            <th>Nombre de voyageur</th>
             <th>Date de début de disponibilité</th>
             <th>Date de fin de disponibilité</th>
         </tr>
@@ -14,12 +17,15 @@
             <tr>
                 <td><%= logement.title %></td>
                 <td><%= logement.adresse %></td>
+                <td><%= logement.voyageur %></td>
                 <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
                 <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
+                <td><%= link_to "show", logement_path(logement) %></td>
             </tr>
         <% end %>
     </tbody>
-</table>
+</table> 
+
 
 
 <%= form_with local: true, data: {controller: "places", action: "google-maps-callback@window->places#initMap"} do |form| %>
@@ -42,11 +48,19 @@
 
 <%end%>
 
-<%= form_with url: "log_dispo", method: :get, local: true do |form|%>
-    <%= form.label :title, "search for:" %><br>
-    <%= form.text_field :title %>            
+<%= form_with url: "/search", method: :get, local: true do |form|%>
+
+    <%= form.label :depart, "Depart:" %>
+    <%= form.date_field :depart  %> 
+ 
+
+    <%= form.label :arrive, "Arrivée:" %>
+    <%= form.date_field :arrive %> 
+
+    <%= form.label :voyageurs, "voyageurs", class:"title" %><br>
+    <%= form.number_field :voyageurs, placeholder:"Ajoutes des voyageurs" %>               
                 
-    <%= form.submit "Recherche"%>          
+    <%= form.submit "Recherche" %>          
 <% end %>
 
 
@@ -61,6 +75,8 @@
 
     <%= form.label :voyageurs, "voyageurs", class:"title" %><br>
     <%= form.text_field :voyageurs, class:"input-bar", placeholder:"Ajoutes des voyageurs" %>  
+
+
 <%
 =end%>
 

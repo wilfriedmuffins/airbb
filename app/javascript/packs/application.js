@@ -16,7 +16,13 @@ document.addEventListener("turbolinks:load", () => {
     flatpickr("[class='flatpickr']", {
         altInput: true,
         altFormat: "F j, Y",
-        dateFormat: "y-m-d",
+        dateFormat: "Y-m-d",
+        mode: 'single',
+    }),
+    flatpickr("[class='flatpickr2']", {
+        altInput: true,
+        altFormat: "F j, Y",
+        dateFormat: "Y-m-d",
         mode: 'single',
     }),
     $(".dropbtn").on("click", function () {
