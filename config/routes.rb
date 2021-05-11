@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   delete "logout", to: "pages#destroy"
 
   resources :logements
-  get "search", to: "logements#search"
+  get "search", to: "pages#search"
 
   get "password", to: "passwords#edit", as: :edit_password
   patch "password", to: "passwords#update"

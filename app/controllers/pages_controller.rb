@@ -18,9 +18,26 @@ class PagesController < ApplicationController
         
     end
 
+    def show
+        @logement = Logement.find(params[:id])
+    end
+
+    def search
+        @depart = params[:depart]
+        @arrive = params[:arrive]
+        @voyageurs = params[:voyageurs]
+        @log = Logement.where(["start_date_of_availability = ? and end_date_of_availability = ? and voyageur = ?", @arrive, @depart, @voyageurs])
+    end
+
     def destroy
         session[:user_id] = nil
         redirect_to root_path
     end
+
+    # private
+
+    # def logement_params
+    #     params.require(:logement).permit(:title, :adresse, :zipcode, :city, :start_date_of_availability, :end_date_of_availability, :voyageur)
+    # end
 
 end

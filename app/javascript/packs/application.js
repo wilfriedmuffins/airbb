@@ -13,18 +13,6 @@ import flatpickr from "flatpickr";
 require("flatpickr/dist/themes/airbnb.css");
 
 document.addEventListener("turbolinks:load", () => {
-    flatpickr("[class='flatpickr']", {
-        altInput: true,
-        altFormat: "F j, Y",
-        dateFormat: "Y-m-d",
-        mode: 'single',
-    }),
-    flatpickr("[class='flatpickr2']", {
-        altInput: true,
-        altFormat: "F j, Y",
-        dateFormat: "Y-m-d",
-        mode: 'single',
-    }),
     $(".dropbtn").on("click", function () {
         $(".dropdown-content").toggleClass("show");
     }),
@@ -33,14 +21,14 @@ document.addEventListener("turbolinks:load", () => {
     //     $(".title-buttton").toggleClass("show-label"),
     //     $(".adresse").toggleClass("raduis");
     // });
-    $(".hebergement-dropdown").on("click", function () {
-        $(".input-voyageur").show();
-        $(".border-3").show();
-    }),
-    $(".experience-dropdown").on("click", function () {
-        $(".input-voyageur").hide();
-        $(".border-3").hide();
-    }),
+    // $(".hebergement-dropdown").on("click", function () {
+    //     $(".input-voyageur").show();
+    //     $(".border-3").show();
+    // }),
+    // $(".experience-dropdown").on("click", function () {
+    //     $(".input-voyageur").hide();
+    //     $(".border-3").hide();
+    // }),
     
     $('.modal_sign_in').on("click", function(){
         $(".modalSign_in").show();//toggleClass("show_modal_open");

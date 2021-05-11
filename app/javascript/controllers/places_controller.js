@@ -2,7 +2,9 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["adresse", "field", "map", "latitude", "longitude"]
+  static targets = ["output", "adresse", "field", "map", "latitude", "longitude"]
+  static values = { number: String }
+
 
   //   connect() {
   //     if (typeof(google) != "underfined"){
@@ -51,57 +53,62 @@ export default class extends Controller {
 
   //   }
 
-  // taken(){
-  //   this.outputTarget.textContent = "Hello, Stimulus!"
+  connect() {
+    // this.outputTarget.textContent = "Hello, Stimulus!"
+    // console.log("connecter", this.element);
+    // // console.log("Hello, Wilfried!", this.element)
 
-  //   console.log("Hello, Wilfried!", this.element)
+    // const element = this.adresseTarget
+    // const field = element.value
+    // console.log(`Hello, ${field}!`)
+   // this.outputTarget.textContent = 
+    console.log(this.numberValue)
 
-  //   const element = this.fieldTarget
-  //   const field = element.value
-  //   console.log(`Hello, ${field}!`)
-  // }
+  }
 
 
 
   // Initialize and add the map
-  initMap() {
-    // The location of map
-    const locations = [
-      {lat: 46.233226, lng: 6.055737},
-      {lat: 46.2278, lng: 6.0510},
-      {lat: 46.23336, lng: 6.0471}
-    ];
-    // The map, centered at Uluru
-    this.map = new google.maps.Map(this.mapTarget, {
-      zoom: 13,
-      center:{
-              lat: 46.231226,
-              lng: 6.051737
-            }
-    });
+  // initMap() {
 
-    for (let index = 0; index < locations.length; index++){
-      // The marker, positioned at Uluru
-      this.marker = new google.maps.Marker({
-        //location of the marker
-        position: locations[index],
-        //which to place the marker.
-        map: this.map,
-        //ancharPoint : new google.maps.Point(0, -29)
-      });
-      
-    }
-    
 
-    // // The marker, positioned at Uluru
-    // this.marker = new google.maps.Marker({
-    //   //location of the marker
-    //   position: {lat: 46.2278, lng: 6.0510},
-    //   //which to place the marker.
-    //   map: this.map,
-    //   //ancharPoint : new google.maps.Point(0, -29)
-    // });
-  }
+  //   // The location of map
+  //   const locations = [
+  //     {lat: 46.233226, lng: 6.055737},
+  //     {lat: 46.2278, lng: 6.0510},
+  //     {lat: 46.23336, lng: 6.0471}
+  //   ];
+  //   // The map, centered at Uluru
+  //   this.map = new google.maps.Map(this.mapTarget, {
+  //     zoom: 13,
+  //     center:{
+  //             lat: 46.231226,
+  //             lng: 6.051737
+  //           }
+  //   });
+
+  //   for (let index = 0; index < locations.length; index++){
+  //     // The marker, positioned at Uluru
+  //     this.marker = new google.maps.Marker({
+  //       //location of the marker
+  //       position: locations[index],
+  //       //which to place the marker.
+  //       map: this.map,
+  //       //ancharPoint : new google.maps.Point(0, -29)
+  //     });
+
+  //   }
+
+
+  //   // // The marker, positioned at Uluru
+  //   // this.marker = new google.maps.Marker({
+  //   //   //location of the marker
+  //   //   position: {lat: 46.2278, lng: 6.0510},
+  //   //   //which to place the marker.
+  //   //   map: this.map,
+  //   //   //ancharPoint : new google.maps.Point(0, -29)
+  //   // });
+  // }
 
 }
 

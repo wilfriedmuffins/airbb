@@ -6,8 +6,8 @@
     <thead>
         <tr>
             <th>Title </th>
-            <th data-places-target="adresse">Adresse</th>
-            <th>Nombre de voyageur</th>
+            <th>Adresse</th>
+            <th>City</th>
             <th>Date de début de disponibilité</th>
             <th>Date de fin de disponibilité</th>
         </tr>
@@ -17,7 +17,7 @@
             <tr>
                 <td><%= logement.title %></td>
                 <td><%= logement.adresse %></td>
-                <td><%= logement.voyageur %></td>
+                <td><%= logement.city %></td>
                 <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
                 <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
                 <td><%= link_to "show", logement_path(logement) %></td>
@@ -34,8 +34,7 @@
 <div data-places-target="output"></div>
 
     <%= form.label :adresse %>
-    <%= form.search_field :adresse, data: { places_target: "field" } %>
-    
+    <%= form.search_field :adresse %>
 
     <%= form.label :latitude %>
     <%= form.text_field :latitude, class: 'form-control', data: { places_target: "latitude" } %>
@@ -50,10 +49,12 @@
 
 <%= form_with url: "/search", method: :get, local: true do |form|%>
 
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+
     <%= form.label :depart, "Depart:" %>
     <%= form.date_field :depart  %> 
  
-
     <%= form.label :arrive, "Arrivée:" %>
     <%= form.date_field :arrive %> 
 

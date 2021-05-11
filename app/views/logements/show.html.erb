@@ -1,8 +1,15 @@
 
-<h1><%= @logement.title %></h1>
 
+ 
+    <%= @logement.title %>
+    <%= @logement.adresse %>
+    <%= @logement.zipcode %>
+    <%= @logement.city %>
+    <%= @logement.voyageur %>
+    <%= @logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %>
+    <%= @logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %>
+    <%= link_to "show", logement_path(@logement) %>
 
-<p><%= @logement.adresse %></p>             
 
 <ul>
     <li><%= link_to "Edit", edit_logement_path(@logement) %></li>

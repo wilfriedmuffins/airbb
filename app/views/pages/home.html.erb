@@ -76,29 +76,25 @@
     
     <div class="bar-menu">
         <div class="bar-content">
-            <div class="item-bar-menu adresse">
-                <%= form_with local: true do |form|%> ,
-                    <%= form.label :title, "Adresse", class:"title" %><br>
-                    <%= form.text_field :title, class:"input-bar", placeholder:"Où allez-vous?" %>
+            <div class="item-bar-menu adresse" data-places-target="city">
+                <%= form_with url: "/search", method: :get, local: true do |form|%>
+                    <%= form.label :city, "Adresse", class:"title" %><br>
+                    <%= form.text_field :city, class:"input-bar", placeholder:"Où allez-vous?" %>
                 
             </div>
 
             <div class="border-1"></div>
 
-            <div class="item-bar-menu  ">
-            
-                    <%= form.label :start_date, "Arrivée", class:"title-flatpikcr" %><br>
-                    <%= form.text_field :start_date, class: "flatpickr", placeholder:"Ajoutes des dates" %>
-            
+            <div class="item-bar-menu">
+                    <%= form.label :arrive, "Arrivée" %><br>
+                    <%= form.date_field :arrive, placeholder:"Ajoutes des dates" %>
             </div>
 
             <div class="border-2"></div>
 
             <div class="item-bar-menu ">
-           
-                    <%= form.label :end_date, "Départ", class:"title-flatpikcr" %><br>
-                    <%= form.text_field :end_date, class: "flatpickr item-bar-menu", placeholder:"Ajoutes des voyageurs" %>
-          
+                    <%= form.label :depart, "Départ", class:"title-flatpikcr" %><br>
+                    <%= form.date_field :depart, class: "item-bar-menu", placeholder:"Ajoutes des voyageurs" %>
             </div>
             
             <div class="border-3"></div>
@@ -108,10 +104,10 @@
                     <div class="input-voyageur ">
                    
                             <%= form.label :voyageurs, "voyageurs", class:"title" %><br>
-                            <%= form.text_field :voyageurs, class:"input-bar", placeholder:"Ajoutes des voyageurs" %>
+                            <%= form.number_field :voyageurs, class:"input-bar", placeholder:"Ajoutes des voyageurs" %>
                 
                     </div>
-                    <div class="search">
+                    <div class="search" data-action="click->places#taken" >
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"
                         viewBox="0 0 192.904 192.904" style="enable-background:new 0 0 192.904 192.904;" xml:space="preserve">
                             <path d="M190.707,180.101l-47.078-47.077c11.702-14.072,18.752-32.142,18.752-51.831C162.381,36.423,125.959,0,81.191,0

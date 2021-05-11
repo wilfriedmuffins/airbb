@@ -44,12 +44,15 @@ class LogementsController < ApplicationController
         @depart = params[:depart]
         @arrive = params[:arrive]
         @voyageurs = params[:voyageurs]
-        @log = Logement.where(["start_date_of_availability = ? and end_date_of_availability = ? and voyageur = ?", @depart, @arrive, @voyageurs])
+        puts @depart.inspect
+        puts @arrive.inspect
+        puts @voyageurs.inspect
+        @log = Logement.where(["start_date_of_availability = ? and end_date_of_availability = ? and voyageur = ?", @arrive, @depart, @voyageurs])
     end
 
     private
 
     def logement_params
-        params.require(:logement).permit(:title, :adresse, :start_date_of_availability, :end_date_of_availability, :voyageur)
+        params.require(:logement).permit(:title, :adresse, :zipcode, :city, :lat, :lng, :start_date_of_availability, :end_date_of_availability, :voyageur)
     end
 end
