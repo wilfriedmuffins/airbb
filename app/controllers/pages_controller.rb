@@ -23,10 +23,11 @@ class PagesController < ApplicationController
     end
 
     def search
+        @city = params[:city]
         @depart = params[:depart]
         @arrive = params[:arrive]
         @voyageurs = params[:voyageurs]
-        @log = Logement.where(["start_date_of_availability = ? and end_date_of_availability = ? and voyageur = ?", @arrive, @depart, @voyageurs])
+        @log = Logement.where(["city = ? and start_date_of_availability = ? and end_date_of_availability = ? and voyageur = ?",@city, @arrive, @depart, @voyageurs])
     end
 
     def destroy

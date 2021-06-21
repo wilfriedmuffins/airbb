@@ -1,45 +1,26 @@
 <h1>Logements disponibles</h1>
-<div >
-    <table>
-        <thead>
-            <tr>
-                <th>Title </th>
-                <th>Adresse</th>
-                <th>Depart</th>
-                <th>Arrivée</th>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title </th>
+            <th>Adresse</th>
+            <th>City</th>
+            <th>Depart</th>
+            <th>Arrivée</th>
             </tr>
         </thead>
         <tbody >
             <% @log.each do |logement| %>
-                <tr>
-                    <td><%= logement.title %></td>
-                  
-                    <td data-controller="places" data-places-number-value="<%= logement.adresse%>"><%= logement.adresse%></td>
-                    <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
-                    <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
-                </tr>
+                    <tr >
+                        <td><%= logement.title %></td>
+                        <div data-controller="places" data-places-lat-value="<%= logement.lat %>" data-places-lng-value="<%= logement.lng %>"></div>
+                        <td><%= logement.adresse %></td>
+                        <td><%= logement.city %></td>
+                        <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
+                        <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
+                    </tr>
             <% end %> 
         </tbody>
 </table>
 
-
-</div> 
-
-
-
-
-    <%
-=begin%>
- <div>
-        <a href="#">stimulus</a> 
-    </div>  
-<%
-=end%>
-
-
-<%
-=begin%>
- //link_to "stimulus", remote: true %> 
-<%
-=end%>
- 

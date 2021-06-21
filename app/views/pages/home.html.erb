@@ -78,9 +78,8 @@
         <div class="bar-content">
             <div class="item-bar-menu adresse" data-places-target="city">
                 <%= form_with url: "/search", method: :get, local: true do |form|%>
-                    <%= form.label :city, "Adresse", class:"title" %><br>
+                    <%= form.label :city, "Ville", class:"title" %><br>
                     <%= form.text_field :city, class:"input-bar", placeholder:"Où allez-vous?" %>
-                
             </div>
 
             <div class="border-1"></div>

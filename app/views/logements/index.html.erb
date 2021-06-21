@@ -8,6 +8,9 @@
             <th>Title </th>
             <th>Adresse</th>
             <th>City</th>
+            <th>lat</th>
+            <th>lng</th>
+            <th>voyageurs</th>
             <th>Date de début de disponibilité</th>
             <th>Date de fin de disponibilité</th>
         </tr>
@@ -18,6 +21,9 @@
                 <td><%= logement.title %></td>
                 <td><%= logement.adresse %></td>
                 <td><%= logement.city %></td>
+                <td><%= logement.lat %></td>
+                <td><%= logement.lng %></td>
+                <td><%= logement.voyageur %></td>
                 <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
                 <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
                 <td><%= link_to "show", logement_path(logement) %></td>
@@ -79,6 +85,4 @@
 
 
 <%
-=end%>
-
-
+=end%> 

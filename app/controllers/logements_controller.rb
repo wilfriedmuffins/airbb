@@ -41,13 +41,18 @@ class LogementsController < ApplicationController
     end
 
     def search
+       
         @depart = params[:depart]
         @arrive = params[:arrive]
         @voyageurs = params[:voyageurs]
-        puts @depart.inspect
-        puts @arrive.inspect
+       
+        @city.inspect
+        @depart.inspect
+        @arrive.inspect
         puts @voyageurs.inspect
-        @log = Logement.where(["start_date_of_availability = ? and end_date_of_availability = ? and voyageur = ?", @arrive, @depart, @voyageurs])
+        
+        @log = Logement.where(["city = ?", @city])
+        #and start_date_of_availability = ? and end_date_of_availability = ? and voyageur = ? , @arrive, @depart, @voyageurs]
     end
 
     private

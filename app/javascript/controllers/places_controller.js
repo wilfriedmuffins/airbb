@@ -2,8 +2,8 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["output", "adresse", "field", "map", "latitude", "longitude"]
-  static values = { number: String }
+  static targets = ["output", "field", "map", "longitude", "latitude"]
+  static values = { lat: Number, lng: Number}
 
 
   //   connect() {
@@ -53,39 +53,41 @@ export default class extends Controller {
 
   //   }
 
-  connect() {
-    // this.outputTarget.textContent = "Hello, Stimulus!"
-    // console.log("connecter", this.element);
-    // // console.log("Hello, Wilfried!", this.element)
+initialize() {
+  console.log(this.latValue)
+  console.log(this.lngValue)
+  let i=0
 
-    // const element = this.adresseTarget
-    // const field = element.value
-    // console.log(`Hello, ${field}!`)
-   // this.outputTarget.textContent = 
-    console.log(this.numberValue)
+  const locations = [
+    {lat: this.latValue, lng: this.lngValue},
+    {lat: this.latValue, lng: this.lngValue},
+    {lat: this.latValue, lng: this.lngValue}
+  ];
 
+  console.log(locations);
+  console.log(i);
+  i++
   }
 
 
 
   // Initialize and add the map
-  // initMap() {
+  initMap() {
 
 
-  //   // The location of map
-  //   const locations = [
-  //     {lat: 46.233226, lng: 6.055737},
-  //     {lat: 46.2278, lng: 6.0510},
-  //     {lat: 46.23336, lng: 6.0471}
-  //   ];
-  //   // The map, centered at Uluru
-  //   this.map = new google.maps.Map(this.mapTarget, {
-  //     zoom: 13,
-  //     center:{
-  //             lat: 46.231226,
-  //             lng: 6.051737
-  //           }
-  //   });
+    // The location of map
+    const locations = [
+      {lat: 46.233226, lng: 6.055737},
+    ];
+
+    // The map, centered at Uluru
+    this.map = new google.maps.Map(this.mapTarget, {
+      zoom: 13,
+      center:{
+              lat: 46.231226,
+              lng: 6.051737
+            }
+    });
 
   //   for (let index = 0; index < locations.length; index++){
   //     // The marker, positioned at Uluru
@@ -108,7 +110,7 @@ export default class extends Controller {
   //   //   map: this.map,
   //   //   //ancharPoint : new google.maps.Point(0, -29)
   //   // });
-  // }
+ }
 
 }
 

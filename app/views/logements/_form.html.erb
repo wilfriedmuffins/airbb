@@ -1,0 +1,32 @@
+
+<%= form_with model: @logement, local: true do|form| %>
+
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+
+    <%= form.label :adresse %>
+    <%= form.text_field :adresse %>
+
+    <%= form.label :zipcode %>
+    <%= form.text_field :zipcode %>
+
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+
+    <%= form.label :latitude %>
+    <%= form.text_field :lat %>
+
+    <%= form.label :longitude %>
+    <%= form.text_field :lng %>
+
+    <%= form.label :start_date_of_availability %>
+    <%= form.date_field :start_date_of_availability %>
+
+    <%= form.label :end_date_of_availability %>
+    <%= form.date_field :end_date_of_availability %>
+
+    <%= form.label :voyageur %>
+    <%= form.number_field :voyageur , in: 1...20, step: 1  %>
+
+    <%= form.submit "Ajouter logement" %>
+<% end %>
