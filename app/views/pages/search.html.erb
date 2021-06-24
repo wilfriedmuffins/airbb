@@ -1,6 +1,8 @@
 <h1>Logements disponibles</h1>
+<div data-controller="places">
+    
 
-<table>
+<table  >
     <thead>
         <tr>
             <th>Title </th>
@@ -11,10 +13,10 @@
             </tr>
         </thead>
         <tbody >
+        <div data-controller="places" data-places-lat-value="<%= @lat.inspect %>"> </div> 
             <% @log.each do |logement| %>
                     <tr >
                         <td><%= logement.title %></td>
-                        <div data-controller="places" data-places-lat-value="<%= logement.lat %>" data-places-lng-value="<%= logement.lng %>"></div>
                         <td><%= logement.adresse %></td>
                         <td><%= logement.city %></td>
                         <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
@@ -24,3 +26,9 @@
         </tbody>
 </table>
 
+
+<div data-action="google-maps-callback@window->places#initMap">
+    <div data-places-target="map" style="height:400px; width:800px" ></div>
+</div>
+
+</div>
