@@ -1,7 +1,4 @@
 <h1>Logements disponibles</h1>
-<div data-controller="places">
-    
-
 <table  >
     <thead>
         <tr>
@@ -10,25 +7,21 @@
             <th>City</th>
             <th>Depart</th>
             <th>Arrivée</th>
-            </tr>
-        </thead>
-        <tbody >
-        <div data-controller="places" data-places-lat-value="<%= @lat.inspect %>"> </div> 
-            <% @log.each do |logement| %>
-                    <tr >
-                        <td><%= logement.title %></td>
-                        <td><%= logement.adresse %></td>
-                        <td><%= logement.city %></td>
-                        <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
-                        <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
-                    </tr>
-            <% end %> 
-        </tbody>
+        </tr>
+    </thead>
+    <tbody >
+        <div data-controller="places" data-places-latlng-value="<%= @latlng %>"></div>
+        <%  @logements_disponible.each do |logement| %>
+                <tr >
+                    <td><%= logement.title %></td>
+                    <td><%= logement.adresse %></td>
+                    <td><%= logement.city %></td>
+                    <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
+                    <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
+                </tr>
+        <% end %> 
+    </tbody>
 </table>
 
+<%= tag.div id: "map", data: { l:  @logements_disponible.to_json(methods: [:address])} %> 
 
-<div data-action="google-maps-callback@window->places#initMap">
-    <div data-places-target="map" style="height:400px; width:800px" ></div>
-</div>
-
-</div>

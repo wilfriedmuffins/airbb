@@ -21,8 +21,8 @@
                 <td><%= logement.title %></td>
                 <td><%= logement.adresse %></td>
                 <td><%= logement.city %></td>
-                <td><%= logement.lat %></td>
-                <td><%= logement.lng %></td>
+                <td><%= logement.latitude %></td> 
+                <td><%= logement.longitude %></td> 
                 <td><%= logement.voyageur %></td>
                 <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
                 <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
@@ -33,56 +33,4 @@
 </table> 
 
 
-
-<%= form_with local: true, data: {controller: "places", action: "google-maps-callback@window->places#initMap"} do |form| %>
-
-
-<div data-places-target="output"></div>
-
-    <%= form.label :adresse %>
-    <%= form.search_field :adresse %>
-
-    <%= form.label :latitude %>
-    <%= form.text_field :latitude, class: 'form-control', data: { places_target: "latitude" } %>
-
-    <%= form.label :longitude %> 
-    <%= form.text_field :longitude, class: 'form-control', data: { places_target: "longitude" } %>
-    
-    <button type="button" data-action="click->places#taken">map</button>
-    <div data-places-target="map" style="height:400px; width:800px" ></div>
-
-<%end%>
-
-<%= form_with url: "/search", method: :get, local: true do |form|%>
-
-    <%= form.label :city %>
-    <%= form.text_field :city %>
-
-    <%= form.label :depart, "Depart:" %>
-    <%= form.date_field :depart  %> 
- 
-    <%= form.label :arrive, "Arrivée:" %>
-    <%= form.date_field :arrive %> 
-
-    <%= form.label :voyageurs, "voyageurs", class:"title" %><br>
-    <%= form.number_field :voyageurs, placeholder:"Ajoutes des voyageurs" %>               
-                
-    <%= form.submit "Recherche" %>          
-<% end %>
-
-
- 
- <%
-=begin%>
- <%= form.label :start_date, "Date", class:"title-flatpikcr" %><br>
-    <%= form.text_field :start_date, class: "flatpickr", placeholder:"Ajoutes des dates" %>
-
-    <%= form.label :end_date, "Date", class:"title-flatpikcr " %><br>
-    <%= form.text_field :end_date, class: "flatpickr", placeholder:"Ajoutes des voyageurs" %>
-
-    <%= form.label :voyageurs, "voyageurs", class:"title" %><br>
-    <%= form.text_field :voyageurs, class:"input-bar", placeholder:"Ajoutes des voyageurs" %>  
-
-
-<%
-=end%> 
+<%= tag.div id: "map", data: { l: @logements.to_json(methods: [:address])} %> 

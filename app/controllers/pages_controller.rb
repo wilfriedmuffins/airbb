@@ -27,12 +27,8 @@ class PagesController < ApplicationController
         @depart = params[:depart]
         @arrive = params[:arrive]
         @voyageurs = params[:voyageurs]
-        @log = Logement.where(["city = ? and start_date_of_availability = ? and end_date_of_availability = ? and voyageur = ?",@city, @arrive, @depart, @voyageurs])
-        @lat = Logement.where(["city = ? and start_date_of_availability = ? and end_date_of_availability = ? and voyageur = ?",@city, @arrive, @depart, @voyageurs]).pluck(:lat)
-        #@cood = []# @log.select(:lat, :lng)[5]
-        #@resultat.each do |logement|
-        #   @cood.push(logement)
-        #end
+        @logements_disponible = Logement.where(["city = ? and start_date_of_availability = ? and end_date_of_availability = ? and voyageur = ?",@city, @arrive, @depart, @voyageurs])
+        #@latlng = Logement.where(["city = ? and start_date_of_availability = ? and end_date_of_availability = ? and voyageur = ?",@city, @arrive, @depart, @voyageurs]).pluck(:latitude, :longitude)
     end
 
     def destroy

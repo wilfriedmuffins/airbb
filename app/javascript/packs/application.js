@@ -9,8 +9,14 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-import flatpickr from "flatpickr";
-require("flatpickr/dist/themes/airbnb.css");
+require("./maps")
+
+import "packs/maps"
+import 'packs/gmaps';
+import GMaps from 'packs/gmaps';
+window.GMaps = GMaps;
+
+
 
 document.addEventListener("turbolinks:load", () => {
     $(".dropbtn").on("click", function () {

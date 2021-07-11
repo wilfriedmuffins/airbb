@@ -6,19 +6,15 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%=Figaro.env.gmaps_key%>" async defer></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> 
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials[:GOOGLE_MAPS_API_KEY]%>&libraries=places&callback=initMap" async defer data-turbolinks-eval="false"></script>
+    <%= javascript_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <%= yield %>
     <%= render partial: "layouts/footer" %>
-    <%
-=begin%>
- <%= debug(params) if Rails.env.development? %> 
-<%
-=end%>
+
   </body>
 </html>
