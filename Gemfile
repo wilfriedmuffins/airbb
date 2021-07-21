@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1', '>= 6.1.1'
+gem 'rails', '~> 6.1.4'
 
 # Use Puma as the app server
 gem 'puma', '~> 5.1', '>= 5.1.1'
@@ -30,7 +30,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'geocoder', '~> 1.6', '>= 1.6.7'
 gem 'redis', '~> 4.3', '>= 4.3.1'
 gem 'figaro', '~> 1.2'
-
+gem 'devise', '~> 4.8'
 gem 'responders'
 group :development, :test do
   # Use sqlite3 as the database for Active Record

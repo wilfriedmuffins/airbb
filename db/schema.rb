@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_11_091415) do
+ActiveRecord::Schema.define(version: 2021_07_21_154606) do
 
   create_table "logements", force: :cascade do |t|
     t.string "title"
@@ -24,16 +24,6 @@ ActiveRecord::Schema.define(version: 2021_07_11_091415) do
     t.integer "zipcode"
     t.float "latitude"
     t.float "longitude"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.boolean "admin"
   end
 
 end
