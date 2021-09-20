@@ -41,26 +41,27 @@
 
             <div class="dropdown-content" id="myDropdown">
                 <ul class="dropdown-container">
-                    <% if Current.user and Current.user.admin %>
+                
+                    <!--  if Current.user and Current.user.admin %> -->
                         <li class="dropdown-content-items"><%= link_to "Profil", "#" %></li>
                         <li class="dropdown-content-items"><%= link_to "Compte", "#" %></li>
                         <li><hr>Admin<hr></li>
-                        <li class="dropdown-content-items"><%= link_to "Liste des utilisateurs", users_path %></li>
+                        <li class="dropdown-content-items"><%= link_to "Liste des utilisateurs", "#" %></li>
                         <li class="dropdown-content-items"><%= link_to "Liste des logements", logements_path %></li>
-                        <li class="dropdown-content-items"><%= link_to "Deconnection", logout_path, method: :delete %></li>
-                    <% elsif Current.user %>
+                        <li class="dropdown-content-items"><%= link_to "Deconnection", "#" %></li>
+                    <!--elsif Current.user-->
                         <li class="dropdown-content-items"><%= link_to "Profil", "#" %></li>
                         <li class="dropdown-content-items"><%= link_to "Compte", "#" %></li>
                         <li><hr></li>
-                        <li class="dropdown-content-items"><%= link_to "Deconnection", logout_path, method: :delete %></li>
-                    <% else%>
-                        <li class="dropdown-content-items modal_login"><%= link_to "Inscription", sign_up_path %></li>
-                        <li class="dropdown-content-items modal_sign_in"><%= link_to "Connexion", remote: true %></li>
+                        <li class="dropdown-content-items"><%= link_to "Deconnection", "#" %></li>
+                    <!-- else-->
+                        <li class="dropdown-content-items modal_login"><%= link_to "Inscription", "#" %></li>
+                        <li class="dropdown-content-items modal_sign_in"><%= link_to "#" %></li>
                         <li><hr></li>
                         <li class="dropdown-content-items">Heberger des voyageurs</li>
                         <li class="dropdown-content-items">Créer une expréience</li>
                         <li class="dropdown-content-items">Aide</li>
-                    <% end %>
+                    <!-- end -->
                 </ul>
             </div>
         </div>    
@@ -70,7 +71,7 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <%= render partial: "sessions/new" %>
+                <!-- render partial: "#" -->
             </div>
         </div>
     
