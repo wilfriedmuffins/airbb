@@ -10,18 +10,18 @@
         </tr>
     </thead>
     <tbody >
-        <div data-controller="places" data-places-latlng-value="<%= @latlng %>"></div>
+        <!--<div data-controller="places" data-places-latlng-value="<%= @latlng %>"></div>-->
         <%  @logements_disponible.each do |logement| %>
-                <tr >
-                    <td><%= logement.title %></td>
-                    <td><%= logement.adresse %></td>
-                    <td><%= logement.city %></td>
-                    <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
-                    <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
-                </tr>
+            <tr >
+                <td><%= logement.title %></td>
+                <td><%= logement.adresse %></td>
+                <td><%= logement.city %></td>
+                <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
+                <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
+            </tr>
         <% end %> 
     </tbody>
 </table>
 
-<%= tag.div id: "map", data: { l:  @logements_disponible.to_json(methods: [:address])} %> 
+<%= tag.div id: "map", data: { l: @logements_disponible.to_json(methods: [:address])} %> 
 

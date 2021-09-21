@@ -10,31 +10,31 @@ export default class extends Controller {
         // console.log(this.latlngValue[0][0]);
         // console.log(this.latlngValue[0][1]);
 
-        if (typeof(google) != "underfined"){
-            this.initMap()
-        }
+        // if (typeof(google) != "underfined"){
+        //     this.initMap()
+        // }
     }
 
-    initMap(){
-        //The map, centered at Paris
-        this.map = new google.maps.Map(this.mapTarget, {
-        zoom: 12,
-        center: {
-            lat: 48.856614,
-            lng: 2.3522219
-        }
-        });
+    // initMap(){
+    //     //The map, centered at Paris
+    //     this.map = new google.maps.Map(this.mapTarget, {
+    //     zoom: 12,
+    //     center: {
+    //         lat: 48.856614,
+    //         lng: 2.3522219
+    //     }
+    //     });
 
         
-        // The marker, positioned at Uluru
-        this.marker = new google.maps.Marker({
-            //location of the marker
-            position:{ lat: this.latlngValue[0][0], lng: this.latlngValue[0][1]},
-            //which to place the marker.
-            map: this.map,
-            //ancharPoint : new google.maps.Point(0, -29)
-        });
-    }
+    //     // The marker, positioned at Uluru
+    //     this.marker = new google.maps.Marker({
+    //         //location of the marker
+    //         position:{ lat: this.latlngValue[0][0], lng: this.latlngValue[0][1]},
+    //         //which to place the marker.
+    //         map: this.map,
+    //         //ancharPoint : new google.maps.Point(0, -29)
+    //     });
+    // }
 }
 
 

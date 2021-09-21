@@ -27,7 +27,7 @@ class PagesController < ApplicationController
         @depart = params[:depart]
         @arrive = params[:arrive]
         @voyageurs = params[:voyageurs]
-        @logements_disponible = Logement.where(["city = ? and start_date_of_availability = ? and end_date_of_availability = ? and voyageur = ?",@city, @arrive, @depart, @voyageurs])
+        @logements_disponible = Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and voyageur = ?",@city, @arrive, @depart, @voyageurs])#(["city = ? and start_date_of_availability >= ? and end_date_of_availability = ? and voyageur = ?",@city, @arrive, @depart, @voyageurs])
         #@latlng = Logement.where(["city = ? and start_date_of_availability = ? and end_date_of_availability = ? and voyageur = ?",@city, @arrive, @depart, @voyageurs]).pluck(:latitude, :longitude)
     end
 

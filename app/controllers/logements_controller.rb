@@ -40,21 +40,6 @@ class LogementsController < ApplicationController
         redirect_to logements_path
     end
 
-    def search
-       
-        @depart = params[:depart]
-        @arrive = params[:arrive]
-        @voyageurs = params[:voyageurs]
-       
-        @city.inspect
-        @depart.inspect
-        @arrive.inspect
-        puts @voyageurs.inspect
-        
-        @log = Logement.where(["city = ?", @city])
-        #and start_date_of_availability = ? and end_date_of_availability = ? and voyageur = ? , @arrive, @depart, @voyageurs]
-    end
-
     private
 
     def logement_params
