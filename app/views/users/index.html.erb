@@ -1,0 +1,22 @@
+<h1> Utilisation du site </h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Confirmation envoié à</th>
+            <th>Confirmé à</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @users.each do |user| %>
+            <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.confirmation_sent_at.try(:strftime, ("%e %B %Y")) %></td>
+                <td><%= user.confirmed_at.try(:strftime, ("%e %B %Y")) %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

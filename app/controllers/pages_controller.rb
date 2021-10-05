@@ -3,6 +3,7 @@ class PagesController < ApplicationController
     end
 
     def create
+=begin
         #recupérer l'email l'user
         user = User.find_by(email: params[:email])
             
@@ -15,7 +16,7 @@ class PagesController < ApplicationController
             flash[:alert] = "email ou mot de passe invalide" 
             render :home
         end    
-        
+=end    
     end
 
     def show
@@ -31,10 +32,12 @@ class PagesController < ApplicationController
         #@latlng = Logement.where(["city = ? and start_date_of_availability = ? and end_date_of_availability = ? and voyageur = ?",@city, @arrive, @depart, @voyageurs]).pluck(:latitude, :longitude)
     end
 
+=begin
     def destroy
         session[:user_id] = nil
         redirect_to root_path
     end
+=end
 
     # private
 

@@ -1,7 +1,4 @@
-
-<div class="main">
-    
-     <%= render partial: "shared/flash" %>
+<div class="main">  
 
     <div class="navbar">
         <div class="navbar-logo">
@@ -42,26 +39,24 @@
             <div class="dropdown-content" id="myDropdown">
                 <ul class="dropdown-container">
                 
-                    <!--  if Current.user and Current.user.admin %> -->
-                        <li class="dropdown-content-items"><%= link_to "Profil", "#" %></li>
-                        <li class="dropdown-content-items"><%= link_to "Compte", "#" %></li>
+                    <% if user_signed_in? and current_user.admin %>
+                        <li class="dropdown-content-items"><%= link_to "Profil", edit_user_registration_path %></li>
                         <li><hr>Admin<hr></li>
-                        <li class="dropdown-content-items"><%= link_to "Liste des utilisateurs", "#" %></li>
+                        <li class="dropdown-content-items"><%= link_to "Liste des utilisateurs", users_path %></li>
                         <li class="dropdown-content-items"><%= link_to "Liste des logements", logements_path %></li>
-                        <li class="dropdown-content-items"><%= link_to "Deconnection", "#" %></li>
-                    <!--elsif Current.user-->
-                        <li class="dropdown-content-items"><%= link_to "Profil", "#" %></li>
-                        <li class="dropdown-content-items"><%= link_to "Compte", "#" %></li>
+                        <li class="dropdown-content-items"><%= link_to "Deconnection", destroy_user_session_path, method: :delete  %></li>
+                    <% elsif user_signed_in? %>
+                        <li class="dropdown-content-items"><%= link_to "Profil", edit_user_registration_path %></li>
                         <li><hr></li>
-                        <li class="dropdown-content-items"><%= link_to "Deconnection", "#" %></li>
-                    <!-- else-->
-                        <li class="dropdown-content-items modal_login"><%= link_to "Inscription", "#" %></li>
-                        <li class="dropdown-content-items modal_sign_in"><%= link_to "#" %></li>
+                        <li class="dropdown-content-items"><%= link_to "Deconnection", destroy_user_session_path, method: :delete %></li>
+                    <% else %>
+                        <li class="dropdown-content-items modal_login"><%= link_to "Inscription", new_user_registration_path %></li>
+                        <li class="dropdown-content-items modal_sign_in"><%= link_to "Connection", new_user_session_path %></li>
                         <li><hr></li>
                         <li class="dropdown-content-items">Heberger des voyageurs</li>
                         <li class="dropdown-content-items">Créer une expréience</li>
                         <li class="dropdown-content-items">Aide</li>
-                    <!-- end -->
+                    <% end %> 
                 </ul>
             </div>
         </div>    

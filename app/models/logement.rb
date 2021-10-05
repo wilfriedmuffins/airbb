@@ -11,4 +11,5 @@ class Logement < ApplicationRecord
         adresse_changed? | city_changed? | zipcode_changed?
     end
 
+    #belongs_to :user
 end
