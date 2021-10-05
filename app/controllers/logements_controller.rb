@@ -13,6 +13,7 @@ class LogementsController < ApplicationController
 
     def create
         @logement = Logement.new(logement_params)
+        @logement.user = current_user
         if @logement.save
             redirect_to logement_path(@logement)
         else
@@ -37,7 +38,7 @@ class LogementsController < ApplicationController
     def destroy
         @logement = Logement.find(params[:id])
         @logement.destroy
-        redirect_to logements_path
+        redirect_to edit_user_registration_path
     end
 
     private

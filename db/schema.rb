@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_22_163513) do
+ActiveRecord::Schema.define(version: 2021_10_05_143301) do
 
   create_table "logements", force: :cascade do |t|
     t.string "title"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2021_09_22_163513) do
     t.integer "zipcode"
     t.float "latitude"
     t.float "longitude"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_logements_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,4 +46,5 @@ ActiveRecord::Schema.define(version: 2021_09_22_163513) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "logements", "users"
 end

@@ -1,7 +1,39 @@
-<%# <h3>Mes logements</h3>
+<h3>Mes logements</h3>
 
 <%= link_to "Nouveau logement", new_logement_path %>
-
+<br>
+<br>
+<% if current_user.logements.present? %>
+  <table>
+      <thead>
+          <tr>
+              <th>Title </th>
+              <th>Adresse</th>
+              <th>City</th>
+              <th>lat</th>
+              <th>lng</th>
+              <th>voyageurs</th>
+              <th>Date de début de disponibilité</th>
+              <th>Date de fin de disponibilité</th>
+          </tr>
+      </thead>
+      <tbody>
+          <% current_user.logements.each do |logement| %>
+              <tr>
+                  <td><%= logement.title %></td>
+                  <td><%= logement.adresse %></td>
+                  <td><%= logement.city %></td>
+                  <td><%= logement.latitude %></td> 
+                  <td><%= logement.longitude %></td> 
+                  <td><%= logement.voyageur %></td>
+                  <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
+                  <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
+                  <td><%= link_to "Show", logement_path(logement) %></td>
+              </tr>
+          <% end %>
+      </tbody>
+  </table> 
+<% end %>
 <h3>Edit <%= resource_name.to_s.humanize %></h3>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>

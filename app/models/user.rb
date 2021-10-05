@@ -4,5 +4,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable, :confirmable
 
-  #has_many :logements, dependent: :destroy
+
+# validates :name, presence: true, 
+#           uniqueness: { case_sensitive: false }, 
+#           length: {minimum: 3, maximum: 25}
+
+# VALID_EMAIL_REGEX = /.+\@.+\..+/i
+
+# validates :email, presence: true, 
+#       uniqueness: { case_sensitive: false }, 
+#       format: { with: VALID_EMAIL_REGEX}
+
+  has_many :logements, dependent: :destroy
 end
