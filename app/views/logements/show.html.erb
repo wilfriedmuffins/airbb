@@ -8,7 +8,11 @@
     <%= @logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %>
     <%= @logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %>
     <%= link_to "show", logement_path(@logement) %>
+    <% @logement.images.each do |photo| %>
+        <%= image_tag photo.url %>
+    <% end %>
 
+<%= tag.div id: "map", data: { l: current_user.logements.to_json(methods: [:address])} %> 
 
 <ul>
     <li><%= link_to "Edit", edit_logement_path(@logement) %></li>

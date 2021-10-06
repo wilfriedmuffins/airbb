@@ -1,5 +1,6 @@
 class Logement < ApplicationRecord
-
+    mount_uploaders :images, ImageUploader
+    serialize :images
     geocoded_by :address
     after_validation :geocode, if: :address_changed?
 

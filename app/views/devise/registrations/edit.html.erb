@@ -33,6 +33,9 @@
           <% end %>
       </tbody>
   </table> 
+
+<%= tag.div id: "map", data: { l: current_user.logements.to_json(methods: [:address])} %> 
+
 <% end %>
 <h3>Edit <%= resource_name.to_s.humanize %></h3>
 
