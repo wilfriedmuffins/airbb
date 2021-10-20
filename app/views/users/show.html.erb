@@ -1,12 +1,12 @@
-<h1>Logements</h1>
+<h3>Mes logements</h3>
 
-<%= link_to "nouveau logement", new_logement_path %> 
-
-<table data-controller="places">
+<%= link_to "Nouveau logement", new_logement_path %>
+<br>
+<br>
+<% if current_user.logements.present? %>
+<table>
     <thead>
-        <tr>    
-            <th>Id du logement</th>
-            <th>Propriétaire</th>
+        <tr>
             <th>Title </th>
             <th>Adresse</th>
             <th>City</th>
@@ -18,10 +18,8 @@
         </tr>
     </thead>
     <tbody>
-        <% @logements.each do |logement| %>
+        <% current_user.logements.each do |logement| %>
             <tr>
-                <td><%= logement.id %>  </td>
-                <td><%= logement.user_id %>  </td>
                 <td><%= logement.title %></td>
                 <td><%= logement.adresse %></td>
                 <td><%= logement.city %></td>
@@ -30,12 +28,14 @@
                 <td><%= logement.voyageur %></td>
                 <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
                 <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
-                <td><%= link_to "show", logement_path(logement) %></td>
-                <td><%= link_to "Delete", logement_path(logement), method: :delete %></td>
+                <td><%= link_to "Show", logement_path(logement) %></td>
             </tr>
         <% end %>
     </tbody>
 </table> 
 
+<%= tag.div id: "map", data: { markers: current_user.logements.to_json(methods: [:address])} %> 
 
-<%= tag.div id: "map", data: { markers: @logements.to_json(methods: [:address])} %> 
+<% end %>
+
+<%= link_to "Modifier profil", edit_user_registration_path %>

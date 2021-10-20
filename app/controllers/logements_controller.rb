@@ -8,10 +8,12 @@ class LogementsController < ApplicationController
     end
 
     def show
+        #set_logement_id
         @logement = Logement.find(params[:id])
     end
 
     def create
+        #set_logement_id
         @logement = Logement.new(logement_params)
         @logement.user = current_user
         if @logement.save

@@ -1,22 +1,48 @@
+<h1>Logement <%= @logement.title %></h1>
+
+<%# <%= render 'pages/show_logement' %>
+<table>
+    <thead>
+        <tr>
+            <th>Title </th>
+            <th>Adresse</th>
+            <th>City</th>
+            <th>lat</th>
+            <th>lng</th>
+            <th>voyageurs</th>
+            <th>Date de début de disponibilité</th>
+            <th>Date de fin de disponibilité</th>
+            <th>Photos</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= @logement.title %></td>
+            <td><%= @logement.adresse %></td>
+            <td><%= @logement.city %></td>
+            <td><%= @logement.latitude %></td> 
+            <td><%= @logement.longitude %></td> 
+            <td><%= @logement.voyageur %></td>
+            <td><%= @logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
+            <td><%= @logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
+            <td><% @logement.images.each do |photo| %>
+                    <%= image_tag photo.url %>
+            <% end %></td>
+            <td><%= link_to "Edit", edit_logement_path(@logement) %></td>
+        </tr>
+    </tbody>
+</table> 
 
 
-    <%= @logement.title %>
-    <%= @logement.adresse %>
-    <%= @logement.zipcode %>
-    <%= @logement.city %>
-    <%= @logement.voyageur %>
-    <%= @logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %>
-    <%= @logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %>
-    <%= link_to "show", logement_path(@logement) %>
-    <% @logement.images.each do |photo| %>
-        <%= image_tag photo.url %>
-    <% end %>
 
-<%= tag.div id: "map", data: { l: current_user.logements.to_json(methods: [:address])} %> 
 
-<ul>
-    <li><%= link_to "Edit", edit_logement_path(@logement) %></li>
-    <li><%= link_to "Suprimer", logement_path(@logement), method: :delete %></li>
-    <li><%= link_to "Retour", edit_user_registration_path %></li>
-</ul> 
+<!--<% if current_user == @logement.user_id %>
+    <ul>
+        <li><%= link_to "Edit", edit_logement_path(@logement) %></li>
+        <li><%= link_to "Suprimer", logement_path(@logement), method: :delete %></li>
+        <li><%= link_to "Retour", edit_user_registration_path %></li>
+    </ul> 
+<% end %> %-->
+
+
 

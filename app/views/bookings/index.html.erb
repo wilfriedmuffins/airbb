@@ -1,0 +1,27 @@
+<h1>Rservations</h1>
+
+<%# <%= link_to "nouveau reservation", new_logement_path %> 
+
+<table >
+    <thead>
+        <tr>    
+            <th>Id reservation</th>
+            <th>Propriétaire</th>
+            <th>Id Logement</th>
+            <th>Date de début de disponibilité</th>
+            <th>Date de fin de disponibilité</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @bookings.each do |reservation| %>
+            <tr>
+                <td><%= reservation.id %>  </td>
+                <td><%= reservation.user_id %>  </td>
+                <td><%= reservation.logement_id %>  </td>
+                <td><%= reservation.start_booking.try(:strftime, ("%e %B %Y")) %></td> 
+                <td><%= reservation.end_booking.try(:strftime, ("%e %B %Y")) %></td>
+                <td><%= link_to "show", booking_path(reservation) %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table> 

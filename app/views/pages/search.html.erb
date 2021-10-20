@@ -1,27 +1,30 @@
-<h1>Logements disponibles</h1>
+<h1>Logements disponibles pour réservation du <%= @arrive.to_date.strftime('%e %B %Y') %> jusqu'au <%= @depart.to_date.strftime('%e %B %Y') %></h1>
 <table  >
     <thead>
         <tr>
+            <th>Id du logement</th>
             <th>Title </th>
             <th>Adresse</th>
             <th>City</th>
-            <th>Depart</th>
-            <th>Arrivée</th>
+            <th>Disponible du </th>
+            <th>Jusqu'au</th>
+            <th>voyageurs</th>
         </tr>
     </thead>
     <tbody >
-        <!--<div data-controller="places" data-places-latlng-value="<%= @latlng %>"></div>-->
         <%  @logements_disponible.each do |logement| %>
-            <tr >
+            <tr>
+                <td><%= logement.id %></td>
                 <td><%= logement.title %></td>
                 <td><%= logement.adresse %></td>
                 <td><%= logement.city %></td>
                 <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
                 <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
+                <td><%= logement.voyageur %></td>
+                <td><%= link_to "voir", page_path(logement, depart: @depart, arrive: @arrive, voyageur: @voyageur) %></td>
             </tr>
         <% end %> 
     </tbody>
 </table>
 
-<%= tag.div id: "map", data: { l: @logements_disponible.to_json(methods: [:address])} %> 
-
+<%= tag.div id: "map", data: { markers: @logements_disponible.to_json(methods: [:address])} %> 

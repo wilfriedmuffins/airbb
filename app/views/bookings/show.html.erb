@@ -1,0 +1,8 @@
+    <p> user: <%= @booking.user.name %></p>
+    <p> Id du logement: <%= @booking.logement.id%></p> 
+    <p> adresse logement: <%= @booking.logement.adresse%></p> 
+    <p> debut de reservation: <%= @booking.start_booking.try(:strftime, ("%e %B %Y")) %></p>
+    <p> fin de reservation: <%= @booking.end_booking.try(:strftime, ("%e %B %Y")) %></p>
+
+    <%= link_to "Edit booking", edit_booking_path(@booking) %>
+    <%= link_to "Delete", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" } %>

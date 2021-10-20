@@ -1,0 +1,25 @@
+
+<h1>Show <%= @logement.title %> Id du logement:  <%= @logement.id %></h1>
+
+    <%= @logement.title %>
+    <%= @logement.adresse %>
+    <%= @logement.zipcode %>
+    <%= @logement.city %>
+    <%= @logement.latitude %>
+    <%= @logement.longitude %>
+    <%= @logement.voyageur %>
+    <%= @logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %>
+    <%= @logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %>
+
+    <% @logement.images.each do |photo| %>
+        <%= image_tag photo.url %>
+    <% end %>
+
+<br>
+<br>
+
+<%= tag.div id: "map", data: { markers: @logement.to_json(methods: [:address])} %> 
+
+<!-- link to new reservation-->
+<h1>Booking</h1>
+<%= render 'bookings/form' %>

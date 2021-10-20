@@ -1,8 +1,9 @@
-<h1> Utilisation du site </h1>
+<h1> Utilisateurs du site </h1>
 
 <table>
     <thead>
         <tr>
+            <th>Id</th>
             <th>Nom</th>
             <th>Email</th>
             <th>Confirmation envoié à</th>
@@ -12,11 +13,12 @@
     <tbody>
         <% @users.each do |user| %>
             <tr>
+                <td><%= user.id %></td>
                 <td><%= user.name %></td>
                 <td><%= user.email %></td>
                 <td><%= user.confirmation_sent_at.try(:strftime, ("%e %B %Y")) %></td>
                 <td><%= user.confirmed_at.try(:strftime, ("%e %B %Y")) %></td>
-            </tr>
+                <%# <td><%= link_to "Show", edit_user_registration_path  </td>%>
         <% end %>
     </tbody>
 </table>

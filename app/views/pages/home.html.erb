@@ -40,13 +40,14 @@
                 <ul class="dropdown-container">
                 
                     <% if user_signed_in? and current_user.admin %>
-                        <li class="dropdown-content-items"><%= link_to "Profil", edit_user_registration_path %></li>
+                        <li class="dropdown-content-items"><%= link_to "Profil", user_path(current_user.id) %></li>
                         <li><hr>Admin<hr></li>
                         <li class="dropdown-content-items"><%= link_to "Liste des utilisateurs", users_path %></li>
                         <li class="dropdown-content-items"><%= link_to "Liste des logements", logements_path %></li>
+                        <li class="dropdown-content-items"><%= link_to "Liste des reservations", bookings_path %></li>
                         <li class="dropdown-content-items"><%= link_to "Deconnection", destroy_user_session_path, method: :delete  %></li>
                     <% elsif user_signed_in? %>
-                        <li class="dropdown-content-items"><%= link_to "Profil", edit_user_registration_path %></li>
+                        <li class="dropdown-content-items"><%= link_to "Profil", user_path(current_user.id) %></li>
                         <li><hr></li>
                         <li class="dropdown-content-items"><%= link_to "Deconnection", destroy_user_session_path, method: :delete %></li>
                     <% else %>
@@ -97,10 +98,10 @@
             <div class="item-bar-menu">
                 <div class="voyageurs">
                     <div class="input-voyageur ">
-                            <%= form.label :voyageurs, "voyageurs", class:"title" %><br>
-                            <%= form.number_field :voyageurs, class:"input-bar", placeholder:"Ajoutes des voyageurs" %>
-                
+                            <%= form.label :voyageur, "voyageurs", class:"title" %><br>
+                            <%= form.number_field :voyageur, class:"input-bar", placeholder:"Ajoutes des voyageurs" %>
                     </div>
+
                     <div class="search" data-action="click->places#taken" >
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"
                         viewBox="0 0 192.904 192.904" style="enable-background:new 0 0 192.904 192.904;" xml:space="preserve">

@@ -1,0 +1,15 @@
+<%= form_with(model: @booking) do |form| %>
+    <%= hidden_field_tag :logement_id, value= @logement.id%>
+    
+    <%= form.label :start_booking %>
+    <%= form.date_field :start_booking, value: @arrive %>
+
+    <%= form.label :end_booking %>
+    <%= form.date_field :end_booking, value: @depart %>
+
+    <%= form.label :voyageur %>
+    <%= form.number_field :voyageur , in: 1...20, step: 1, value: @voyageur %>
+
+    <%= form.submit "Reserver" %>
+
+<% end %>
