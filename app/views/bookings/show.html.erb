@@ -1,6 +1,7 @@
     <p> user: <%= @booking.user.name %></p>
     <p> Id du logement: <%= @booking.logement.id%></p> 
     <p> adresse logement: <%= @booking.logement.adresse%></p> 
+    <p> nombre de voyageur: <%= @booking.voyageur%></p> 
     <p> debut de reservation: <%= @booking.start_booking.try(:strftime, ("%e %B %Y")) %></p>
     <p> fin de reservation: <%= @booking.end_booking.try(:strftime, ("%e %B %Y")) %></p>
 

@@ -14,4 +14,12 @@ class Logement < ApplicationRecord
 
     belongs_to :user
     has_many :bookings
+
+    validates :adresse, presence: true
+    validates :start_date_of_availability, presence: true
+    validates :end_date_of_availability, presence: true
+    validates :voyageur, presence: true
+    validates :city, presence: true
+    validates :zipcode, presence: true
+    
 end

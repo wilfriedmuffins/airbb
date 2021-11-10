@@ -1,4 +1,7 @@
-<%= form_with(model: @booking) do |form| %>
+
+<%= render 'shared/flash_errors', obj: @booking %>
+
+<%= form_with model: @booking, local: true do |form| %>
     <%= hidden_field_tag :logement_id, value= @logement.id%>
     
     <%= form.label :start_booking %>
@@ -8,7 +11,7 @@
     <%= form.date_field :end_booking, value: @depart %>
 
     <%= form.label :voyageur %>
-    <%= form.number_field :voyageur , in: 1...20, step: 1, value: @voyageur %>
+    <%= form.number_field :voyageur, in: 1...20, step: 1, value: @voyageur %>
 
     <%= form.submit "Reserver" %>
 

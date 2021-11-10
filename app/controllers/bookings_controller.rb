@@ -16,10 +16,13 @@ class BookingsController < ApplicationController
         @booking = Booking.new(booking_params)
         @booking.logement = Logement.find(params[:logement_id])
         @booking.user = current_user
+        @logement = Logement.find(params[:logement_id])
         if @booking.save
+            flash[:notice] = "booking save"
             redirect_to booking_path(@booking) 
         else
-            render "new"
+            flash[:alert] = "booking non save, verifier les dates et/ou le nombre de voyageur"
+            redirect_to page_path(@logement)
         end
     end
 

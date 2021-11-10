@@ -1,4 +1,6 @@
 class LogementsController < ApplicationController
+    before_action :set_logement, only: [:show, :edit, :update, :destroy]
+
     def new
         @logement = Logement.new
     end
@@ -8,12 +10,9 @@ class LogementsController < ApplicationController
     end
 
     def show
-        #set_logement_id
-        @logement = Logement.find(params[:id])
     end
 
     def create
-        #set_logement_id
         @logement = Logement.new(logement_params)
         @logement.user = current_user
         if @logement.save
@@ -24,12 +23,9 @@ class LogementsController < ApplicationController
     end
 
     def edit
-        @logement = Logement.find(params[:id])
     end
 
     def update
-        @logement = Logement.find(params[:id])
-
         if @logement.update(logement_params)
             redirect_to logement_path(@logement)
         else
@@ -38,7 +34,6 @@ class LogementsController < ApplicationController
     end
 
     def destroy
-        @logement = Logement.find(params[:id])
         @logement.destroy
         redirect_to edit_user_registration_path
     end
@@ -47,5 +42,9 @@ class LogementsController < ApplicationController
 
     def logement_params
         params.require(:logement).permit(:title, :adresse, :zipcode, :city, :latitude, :longitude, :start_date_of_availability, :end_date_of_availability, :voyageur, images: [])
+    end
+
+    def set_logement
+        @logement = Logement.find(params[:id])
     end
 end

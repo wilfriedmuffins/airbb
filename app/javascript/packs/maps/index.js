@@ -11,11 +11,9 @@ document.addEventListener("turbolinks:load", function(){
     window.map = map 
 
     var markers = JSON.parse(document.querySelector("#map").dataset.markers)
-    window.markers = markers
 
     if (typeof markers.length === 'undefined')
     {
-        console.log("markers is undefined");
         if(!markers.latitude && !markers.longitude) return; 
         var marker = map.addMarker({
         lat: markers.latitude,
@@ -27,7 +25,6 @@ document.addEventListener("turbolinks:load", function(){
         });
     }else
     {
-        console.log(markers.length);
         markers.forEach(element => {
             if(!element.latitude && !element.longitude) return; 
             var marker = map.addMarker({
