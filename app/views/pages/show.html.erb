@@ -8,6 +8,7 @@
     <%= @logement.latitude %>
     <%= @logement.longitude %>
     <%= @logement.voyageur %>
+    <%= @logement.price %>
     <%= @logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %>
     <%= @logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %>
     <% @logement.images.each do |photo| %>

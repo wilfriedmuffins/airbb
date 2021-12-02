@@ -4,6 +4,7 @@
     <p> nombre de voyageur: <%= @booking.voyageur%></p> 
     <p> debut de reservation: <%= @booking.start_booking.try(:strftime, ("%e %B %Y")) %></p>
     <p> fin de reservation: <%= @booking.end_booking.try(:strftime, ("%e %B %Y")) %></p>
+    <p> Total Prix : <%= @booking.t_price %>€</p>
 
     <%= link_to "Edit booking", edit_booking_path(@booking) %>
     <%= link_to "Delete", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" } %>

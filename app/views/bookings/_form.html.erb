@@ -2,6 +2,7 @@
 <%= render 'shared/flash_errors', obj: @booking %>
 
 <%= form_with model: @booking, local: true do |form| %>
+
     <%= hidden_field_tag :logement_id, value= @logement.id%>
     
     <%= form.label :start_booking %>
@@ -9,6 +10,12 @@
 
     <%= form.label :end_booking %>
     <%= form.date_field :end_booking, value: @depart %>
+
+    <%= form.label 'Prix: '+@logement.price.to_s+'€/nuit' %>
+
+    <%= form.label 'Prix Total: '+@total+'€' %>
+  
+    <%= form.hidden_field :t_price, value: @total.to_i%>
 
     <%= form.label :voyageur %>
     <%= form.number_field :voyageur, in: 1...20, step: 1, value: @voyageur %>

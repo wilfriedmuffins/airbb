@@ -10,6 +10,11 @@ class PagesController < ApplicationController
         @depart = params[:depart]
         @arrive = params[:arrive]
         @voyageur = params[:voyageur]
+
+        date = (@depart.to_date-@arrive.to_date).to_i
+        @total = (date*@logement.price).to_s
+
+        puts @total.inspect
         @user_id = []
 
         @logement.bookings.each do |id|
@@ -18,11 +23,11 @@ class PagesController < ApplicationController
 
         #puts @user_id.inspect
         @user_id.uniq!
-        puts @user_id.inspect
-        puts current_user.id
+        #puts @user_id.inspect
+        #puts current_user.id
         
         @test = @user_id.include? current_user.id
-        puts @test.inspect
+        #puts @test.inspect
         
     end
 
