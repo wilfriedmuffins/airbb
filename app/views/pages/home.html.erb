@@ -38,7 +38,7 @@
 
             <div class="dropdown-content" id="myDropdown">
                 <ul class="dropdown-container">
-                
+                    <span class="close">&times;</span>
                     <% if user_signed_in? and current_user.admin %>
                         <li class="dropdown-content-items"><%= link_to "Profil", user_path(current_user.id) %></li>
                         <li><hr>Admin<hr></li>

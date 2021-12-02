@@ -6,10 +6,11 @@
     <thead>
         <tr>    
             <th>Id reservation</th>
-            <th>Propriétaire</th>
+            <th>User de la reservation</th>
             <th>Id Logement</th>
             <th>Date de début de reservation</th>
             <th>Date de fin de reservation</th>
+            <th>Date de création</th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
                 <td><%= reservation.logement_id %>  </td>
                 <td><%= reservation.start_booking.try(:strftime, ("%e %B %Y")) %></td> 
                 <td><%= reservation.end_booking.try(:strftime, ("%e %B %Y")) %></td>
+                <td><%= reservation.created_at.try(:strftime, ("%e %B %Y")) %></td>
                 <td><%= link_to "show", booking_path(reservation) %></td>
             </tr>
         <% end %>

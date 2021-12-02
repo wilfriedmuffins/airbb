@@ -1,4 +1,4 @@
-<h1>Logement disponible pour réservation du <%= Date.parse(@arrive) %> jusqu'au <%= Date.parse(@depart).try(:strftime, ("%e %B %Y")) %></h1>
+<h1>Logement disponible pour réservation du <%= Date.parse(@arrive).try(:strftime, ("%e %B %Y")) %> jusqu'au <%= Date.parse(@depart).try(:strftime, ("%e %B %Y")) %></h1>
 
 <table>
     <thead>
@@ -12,8 +12,8 @@
             <th>voyageurs</th>
         </tr>
     </thead>
-    <tbody >
-        <%  @logements_disponible.each do |logement| %>
+    <tbody>
+        <% @logements_disponible.each do |logement| %>
                 <tr>
                     <td><%= logement.id %></td>
                     <td><%= logement.title %></td>
@@ -27,5 +27,7 @@
         <% end %> 
     </tbody>
 </table>
+
+<%= current_user.id %>
 
 <%= tag.div id: "map", data: { markers: @logements_disponible.to_json(methods: [:address]) } %> 

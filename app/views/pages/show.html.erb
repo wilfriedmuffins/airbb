@@ -10,7 +10,6 @@
     <%= @logement.voyageur %>
     <%= @logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %>
     <%= @logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %>
-
     <% @logement.images.each do |photo| %>
         <%= image_tag photo.url %>
     <% end %>
@@ -24,3 +23,19 @@
 <h1>Booking</h1>
 
 <%= render 'bookings/form' %>
+
+<% if !@logement.comments.empty? %>
+    <% @logement.comments.each do |comment| %>
+        <p>
+            <strong>Commenter:</strong>
+            <%= comment.user.name %>
+        </p>
+
+        <p>
+            <strong>Comment:</strong>
+            <%= comment.body %>
+        </p>
+    <% end %>
+<% end %> 
+
+

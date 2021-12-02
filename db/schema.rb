@@ -10,18 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_18_122349) do
+ActiveRecord::Schema.define(version: 2021_11_20_091455) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
     t.date "start_booking"
     t.date "end_booking"
-    t.integer "logement_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "logement_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "voyageur"
     t.index ["logement_id"], name: "index_bookings_on_logement_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.bigint "user_id", null: false
+    t.bigint "logement_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["logement_id"], name: "index_comments_on_logement_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "logements", force: :cascade do |t|
@@ -36,8 +49,10 @@ ActiveRecord::Schema.define(version: 2021_10_18_122349) do
     t.integer "zipcode"
     t.float "latitude"
     t.float "longitude"
+    t.bigint "user_id"
     t.string "images"
-    t.integer "user_id"
+    t.integer "bookings_count"
+    t.integer "comments_count"
     t.index ["user_id"], name: "index_logements_on_user_id"
   end
 
@@ -61,5 +76,7 @@ ActiveRecord::Schema.define(version: 2021_10_18_122349) do
 
   add_foreign_key "bookings", "logements"
   add_foreign_key "bookings", "users"
+  add_foreign_key "comments", "logements"
+  add_foreign_key "comments", "users"
   add_foreign_key "logements", "users"
 end

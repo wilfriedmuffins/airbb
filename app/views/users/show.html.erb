@@ -1,4 +1,4 @@
-<h3>Mes logements</h3>
+<h2>Mes logements</h2>
 
 <%= link_to "Nouveau logement", new_logement_path %>
 <br>
@@ -38,4 +38,13 @@
 
 <% end %>
 
+<h2>Mes Réservations</h2>
+
+<% @book.each do |id| %>
+   <> id.(:logement_id).distinct
+<%end%>
+
+<br>
 <%= link_to "Modifier profil", edit_user_registration_path %>
+
+    <%# <p> Réservation du <%= id.start_booking.try(:strftime, ("%e %B %Y"))  au <%= id.end_booking.try(:strftime, ("%e %B %Y"))  <%= link_to "Ajouter commentaire", logement_path(id.logement_id) </p>%> 

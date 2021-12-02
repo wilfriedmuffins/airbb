@@ -33,16 +33,37 @@
     </tbody>
 </table> 
 
+<% if !@logement.comments.empty? %>
+    <% @logement.comments.each do |comment| %>
+        <p>
+            <strong>Commenter:</strong>
+            <%= comment.user.name %>
+        </p>
+
+        <p>
+            <strong>Comment:</strong>
+            <%= comment.body %>
+        </p>
+    <% end %>
+<% end %> 
 
 
+<% if @test %>
+    <h1>Add a comment:</h1>
+        <%= form_with model: [ @logement, @logement.comments.build ] do |form| %>
+            <%= form.hidden_field :user_id, value: current_user.id %>
+        
+            <p>
+                <%= form.label :body %><br>
+                <%= form.text_area :body %>
+            </p>
 
-<!--<% if current_user == @logement.user_id %>
-    <ul>
-        <li><%= link_to "Edit", edit_logement_path(@logement) %></li>
-        <li><%= link_to "Suprimer", logement_path(@logement), method: :delete %></li>
-        <li><%= link_to "Retour", edit_user_registration_path %></li>
-    </ul> 
-<% end %> %-->
+            <p>
+                <%= form.submit %>
+            </p>
+        <% end %>
+<% end %> 
+
 
 
 

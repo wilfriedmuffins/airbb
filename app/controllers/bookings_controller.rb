@@ -45,7 +45,7 @@ class BookingsController < ApplicationController
     private
 
     def booking_params
-        params.require(:booking).permit(:start_booking, :end_booking, :voyageur )
+        params.require(:booking).permit(:start_booking, :end_booking, :voyageur)
     end
 
     def set_booking

@@ -15,6 +15,7 @@
             <th>voyageurs</th>
             <th>Date de début de disponibilité</th>
             <th>Date de fin de disponibilité</th>
+            <th>Date de création </th>
         </tr>
     </thead>
     <tbody>
@@ -30,6 +31,7 @@
                 <td><%= logement.voyageur %></td>
                 <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
                 <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
+                <td><%= logement.created_at.try(:strftime, ("%e %B %Y")) %></td>
                 <td><%= link_to "show", logement_path(logement) %></td>
                 <td><%= link_to "Delete", logement_path(logement), method: :delete %></td>
             </tr>

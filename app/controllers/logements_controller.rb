@@ -1,5 +1,5 @@
 class LogementsController < ApplicationController
-    before_action :set_logement, only: [:show, :edit, :update, :destroy]
+    before_action :set_logement, only: [ :edit, :update, :destroy]
 
     def new
         @logement = Logement.new
@@ -10,6 +10,20 @@ class LogementsController < ApplicationController
     end
 
     def show
+        @logement = Logement.includes(:comments).find(params[:id])
+        @user_id = []
+        @logement.bookings.each do |id|
+            @user_id.push(id.user_id)
+        end
+
+        #puts @user_id.inspect
+        @user_id.uniq!
+        puts @user_id.inspect
+        puts current_user.id
+        
+        @test = @user_id.include? current_user.id
+        puts @test.inspect
+        
     end
 
     def create

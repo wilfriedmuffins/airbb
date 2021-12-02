@@ -23,6 +23,11 @@ document.addEventListener("turbolinks:load", () => {
         $(".dropdown-content").toggleClass("show");
     }),
 
+    // // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+    modal.style.display = "none";
+    },
+
     // $(".search").on("click", function () {
     //     $(".title-buttton").toggleClass("show-label"),
     //     $(".adresse").toggleClass("raduis");
@@ -42,6 +47,9 @@ document.addEventListener("turbolinks:load", () => {
 
     $('.close').on("click", function(){
         $(".modalSign_in").hide();
+    }),
+    $('.close').on("click", function(){
+        $(".dropdown-conten").hide();
     })
     ;
 
