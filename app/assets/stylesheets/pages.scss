@@ -15,7 +15,15 @@
 //     src: url('Roboto-Regular.ttf');
 // }
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+@import 'fonts';
+
+@mixin flex($display, $justify-content, $align-items){
+    display: $display;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
 
 li{
     list-style: none;
@@ -36,9 +44,7 @@ body{
 
 
 .navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex(flex, space-between, center);
     padding: 20px 80px;
 }
 
@@ -53,12 +59,10 @@ body{
     padding-inline-start: 100px;
 }
 .navbar-end{
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
+    @include flex(flex, space-between, center);
 }
 
-.navbar-end, .navbar-logo, .lang_and_region{
+.navbar-logo, .lang_and_region{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,18 +112,14 @@ body{
 }
 
 .devenir_hote:hover{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(flex, center, center);
     height:40px;
     background-color:LightGray;
     border-radius: 20px;
 }
 
 .lang_and_region:hover{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(flex, center, center);
     height: 40px;
     background-color:LightGray;
     border-radius: 20px;
@@ -128,9 +128,7 @@ body{
 .end{   
     height:40px;
     width: 60px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(flex, center, center);
     background-color: white;
     border-radius: 20px;
 }    
@@ -145,9 +143,8 @@ end:hover{
 }
 
 .bar-content{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    @include flex(flex, row, center);
+
     justify-content: center;
     width: 620px;
     height: 55px;
@@ -226,15 +223,13 @@ form {
 }
 
 .voyageurs{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(flex, center, center);
 }
 
 .search{
     display: flex;
-    flex-direction: row;
     align-items: center;
+    flex-direction: row;
     background-color: rgb(244, 92, 102);
     padding: 10px;
     border-radius: 25px;
@@ -509,4 +504,4 @@ a:hover{
 
 #map {
     height: 100%;
-  }
+}

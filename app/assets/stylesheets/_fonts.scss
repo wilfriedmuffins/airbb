@@ -1,0 +1,14 @@
+// @font-face {
+//     font-family: 'redacted script';
+//     src: url('RedactedScript-Regular.ttf');
+// }
+
+@mixin font($font, $fontbis) {
+    @font-face{
+    font-family: '#{$font}';
+    src: url('#{$fontbis}-Regular.ttf');
+    }
+}
+
+//@include font(name font, namefont);
+@include font(Fuzzy Bubbles, FuzzyBubbles);

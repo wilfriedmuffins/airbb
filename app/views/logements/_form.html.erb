@@ -21,6 +21,9 @@
     <%= form.label :voyageur %>
     <%= form.number_field :voyageur , in: 1...20, step: 1  %>
 
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+
     <%= form.file_field :images, multiple: true %>
 
     <%= form.submit "Ajouter logement" %>

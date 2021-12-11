@@ -10,6 +10,7 @@
             <th>lat</th>
             <th>lng</th>
             <th>voyageurs</th>
+            <th>Prix</th>
             <th>Date de début de disponibilité</th>
             <th>Date de fin de disponibilité</th>
             <th>Photos</th>
@@ -23,6 +24,7 @@
             <td><%= @logement.latitude %></td> 
             <td><%= @logement.longitude %></td> 
             <td><%= @logement.voyageur %></td>
+            <td><%= @logement.price%></td>
             <td><%= @logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
             <td><%= @logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
             <td><% @logement.images.each do |photo| %>
@@ -35,6 +37,7 @@
 
 <% if !@logement.comments.empty? %>
     <% @logement.comments.each do |comment| %>
+
         <p>
             <strong>Commenter:</strong>
             <%= comment.user.name %>

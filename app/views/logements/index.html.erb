@@ -13,6 +13,7 @@
             <th>lat</th>
             <th>lng</th>
             <th>voyageurs</th>
+            <th>Prix</th>
             <th>Date de début de disponibilité</th>
             <th>Date de fin de disponibilité</th>
             <th>Date de création </th>
@@ -29,6 +30,7 @@
                 <td><%= logement.latitude %></td> 
                 <td><%= logement.longitude %></td> 
                 <td><%= logement.voyageur %></td>
+                <td><%= logement.price %></td>
                 <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
                 <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
                 <td><%= logement.created_at.try(:strftime, ("%e %B %Y")) %></td>

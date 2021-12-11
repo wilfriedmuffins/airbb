@@ -41,10 +41,10 @@
 <h2>Mes Réservations</h2>
 
 <% @book.each do |id| %>
-   <> id.(:logement_id).distinct
+  <p> Réservation du <%= id.start_booking.try(:strftime, ("%e %B %Y"))%>  au <%= id.end_booking.try(:strftime, ("%e %B %Y")) %> <%= link_to "Ajouter commentaire", logement_path(id.logement_id) %> </p>
 <%end%>
 
 <br>
 <%= link_to "Modifier profil", edit_user_registration_path %>
 
-    <%# <p> Réservation du <%= id.start_booking.try(:strftime, ("%e %B %Y"))  au <%= id.end_booking.try(:strftime, ("%e %B %Y"))  <%= link_to "Ajouter commentaire", logement_path(id.logement_id) </p>%> 
+    
