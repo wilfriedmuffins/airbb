@@ -42,7 +42,6 @@ body{
 }
 
 
-
 .navbar{
     @include flex(flex, space-between, center);
     padding: 20px 80px;
@@ -63,9 +62,7 @@ body{
 }
 
 .navbar-logo, .lang_and_region{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(flex, center , center);
 }
 
 .navbar-end-items{
