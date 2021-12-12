@@ -70,6 +70,8 @@
                 <!-- render partial: "#" -->
             </div>
         </div>
+
+        
     
     <div class="bar-menu">
         <div class="bar-content">
@@ -117,13 +119,40 @@
                 </div>
             </div>
         </div>
-        
-        <p class="item-main">Voyagez<br>local</p>
-
     </div>
+
+     <p class="item-main">Voyagez<br>local</p>
 
     <input class="button-main" type="button" value="Découvrir les logements à proximité">
 </div>
+
+<ul>
+    <li>
+        <a href="#">Programming languages</a>
+        <ul class="dropdown">
+            <li><a href="#">C++</a></li>
+            <li><a href="#">java</a></li>
+            <li><a href="#">php</a></li>
+        </ul>
+    </li>
+</ul>
+
+ <style>
+        ul li ul.dropdown {
+            min-width: 100%;
+            /* Set width of the dropdown */
+            background: #f2f2f2;
+            display: none;
+            position: absolute;
+            z-index: 999;
+            left: 0;
+        }
+  
+        ul li:hover ul.dropdown {
+            display: block;
+            /* Display the dropdown */
+        }
+    </style>
 
 <div class="flex-container1">
     <div class="row1">

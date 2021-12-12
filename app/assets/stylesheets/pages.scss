@@ -24,32 +24,37 @@
     align-items: $align-items;
 }
 
-
-li{
-    list-style: none;
+@mixin center($display, $justify-center){
+    display: $display;
+    justify-content: $justify-center;
 }
 
-ul{
-    padding-inline-start: 0px;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
+
+////*main*////////
+//=>photo_main
+.main{
+    height: 800px;
+    background-image: asset-url('main.jpg'); //rajouter une image au jumbotron
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-body{
-   // background-color: #F2F0EB;
-    font-family: 'Open Sans', sans-serif;
-    color: #000000;
-}
-
+//=>>>navbar
 
 .navbar{
     @include flex(flex, space-between, center);
     padding: 20px 80px;
 }
 
-.nav-item{
-    list-style: none;
-    padding: 0px 16px;
+.navbar-logo, .lang_and_region{
+    @include flex(flex, center , center);
+}
+
+.lang_and_region:hover{
+    @include flex(flex, center, center);
+    height: 40px;
+    background-color:LightGray;
+    border-radius: 20px;
 }
 
 .menu{
@@ -57,17 +62,38 @@ body{
     justify-content: center;
     padding-inline-start: 100px;
 }
+
 .navbar-end{
     @include flex(flex, space-between, center);
-}
-
-.navbar-logo, .lang_and_region{
-    @include flex(flex, center , center);
 }
 
 .navbar-end-items{
     padding: 0px 16px;
     box-sizing: initial;
+}
+
+.nav-item{
+    list-style: none;
+    padding: 0px 16px;
+}
+
+.devenir_hote:hover{
+    @include flex(flex, center, center);
+    height:40px;
+    background-color:LightGray;
+    border-radius: 20px;
+}
+
+.end{   
+    height:40px;
+    width: 60px;
+    @include flex(flex, center, center);
+    background-color: white;
+    border-radius: 20px;
+}    
+
+end:hover{
+    box-shadow: #484848;
 }
 
 .dropdown-content {
@@ -95,86 +121,6 @@ body{
     background-color: #E3E2E2;
 }
 
-// .dropbtn {
-//     background-color: #3498DB;
-//     color: white;
-//     padding: 16px;
-//     font-size: 16px;
-//     border: none;
-//     cursor: pointer;
-// }
-
-.show {
-    display: block;   
-}
-
-.devenir_hote:hover{
-    @include flex(flex, center, center);
-    height:40px;
-    background-color:LightGray;
-    border-radius: 20px;
-}
-
-.lang_and_region:hover{
-    @include flex(flex, center, center);
-    height: 40px;
-    background-color:LightGray;
-    border-radius: 20px;
-}
-
-.end{   
-    height:40px;
-    width: 60px;
-    @include flex(flex, center, center);
-    background-color: white;
-    border-radius: 20px;
-}    
-
-end:hover{
-    box-shadow: #484848;
-}
-
-.bar-menu{
-    display: flex;
-    justify-content: center;
-}
-
-.bar-content{
-    @include flex(flex, row, center);
-
-    justify-content: center;
-    width: 620px;
-    height: 55px;
-    background: white;
-    border-radius: 35px;
-    padding: 5px;
-}
-
-.title-flatpikcr, .title{
-    margin: 0px;
-}
-
-.form-control, .flatpickr, .input-flatpickr, .input, .flatpickr-input, .input-bar{
-    padding: 0px;
-    margin: 0px;
-    border: none;
-    height: 20px;
-    width: 100px;
-    text-overflow: ellipsis;
-}
-
-form {
-    width: 120px;
-}
-
-.item-bar-menu{
-    padding: 5px; 
-} 
-
-.item-bar-menu:hover{
-    border-radius: 25px;
-    background-color: #e2e2e2;
-} 
 
 .modalSign_in {
     display: none; /* Hidden by default */
@@ -207,6 +153,10 @@ form {
     font-weight: bold;
 }
 
+.show {
+    display: block;   
+}
+
 .close:hover,
 .close:focus {
     color: black;
@@ -214,10 +164,74 @@ form {
     cursor: pointer;
 }
 
+//=>>>search_bar
+
+.bar-menu{
+    @include center(flex, center)
+}
+
+.bar-content{
+    @include flex(flex, row, center);
+    width: 700px;
+    height: 55px;
+    background: white;
+    border-radius: 35px;
+    padding: 10px;
+}
+
 .border-1, .border-2, .border-3{
     height: 32px;
     border-left: 1px solid #e2e2e2;
 }
+
+//////////
+
+
+li{
+    list-style: none;
+}
+
+ul{
+    padding-inline-start: 0px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+body{
+   // background-color: #F2F0EB;
+    font-family: 'Open Sans', sans-serif;
+    color: #000000;
+}
+
+
+.title-flatpikcr, .title{
+    margin: 0px;
+}
+
+.form-control, .flatpickr, .input-flatpickr, .input, .flatpickr-input, .input-bar{
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    height: 20px;
+    width: 100px;
+    text-overflow: ellipsis;
+}
+
+form {
+    width: 120px;
+}
+
+.item-bar-menu{
+    padding: 5px; 
+} 
+
+.item-bar-menu:hover{
+    border-radius: 25px;
+    background-color: #e2e2e2;
+} 
+
+
+
 
 .voyageurs{
     @include flex(flex, center, center);
@@ -238,12 +252,7 @@ form {
     width: 90px;
 }
 
-.main{
-    height: 800px;
-    background-image: asset-url('main.jpg'); //rajouter une image au jumbotron
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 
 .item-main{
     font-size: 50px;
