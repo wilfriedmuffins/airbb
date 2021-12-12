@@ -20,6 +20,11 @@ test:
   <<: *default
   database: airbb_test
 
+# production:
+#   <<: *default
+#   database: airbb_production
+
 production:
   <<: *default
+  adapter: postgresql
   database: airbb_production
