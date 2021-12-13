@@ -29,7 +29,24 @@
     justify-content: $justify-center;
 }
 
+@mixin flex_direction($display, $flex-direction){
+    display: $display;
+    flex-direction: $flex-direction;
+}
 
+@mixin img_fit($height, $max-width, $border-radius, $object-fit){
+    height: $height;
+    max-width: $max-width;
+    border-radius: $border-radius; 
+    object-fit: $object-fit;
+}
+
+/////*body*///
+body{
+    // background-color: #F2F0EB;
+    font-family: 'Open Sans', sans-serif;
+     //color: #000000;
+}
 ////*main*////////
 //=>photo_main
 .main{
@@ -57,13 +74,13 @@
 }
 
 .menu{
-    display: flex;
-    justify-content: center;
+    @include center(flex, center);
     padding-inline-start: 100px;
 }
 
 .navbar-end{
-    @include flex(flex, space-between, center);
+    display: flex;
+    align-items: center;
 }
 
 .navbar-end-items{
@@ -83,10 +100,10 @@
     border-radius: 20px;
 }
 
-.end{   
+.end{
+    @include flex(flex, center, center);
     height:40px;
     width: 60px;
-    @include flex(flex, center, center);
     background-color: white;
     border-radius: 20px;
 }    
@@ -105,7 +122,6 @@ end:hover{
     top: 48px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     border-radius: 20px;
-    
 }
 
 .dropdown-container{
@@ -139,12 +155,12 @@ end:hover{
 //=>>>search_bar
 
 .bar-menu{
-    @include center(flex, center)
+    @include center(flex, center);
 }
 
 .bar-content{
     @include flex(flex, row, center);
-    width: 700px;
+    width: 750px;
     height: 55px;
     background: white;
     border-radius: 35px;
@@ -153,16 +169,45 @@ end:hover{
 
 .border-1, .border-2, .border-3{
     height: 32px;
-    border-left: 1px solid #e2e2e2;
+    border-left: 2px solid #e2e2e2;
 }
 
 .item-bar-menu{
-    padding: 5px; 
+    padding: 5px;
+    margin: 5px; 
 } 
 
 .item-bar-menu:hover{
     border-radius: 25px;
     background-color: #e2e2e2;
+}
+
+.input-bar{
+    width: 100px;
+    text-overflow: ellipsis;
+}
+
+.search{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    
+    //@include center(flex, center);
+
+    background-color: rgb(244, 92, 102);
+    padding: 10px;
+    border-radius: 25px;
+    
+    .svg_search{
+        fill: white;
+    }
+
+    .recherche{
+        background-color: rgb(244, 92, 102);
+        border: none;
+        color: white;
+    }
 }
 
 .voyagez{
@@ -187,89 +232,26 @@ end:hover{
     border-width: 0px;
 }
 
-//////////
-
-
-li{
-    list-style: none;
-}
-
-ul{
-    padding-inline-start: 0px;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-}
-
-body{
-   // background-color: #F2F0EB;
-    font-family: 'Open Sans', sans-serif;
-    color: #000000;
-}
-
-
-.title-flatpikcr, .title{
-    margin: 0px;
-}
-
-.form-control, .flatpickr, .input-flatpickr, .input, .flatpickr-input, .input-bar{
-    padding: 0px;
-    margin: 0px;
-    border: none;
-    height: 20px;
-    width: 100px;
-    text-overflow: ellipsis;
-}
-
-form {
-    width: 120px;
-}
-
-
-
-
-.voyageurs{
-    @include flex(flex, center, center);
-}
-
-.search{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    background-color: rgb(244, 92, 102);
-    padding: 10px;
-    border-radius: 25px;
-}
-
-// ##
-
-.raduis{
-    width: 90px;
-}
-
-
-
-
+//////////8 img
 
 .flex-container1 {
     display: flex;
     justify-content: space-between;
+    
     padding-left: 80px;
     padding-right: 80px;
     margin: 60px auto;
 }
-
-.img-flex{
-    height: 100%;
-    width: 100%;
-    border-radius: 5px; 
-    object-fit: cover;
-} 
 
 .img-div{
     width: 70px;
     height: 70px;
     margin-right: 16px ;
 }
+
+.img-flex{
+    @include img_fit(100%, auto, 5px, cover)
+} 
 
 p{
     margin:0px;
@@ -285,42 +267,35 @@ p{
 }
 
 .row1{
-    display: flex;
-    flex-direction: column;
+    @include flex-direction(flex, column);
     margin-bottom: 5px;
 }
 
 .test-1{
-    display: flex;
-    flex-direction: row;
+    @include flex-direction(flex, row);
     margin-bottom: 5px;
 }
 
 .test-2{
-    display: flex;
-    flex-direction: row;
+    @include flex-direction(flex, row);
     margin-top: 5px;
 }
 
+///////////////*chez vous partout */////
 /* */
 
 .flex-container2{
-    display: flex;
-    flex-direction: column;
+    @include flex_direction(flex, column);
     padding-left: 80px;
     padding-right: 80px;
-    margin-top: 25px;
-    margin-bottom: 25px;
 }
 
 .fc2, .fc3, .fc4{
-    display: flex;
-    justify-content: space-between;
+    @include center(flex, space-between);
 }
 
 .cvp{
-    display: flex;
-    flex-direction: column;
+    @include flex_direction(flex, column);
 }
 
 .cv{
@@ -329,16 +304,11 @@ p{
     margin-bottom: 15px;
 }
 
-
 .img-cvp{
-    height: 100%;
-    max-width: auto;
-    border-radius: 5px; 
-    object-fit: cover;
+    @include img_fit(100%, auto, 5px, cover);
 }
 
-
-/* */
+///////* Dcourvre le monde *//////
 .fc3-bckgrd{
     height: 700px;
     width: auto;
@@ -346,12 +316,12 @@ p{
 }
 
 .flex-container3{
-    display: flex;
-    flex-direction: column;
+    @include flex_direction(flex, column);
+
     padding-left: 80px;
     padding-right: 80px;
     margin-top: 25px;
-    margin-bottom: 25px;
+    // margin-bottom: 25px;
 }
 
 .text-fc3{
@@ -360,8 +330,7 @@ p{
 }
 
 .dlm{
-    display: flex;
-    flex-direction: column;
+    @include flex_direction(flex, column);
 }
 
 .dm{
@@ -369,23 +338,17 @@ p{
     width: 400px;
 }
 
-
 .img-dlm{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 5px;
+    @include img_fit(100%, auto, 5px, cover);
 }
 
-/* */
+///////*Rejoignez des millions d'hôtes sur Airbnb *//////
 
 .flex-container4{
-    display: flex;
-    flex-direction: column;
     padding-left: 80px;
     padding-right: 80px;
     margin-top: 25px;
-    margin-bottom: 25px;
+    // margin-bottom: 25px;
 }
 
 .text-fc4{
@@ -393,16 +356,11 @@ p{
     margin-top: 5px;
 }
 
-.rejoignez{
-    display: flex;
-    flex-direction: column;
-}
-
 .rz{
     height: 300px;
     width: 380px;
-    
 }
+
 .img-rz{
     height: 100%;
     width: 100%;
@@ -454,7 +412,6 @@ p{
     margin-right: 24px;
 }
 
-
 .f2-item-right{
     padding: 0px 0px;
 }
@@ -480,6 +437,12 @@ a{
 a:hover{
     text-decoration: underline;
 }
+
+////end
+li{
+    list-style: none;
+}
+
 
 #map {
     height: 100%;

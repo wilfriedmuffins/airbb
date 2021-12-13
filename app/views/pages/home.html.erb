@@ -17,7 +17,7 @@
             </ul>
         </div>
 
-        <div class="dropdown">
+        <div class="">
             <div class="navbar-end">
                 <%= link_to "Devenir hote", "#", class:"navbar-end-items devenir_hote" %>
                 <div class="navbar-end-items lang_and_region">  
@@ -26,7 +26,7 @@
                     </svg>
                 </div>
             
-                <div class="navbar-end-items end dropbtn", id="myBtn"  >
+                <div class="navbar-end-items end dropbtn" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 0.4);transform:;-ms-filter:">
                         <path d="M4 6H20V8H4zM4 11H20V13H4zM4 16H20V18H4z"></path>
                     </svg>
@@ -67,7 +67,7 @@
         <div class="bar-content">
             <div class="item-bar-menu adresse" data-places-target="city">
                 <%= form_with url: "/search", method: :get, local: true do |form|%>
-                    <%= form.label :city, "Ville", class:"title" %><br>
+                    <%= form.label :city, "Ville" %><br>
                     <%= form.text_field :city, class:"input-bar", placeholder:"Où allez-vous?" %>
             </div>
 
@@ -82,31 +82,29 @@
 
             <div class="item-bar-menu ">
                     <%= form.label :depart, "Départ"%><br>
-                    <%= form.date_field :depart, class: "item-bar-menu", placeholder:"Ajoutes des voyageurs" %>
+                    <%= form.date_field :depart, placeholder:"Ajoutes des voyageurs" %>
             </div>
             
             <div class="border-3"></div>
 
             <div class="item-bar-menu">
-                <div class="voyageurs">
-                    <div class="input-voyageur ">
-                            <%= form.label :voyageur, "voyageurs", class:"title" %><br>
-                            <%= form.number_field :voyageur, class:"input-bar", placeholder:"Ajoutes des voyageurs" %>
-                    </div>
-
-                    <div class="search" data-action="click->places#taken" >
-                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"
-                        viewBox="0 0 192.904 192.904" style="enable-background:new 0 0 192.904 192.904;" xml:space="preserve">
-                            <path d="M190.707,180.101l-47.078-47.077c11.702-14.072,18.752-32.142,18.752-51.831C162.381,36.423,125.959,0,81.191,0
-                        C36.422,0,0,36.423,0,81.193c0,44.767,36.422,81.187,81.191,81.187c19.688,0,37.759-7.049,51.831-18.751l47.079,47.078
-                        c1.464,1.465,3.384,2.197,5.303,2.197c1.919,0,3.839-0.732,5.304-2.197C193.637,187.778,193.637,183.03,190.707,180.101z M15,81.193
-                        C15,44.694,44.693,15,81.191,15c36.497,0,66.189,29.694,66.189,66.193c0,36.496-29.692,66.187-66.189,66.187
-                        C44.693,147.38,15,117.689,15,81.193z"/>  
-                        </svg>
-                        <%= form.submit "Recherche" %>
-                        <% end %>
-                    </div>
-                </div>
+                    <%= form.label :voyageur, "voyageurs", class:"title" %><br>
+                    <%= form.number_field :voyageur, class:"input-bar", placeholder:"Ajoutes des voyageurs" %>
+            </div>
+            
+            <div class="item-bar-menu">
+                <div class="search">
+                    <svg class="svg_search" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"
+                    viewBox="0 0 192.904 192.904" style="enable-background:new 0 0 192.904 192.904;" xml:space="preserve">
+                        <path d="M190.707,180.101l-47.078-47.077c11.702-14.072,18.752-32.142,18.752-51.831C162.381,36.423,125.959,0,81.191,0
+                    C36.422,0,0,36.423,0,81.193c0,44.767,36.422,81.187,81.191,81.187c19.688,0,37.759-7.049,51.831-18.751l47.079,47.078
+                    c1.464,1.465,3.384,2.197,5.303,2.197c1.919,0,3.839-0.732,5.304-2.197C193.637,187.778,193.637,183.03,190.707,180.101z M15,81.193
+                    C15,44.694,44.693,15,81.191,15c36.497,0,66.189,29.694,66.189,66.193c0,36.496-29.692,66.187-66.189,66.187
+                    C44.693,147.38,15,117.689,15,81.193z"/>  
+                    </svg>
+                    <%= form.submit "Recherche", class: "recherche"%>
+                    <% end %>
+                </div> 
             </div>
         </div>
     </div>
@@ -120,22 +118,21 @@
 <div class="flex-container1">
     <div class="row1">
         <%= link_to "#", class:"test-1" do  %>
-        
             <div class="img-div">
                 <%= image_tag "saint_malo.jpg", class:"img-flex" %>
             </div>
+
             <div class="h-route">
                 <p class="city">Saint Malo</p>
                 <p>5 heures de route</p>
             </div>
-        
         <%end %>
         
         <%= link_to "#", class:"test-2" do  %>
-        
             <div class="img-div">
                 <%= image_tag "tours.webp", class:'img-flex'%>
             </div>
+
             <div class="h-route">
                 <p class="city">Tours</p>
                 <p>3 heures de route</p>
@@ -145,10 +142,10 @@
 
     <div class="row1">
     <%= link_to "#", class:"test-1" do  %>
-        
             <div class="img-div">
                 <%= image_tag "trouville_sur_mer.jpg", class:'img-flex'%>
             </div>
+
             <div class="h-route">
                 <p class="city">Trouville sur mer</p>
                 <p>2.5 heures de route</p>
@@ -159,43 +156,44 @@
             <div class="img-div">
                 <%= image_tag "quiberon.webp", class:'img-flex'%>
             </div>
+
             <div class="h-route">
                 <p class="city">Quiberon</p>
                 <p>6 heures de route</p>
             </div>
         <%end%>
     </div>
-    <div class="row1">
 
-    <%= link_to "#", class:"test-1" do  %>
+    <div class="row1">
+        <%= link_to "#", class:"test-1" do  %>
             <div class="img-div">
                 <%= image_tag "honfleur.jpg", class: 'img-flex'%>
             </div>
+            
             <div class="h-route">
                 <p class="city">Honfleur</p>
                 <p>2.5 heures de route</p>
             </div>
-    <%end%>
+        <%end%>
 
+        <%= link_to "#", class:"test-2" do  %>
+            <div class="img-div">
+                <%= image_tag "granville.jpg", class: 'img-flex'%>
+            </div>
 
-    <%= link_to "#", class:"test-2" do  %>
-        <div class="img-div">
-            <%= image_tag "granville.jpg", class: 'img-flex'%>
-        </div>
-        <div class="h-route">
-            <p class="city">Granville</p>
-            <p>3.5 heures de route</p>
-        </div>
-    <%end%>
+            <div class="h-route">
+                <p class="city">Granville</p>
+                <p>3.5 heures de route</p>
+            </div>
+        <%end%>
     </div>
 
     <div class="row1">
-
-    <%= link_to "#", class:"test-1" do  %>
-        
+        <%= link_to "#", class:"test-1" do  %>
             <div class="img-div">
                 <%= image_tag "la_bresse.webp", class: 'img-flex'%>
             </div>
+
             <div class="h-route">
                 <p class="city">La bresse</p>
                 <p>5.5 heures de route</p>
@@ -203,10 +201,10 @@
         <%end%>
 
         <%= link_to "#", class:"test-2" do  %>
-        
             <div class="img-div">
                 <%= image_tag "annecy.webp", class: 'img-flex'%>
             </div>
+
             <div class="h-route">
                 <p class="city">Annecy</p>
                 <p> 6.5 heures de route</p>
@@ -248,7 +246,9 @@
 <div class="fc3-bckgrd">
     <div class="flex-container3">
         <h1 class="text-fc3">Decouvrez le monde</h1>
+
         <h6 class="text-fc3">Des activités uniques organisées par des experts locaux, en personne ou en ligne.</h6>
+        
         <div class="fc3">
             <%= link_to "#", class:"dlm" do  %>
                 <div class="dm">
@@ -277,24 +277,28 @@
 
 <div class="flex-container4">
         <h1 class="text-fc4">Rejoignez des millions d'hôtes sur Airbnb</h1>
+        
         <div class="fc4">
-            <%= link_to "#", class:"rejoignez" do  %>
+            <%= link_to "#" do  %>
                 <div class="rz">
                     <%= image_tag "heberger-voyageur.webp", class: 'img-rz'%>
                 </div>
                 <p class="text-fc4">Héberger des voyageurs</p>
             <%end%>
-            <%= link_to "#", class:"rejoignez" do  %>
+
+            <%= link_to "#" do  %>
                 <div class="rz">
                     <%= image_tag "organiser-expérience-en-ligne.webp", class: 'img-rz'%>
                 </div>
                 <p class="text-fc4">Organiser une expérience en ligne</p>
             <%end%>
-            <%= link_to "#", class:"rejoignez" do  %>
+
+            <%= link_to "#" do  %>
                 <div class="rz">
                     <%= image_tag "origaniser-une-expérience.webp", class: 'img-rz'%>
                 </div>
                 <p class="text-fc4">Organiser une expérience</p>
             <%end%>
         </div>
-    </div>
+
+</div>
