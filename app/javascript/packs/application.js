@@ -20,39 +20,11 @@ window.GMaps = GMaps;
 
 document.addEventListener("turbolinks:load", () => {
     $(".dropbtn").on("click", function () {
-        $(".dropdown-content").toggleClass("show");
+        $(".dropdown-content").show();
     }),
-
-    // // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-    modal.style.display = "none";
-    },
-
-    // $(".search").on("click", function () {
-    //     $(".title-buttton").toggleClass("show-label"),
-    //     $(".adresse").toggleClass("raduis");
-    // });
-    // $(".hebergement-dropdown").on("click", function () {
-    //     $(".input-voyageur").show();
-    //     $(".border-3").show();
-    // }),
-    // $(".experience-dropdown").on("click", function () {
-    //     $(".input-voyageur").hide();
-    //     $(".border-3").hide();
-    // }),
-    
-    $('.modal_sign_in').on("click", function(){
-        $(".modalSign_in").show();//toggleClass("show_modal_open");
-    }),
-
-    $('.close').on("click", function(){
-        $(".modalSign_in").hide();
-    }),
-    $('.close').on("click", function(){
-        $(".dropdown-conten").hide();
-    })
-    ;
-
+    $(".close").on("click", function () {
+        $(".dropdown-content").hide();
+    });
 })
 
 import "controllers"
