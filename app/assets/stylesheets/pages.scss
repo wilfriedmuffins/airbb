@@ -49,8 +49,10 @@ body{
 }
 ////*main*////////
 //=>photo_main
-.main{
-    height: 800px;
+.main{ 
+    height: auto;
+    max-width: 1000px;
+    min-width: 500px;
     background-image: asset-url('main.jpg'); //rajouter une image au jumbotron
     background-repeat: no-repeat;
     background-size: cover;
