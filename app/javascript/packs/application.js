@@ -11,6 +11,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("./maps")
 
+import 'bootstrap'; 
 import "packs/maps"
 import 'packs/gmaps';
 import GMaps from 'packs/gmaps';

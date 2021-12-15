@@ -28,6 +28,4 @@
     </tbody>
 </table>
 
-<%= current_user.id %>
-
 <%= tag.div id: "map", data: { markers: @logements_disponible.to_json(methods: [:address]) } %> 

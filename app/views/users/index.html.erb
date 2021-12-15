@@ -1,13 +1,18 @@
-<h1> Utilisateurs du site </h1>
 
-<table>
+<div class="container">
+    <h1 class="container-fluid text-center">Utilisateurs du site</h1>
+</div>
+
+<%# <%= link_to "nouveau reservation", new_logement_path %> 
+<div class="container">
+<table class="table table-hover" >
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Nom</th>
-            <th>Email</th>
-            <th>Confirmation envoié à</th>
-            <th>Confirmé à</th>
+            <th scope="col" >Id</th>
+            <th scope="col" >Nom</th>
+            <th scope="col" >Email</th>
+            <th scope="col" >Confirmation envoié à</th>
+            <th scope="col" >Confirmé à</th>
         </tr>
     </thead>
     <tbody>
@@ -22,3 +27,5 @@
         <% end %>
     </tbody>
 </table>
+
+<%# <%= link_to "nouveau reservation", new_logement_path %> 

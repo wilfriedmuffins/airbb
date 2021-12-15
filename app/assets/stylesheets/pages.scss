@@ -16,7 +16,7 @@
 // }
 
 
-@import 'fonts';
+@import 'config/fonts';
 
 @mixin flex($display, $justify-content, $align-items){
     display: $display;
@@ -50,9 +50,9 @@ body{
 ////*main*////////
 //=>photo_main
 .main{ 
-    height: auto;
-    max-width: 1000px;
-    min-width: 500px;
+    height: 700px;
+    max-width: auto;
+    min-width: auto;
     background-image: asset-url('main.jpg'); //rajouter une image au jumbotron
     background-repeat: no-repeat;
     background-size: cover;

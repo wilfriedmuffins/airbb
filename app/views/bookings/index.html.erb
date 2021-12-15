@@ -1,16 +1,20 @@
-<h1>Rservations</h1>
+
+<div class="container">
+    <h1 class="container-fluid text-center">Rservations</h1>
+</div>
 
 <%# <%= link_to "nouveau reservation", new_logement_path %> 
-
-<table >
+<div class="container">
+<table class="table table-hover" >
     <thead>
         <tr>    
-            <th>Id reservation</th>
-            <th>User de la reservation</th>
-            <th>Id Logement</th>
-            <th>Date de début de reservation</th>
-            <th>Date de fin de reservation</th>
-            <th>Date de création</th>
+            <th scope="col" >Id reservation</th>
+            <th scope="col" >User de la reservation</th>
+            <th scope="col" >Id Logement</th>
+            <th scope="col" >Date de début de reservation</th>
+            <th scope="col" >Date de fin de reservation</th>
+            <th scope="col" >Date de création</th>
+            <th scope="col" >Prix Total</th>
         </tr>
     </thead>
     <tbody>
@@ -22,9 +26,14 @@
                 <td><%= reservation.start_booking.try(:strftime, ("%e %B %Y")) %></td> 
                 <td><%= reservation.end_booking.try(:strftime, ("%e %B %Y")) %></td>
                 <td><%= reservation.created_at.try(:strftime, ("%e %B %Y")) %></td>
-                <td><%= link_to "show", booking_path(reservation) %></td>
+                <td><%= reservation.t_price %></td>
+                <td><button type="button" class="btn btn-primary"><%= link_to "show", booking_path(reservation), class: "link-light" %></button></td>
             </tr>
         <% end %>
     </tbody>
 </table> 
+</div>
 
+
+
+   

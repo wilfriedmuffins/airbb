@@ -1,25 +1,46 @@
 
 <%= render 'shared/flash_errors', obj: @booking %>
 
-<%= form_with model: @booking, local: true do |form| %>
+<div class="container m-0">
 
-    <%= hidden_field_tag :logement_id, value= @logement.id%>
-    
-    <%= form.label :start_booking %>
-    <%= form.date_field :start_booking, value: @arrive %>
+    <%= form_with model: @booking, local: true do |form| %>
 
-    <%= form.label :end_booking %>
-    <%= form.date_field :end_booking, value: @depart %>
+        <%= hidden_field_tag :logement_id, value= @logement.id%>
 
-    <%= form.label 'Prix: '+@logement.price.to_s+'€/nuit' %>
+            <div class="form-label">
+                <%= form.label :start_booking %>
+            </div>
+            
+            <div class="mb-3">
+                <%= form.date_field :start_booking, value: @arrive %>
+            </div>
 
-    <%= form.label 'Prix Total: '+@total+'€' %>
-  
-    <%= form.hidden_field :t_price, value: @total.to_i%>
+            <div class="form-label">
+                <%= form.label :end_booking %>
+            </div>
 
-    <%= form.label :voyageur %>
-    <%= form.number_field :voyageur, in: 1...20, step: 1, value: @voyageur %>
+            <div class="mb-3">
+                <%= form.date_field :end_booking, value: @depart %>
+            </div>
+            
+            <div class="form-label">
+                <%= form.label 'Prix: '+@logement.price.to_s+'€/nuit' %>
+            </div>
 
-    <%= form.submit "Reserver" %>
+            <div class="mb-3">
+                <%= form.label 'Prix Total: '+@total+'€' %>
+            </div>
 
-<% end %>
+            <%= form.hidden_field :t_price, value: @total.to_i%>
+
+            <div class="form-label">
+                <%= form.label :voyageur %>
+            </div>
+
+            <div class="mb-3">
+                <%= form.number_field :voyageur , in: 1...20, step: 1, value: @voyageur %>
+            </div>
+        
+            <%= form.submit "Reserver" %>
+    <% end %>
+</div>

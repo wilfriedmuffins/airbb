@@ -1,15 +1,37 @@
-<h1>Edit Booking</h1>
+<h1 class="container-fluid">Edit Booking</h1>
 
-<%= form_with(model: @booking) do |form| %>
-    <%= form.label :start_booking %>
-    <%= form.date_field :start_booking, value: @arrive %>
+<div class="container m-0">
 
-    <%= form.label :end_booking %>
-    <%= form.date_field :end_booking, value: @depart %>
+    <%= form_with(model: @booking) do |form| %>
 
-    <%= form.label :voyageur %>
-    <%= form.number_field :voyageur , in: 1...20, step: 1, value: @voyageur %>
+            <div class="form-label">
+                <%= form.label :start_booking %>
+            </div>
+            
+            <div class="mb-3">
+                <%= form.date_field :start_booking, value: @arrive %>
+            </div>
 
-    <%= form.submit "Reserver" %>
+            <div class="form-label">
+                <%= form.label :end_booking %>
+            </div>
 
-<% end %>
+            <div class="mb-3">
+                <%= form.date_field :end_booking, value: @depart %>
+            </div>
+            
+            <div class="form-label">
+                <%= form.label :voyageur %>
+            </div>
+
+            <div class="mb-3">
+                <%= form.number_field :voyageur , in: 1...20, step: 1, value: @voyageur %>
+            </div>
+
+            <div class="mb-3">
+                <%= form.label 'Prix Total:', value: @t_price %>
+            </div>
+
+            <%= form.submit "Reserver" %>
+    <% end %>
+</div>

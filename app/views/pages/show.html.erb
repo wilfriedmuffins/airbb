@@ -21,22 +21,26 @@
 <%= tag.div id: "map", data: { markers: @logement.to_json(methods: [:address])} %> 
 
 <!-- link to new reservation-->
-<h1>Booking</h1>
+<h1 class="container-fluid">Booking</h1>
 
 <%= render 'bookings/form' %>
 
-<% if !@logement.comments.empty? %>
-    <% @logement.comments.each do |comment| %>
-        <p>
-            <strong>Commenter:</strong>
-            <%= comment.user.name %>
-        </p>
+<div class="container-fluid">
+    <% if !@logement.comments.empty? %>
+        <% @logement.comments.each do |comment| %>
+            <p>
+                <strong>Commenter:</strong>
+                <%= comment.user.name %>
+            </p>
 
-        <p>
-            <strong>Comment:</strong>
-            <%= comment.body %>
-        </p>
-    <% end %>
-<% end %> 
+            <p>
+                <strong>Comment:</strong>
+                <%= comment.body %>
+            </p>
+        <% end %>
+    <% end %> 
+</div>
+
+
 
 
