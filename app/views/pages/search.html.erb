@@ -1,31 +1,23 @@
 <h1>Logement disponible pour réservation du <%= Date.parse(@arrive).try(:strftime, ("%e %B %Y")) %> jusqu'au <%= Date.parse(@depart).try(:strftime, ("%e %B %Y")) %></h1>
 
-<table>
-    <thead>
-        <tr>
-            <th>Id du logement</th>
-            <th>Title </th>
-            <th>Adresse</th>
-            <th>City</th>
-            <th>Disponible du </th>
-            <th>Jusqu'au</th>
-            <th>voyageurs</th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="row">
+    <div class="col-md-6">
+        div.
         <% @logements_disponible.each do |logement| %>
-                <tr>
-                    <td><%= logement.id %></td>
-                    <td><%= logement.title %></td>
-                    <td><%= logement.adresse %></td>
-                    <td><%= logement.city %></td>
-                    <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
-                    <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
-                    <td><%= logement.voyageur %></td>
-                    <td><%= link_to "voir", page_path(logement, depart: @depart, arrive: @arrive, voyageur: @voyageur) %></td>
-                </tr>
+            <%= logement.title %>
+            <%= logement.adresse %>
+            <%= logement.city %>
+            <%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %> 
+            <%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %>
+            <%= logement.voyageur %>
+            <%= link_to "voir", page_path(logement, depart: @depart, arrive: @arrive, voyageur: @voyageur) %>
         <% end %> 
-    </tbody>
-</table>
+    </div>
+    
+    <div class= "col-md-6" > 
+        <%= tag.div id: "map", data: { markers: @logements_disponible.to_json(methods: [:address]) } %> 
+    </div>
 
-<%= tag.div id: "map", data: { markers: @logements_disponible.to_json(methods: [:address]) } %> 
+</div>
+    
+
