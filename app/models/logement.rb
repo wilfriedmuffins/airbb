@@ -15,8 +15,8 @@ class Logement < ApplicationRecord
     end
 
     belongs_to :user
-    has_many :bookings
-    has_many :comments
+    has_many :bookings, dependent: :destroy
+    has_many :comments, dependent: :destroy
 
     validates :adresse, presence: true
     validates :start_date_of_availability, presence: true

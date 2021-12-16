@@ -1,38 +1,43 @@
-<h2>Mes logements</h2>
+<div class="container">
+    <h1 class="container-fluid text-center">Mes logements</h1>
 
-<%= link_to "Nouveau logement", new_logement_path %>
-<br>
-<br>
+    <a class="badge badge-primary text center"><%= link_to "Nouveau logement", new_logement_path %></a>
+</div>
+
 <% if current_user.logements.present? %>
-<table>
-    <thead>
-        <tr>
-            <th>Title </th>
-            <th>Adresse</th>
-            <th>City</th>
-            <th>lat</th>
-            <th>lng</th>
-            <th>voyageurs</th>
-            <th>Date de début de disponibilité</th>
-            <th>Date de fin de disponibilité</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% current_user.logements.each do |logement| %>
+<div class="container">
+    <table class="table table-hover" >
+        <thead>
             <tr>
-                <td><%= logement.title %></td>
-                <td><%= logement.adresse %></td>
-                <td><%= logement.city %></td>
-                <td><%= logement.latitude %></td> 
-                <td><%= logement.longitude %></td> 
-                <td><%= logement.voyageur %></td>
-                <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
-                <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
-                <td><%= link_to "Show", logement_path(logement) %></td>
+                <th scope="col" >Title </th>
+                <th scope="col" >Adresse</th>
+                <th scope="col" >City</th>
+                <th scope="col" >lat</th>
+                <th scope="col" >lng</th>
+                <th scope="col" >voyageurs</th>
+                <th scope="col" >Date de début de disponibilité</th>
+                <th scope="col" >Date de fin de disponibilité</th>
             </tr>
-        <% end %>
-    </tbody>
-</table> 
+        </thead>
+        <tbody>
+            <% current_user.logements.each do |logement| %>
+                <tr>
+                    <td><%= logement.title %></td>
+                    <td><%= logement.adresse %></td>
+                    <td><%= logement.city %></td>
+                    <td><%= logement.latitude %></td> 
+                    <td><%= logement.longitude %></td> 
+                    <td><%= logement.voyageur %></td>
+                    <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
+                    <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
+                    <td><button type="button" class="btn btn-primary"><%= link_to "show", logement_path(logement), class: "link-light" %></button></td>
+                    <td><button type="button" class="btn btn-danger"><%= link_to "Delete", logement_path(logement), class: "link-light", method: :delete %></button></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table> 
+</div>
+
 
 <%= tag.div id: "map", data: { markers: current_user.logements.to_json(methods: [:address])} %> 
 
@@ -44,7 +49,5 @@
   <p> Réservation du <%= id.start_booking.try(:strftime, ("%e %B %Y"))%>  au <%= id.end_booking.try(:strftime, ("%e %B %Y")) %> <%= link_to "Ajouter commentaire", logement_path(id.logement_id) %> </p>
 <%end%>
 
-<br>
 <%= link_to "Modifier profil", edit_user_registration_path %>
 
-    

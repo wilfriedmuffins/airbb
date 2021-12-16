@@ -6,11 +6,13 @@ class UsersController < ApplicationController
         else
             @users = User.all
         end
+
     end
 
     def show
         @user = User.find(params[:id])
         puts current_user.id
+        puts @user.name.inspect
         @book = Booking.where(user_id: current_user.id)
 
         @book.each do |logement| #= @book.logement_id

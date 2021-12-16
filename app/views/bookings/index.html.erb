@@ -1,6 +1,6 @@
 
 <div class="container">
-    <h1 class="container-fluid text-center">Rservations</h1>
+    <h1 class="container-fluid text-center">Reservations</h1>
 </div>
 
 <%# <%= link_to "nouveau reservation", new_logement_path %> 
@@ -27,7 +27,7 @@
                 <td><%= reservation.end_booking.try(:strftime, ("%e %B %Y")) %></td>
                 <td><%= reservation.created_at.try(:strftime, ("%e %B %Y")) %></td>
                 <td><%= reservation.t_price %></td>
-                <td><button type="button" class="btn btn-primary"><%= link_to "show", booking_path(reservation), class: "link-light" %></button></td>
+                <td><button type="button" class="btn btn-primary"><%= link_to "show", booking_path(reservation), class: "link-light", style: "text-decoration:none" %></button></td>
             </tr>
         <% end %>
     </tbody>
