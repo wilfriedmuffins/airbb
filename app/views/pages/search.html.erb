@@ -1,23 +1,104 @@
-<h1>Logement disponible pour réservation du <%= Date.parse(@arrive).try(:strftime, ("%e %B %Y")) %> jusqu'au <%= Date.parse(@depart).try(:strftime, ("%e %B %Y")) %></h1>
 
-<div class="row">
-    <div class="col-md-6">
-        div.
-        <% @logements_disponible.each do |logement| %>
-            <%= logement.title %>
-            <%= logement.adresse %>
-            <%= logement.city %>
-            <%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %> 
-            <%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %>
-            <%= logement.voyageur %>
-            <%= link_to "voir", page_path(logement, depart: @depart, arrive: @arrive, voyageur: @voyageur) %>
-        <% end %> 
-    </div>
-    
-    <div class= "col-md-6" > 
-        <%= tag.div id: "map", data: { markers: @logements_disponible.to_json(methods: [:address]) } %> 
-    </div>
+<div class="container-fluid" style= "background-color : red">
+
+        <nav class="nav">
+  <a class="nav-link active" aria-current="page" href="#">Active</a>
+  <a class="nav-link" href="#">Link</a>
+  <a class="nav-link" href="#">Link</a>
+  <a class="nav-link disabled">Disabled</a>
+</nav>
+
 
 </div>
-    
+<h1>Logement disponible pour réservation du <%= Date.parse(@arrive).try(:strftime, ("%e %B %Y")) %> jusqu'au <%= Date.parse(@depart).try(:strftime, ("%e %B %Y")) %></h1>
 
+<div class="contaianer">
+    <div class="row">
+        <div id="block1" class="ccol-6" style="border: 1px solid red">
+            <% @logements_disponible.each do |logement| %>
+                    <div class="card " style="width: 18rem;">
+                
+                            <div class="card-header">
+                                <%= logement.title %>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    
+                                    <div class="col">
+                                        <%= image_tag logement.images[0].url, class: "img-fluid" %>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="row">
+                                            <p class="card-text"><%= logement.price %></p>
+                                            <a class="card-link"><%= link_to "voir", page_path(logement, depart: @depart, arrive: @arrive, voyageur: @voyageur) %></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                    </div>
+                <% end %>
+        </div>
+                
+        <div id="block2" class="col-6" style="border: 1px solid red; height:520px">
+            <%= tag.div id: "map", data: { markers: @logements_disponible.to_json(methods: [:address]) }%> 
+        </div>
+        
+    </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col" style="background-colr: red">
+        <h1> Ma page bootstrap</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, soluta.</p>
+    </div>
+    <div class="bloc1">
+        <h1> Ma page bootstrap</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, soluta.</p>
+    </div>
+    <div class="block2">
+        <h1> Ma page bootstrap</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, soluta.</p>
+    </div>
+  </div>
+</div>
+
+<div class="contaianer">
+    <div class="row">
+        <div id="block1" class="col-md-6" style="border: 1px solid red">
+            <div class="m-5">
+                <div class="card" style="width: 18rem;">
+            
+                        <div class="card-header">
+                            <h1> Ma page bootstrap</h1>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                
+                                <div class="col">
+                                    <%= image_tag "trouville_sur_mer.jpg", class: "img-fluid"%>
+                                </div>
+
+                                <div class="col">
+                                    <div class="row">
+                                        <p class="card-text">Lorem ipsum dolor sit.</p>
+                                        <a class="card-link"></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+                
+        </div>
+                
+        <div id="block2" class="col-md-6 my-auto" style="border: 1px solid red; height:520px">
+            <%= tag.div id: "map", data: { markers: @logements_disponible.to_json(methods: [:address]) }%> 
+        </div>
+        
+    </div>
+</div>
