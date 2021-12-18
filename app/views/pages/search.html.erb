@@ -1,15 +1,22 @@
 
-<div class="container-fluid" style= "background-color : red">
 
-        <nav class="nav">
-  <a class="nav-link active" aria-current="page" href="#">Active</a>
-  <a class="nav-link" href="#">Link</a>
-  <a class="nav-link" href="#">Link</a>
-  <a class="nav-link disabled">Disabled</a>
+<nav class="navbar navbar-dark bg-dark">
+    <ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled">Disabled</a>
+  </li>
+</ul>
 </nav>
 
-
-</div>
 <h1>Logement disponible pour réservation du <%= Date.parse(@arrive).try(:strftime, ("%e %B %Y")) %> jusqu'au <%= Date.parse(@depart).try(:strftime, ("%e %B %Y")) %></h1>
 
 <div class="contaianer">
@@ -30,7 +37,8 @@
 
                                     <div class="col">
                                         <div class="row">
-                                            <p class="card-text"><%= logement.price %></p>
+                                            <p class="card-text"><%= logement.price %>€/nuit</p>
+                                            <p class="card-text">Nombre de voyagaueurs: <%= logement.voyageur %></p>
                                             <a class="card-link"><%= link_to "voir", page_path(logement, depart: @depart, arrive: @arrive, voyageur: @voyageur) %></a>
                                         </div>
                                     </div>
