@@ -1,112 +1,43 @@
-
-
-<nav class="navbar navbar-dark bg-dark">
-    <ul class="nav justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled">Disabled</a>
-  </li>
-</ul>
-</nav>
-
 <h1>Logement disponible pour réservation du <%= Date.parse(@arrive).try(:strftime, ("%e %B %Y")) %> jusqu'au <%= Date.parse(@depart).try(:strftime, ("%e %B %Y")) %></h1>
 
 <div class="contaianer">
     <div class="row">
-        <div id="block1" class="ccol-6" style="border: 1px solid red">
-            <% @logements_disponible.each do |logement| %>
-                    <div class="card " style="width: 18rem;">
-                
-                            <div class="card-header">
-                                <%= logement.title %>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    
-                                    <div class="col">
-                                        <%= image_tag logement.images[0].url, class: "img-fluid" %>
-                                    </div>
-
-                                    <div class="col">
-                                        <div class="row">
-                                            <p class="card-text"><%= logement.price %>€/nuit</p>
-                                            <p class="card-text">Nombre de voyagaueurs: <%= logement.voyageur %></p>
-                                            <a class="card-link"><%= link_to "voir", page_path(logement, depart: @depart, arrive: @arrive, voyageur: @voyageur) %></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                    </div>
-                <% end %>
-        </div>
-                
-        <div id="block2" class="col-6" style="border: 1px solid red; height:520px">
-            <%= tag.div id: "map", data: { markers: @logements_disponible.to_json(methods: [:address]) }%> 
-        </div>
-        
-    </div>
-</div>
-
-
-<div class="container">
-  <div class="row">
-    <div class="col" style="background-colr: red">
-        <h1> Ma page bootstrap</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, soluta.</p>
-    </div>
-    <div class="bloc1">
-        <h1> Ma page bootstrap</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, soluta.</p>
-    </div>
-    <div class="block2">
-        <h1> Ma page bootstrap</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, soluta.</p>
-    </div>
-  </div>
-</div>
-
-<div class="contaianer">
-    <div class="row">
         <div id="block1" class="col-md-6" style="border: 1px solid red">
-            <div class="m-5">
-                <div class="card" style="width: 18rem;">
-            
-                        <div class="card-header">
-                            <h1> Ma page bootstrap</h1>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                
-                                <div class="col">
-                                    <%= image_tag "trouville_sur_mer.jpg", class: "img-fluid"%>
-                                </div>
+            <% @logements_disponible.each do |logement| %>
+                <div class="card " style="width: 18rem;">
 
-                                <div class="col">
-                                    <div class="row">
-                                        <p class="card-text">Lorem ipsum dolor sit.</p>
-                                        <a class="card-link"></a>
-                                    </div>
-                                </div>
+                    <div class="card-header">
+                        <%= logement.title %>
+                    </div>
 
-                            </div>
-                        </div>
-                </div>
-            </div>
+                    <div class="card-body">
+                        <div class="row">
                 
+                            <div class="col">
+                                <%= image_tag logement.images[0].url, class: "img-fluid" %>
+                            </div>
+
+                            <div class="col">
+                                <div class="row">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"><p class="card-text">Pour <%= logement.voyageur %> voyageur</p></li>
+                                        <li class="list-group-item"><p class="card-text"><%= logement.price %>€/nuit</p></li>
+                                    </ul>
+                                    <a class="card-link"><%= link_to "voir", page_path(logement, depart: @depart, arrive: @arrive, voyageur: @voyageur), class:"btn btn-primary stretched-link" %></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            <% end %>
         </div>
                 
-        <div id="block2" class="col-md-6 my-auto" style="border: 1px solid red; height:520px">
+        <div id="block2" class="col-md-6 my-auto" style="border: 1px solid red; height:510px">
             <%= tag.div id: "map", data: { markers: @logements_disponible.to_json(methods: [:address]) }%> 
         </div>
         
     </div>
 </div>
+
+<%# caraouseul de carte %>

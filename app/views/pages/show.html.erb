@@ -11,23 +11,19 @@
     <%= @logement.price %>
     <%= @logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %>
     <%= @logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %>
-    <% @logement.images.each do |photo| %>
-        <%= image_tag photo.url %>
-    <% end %>
+    <%# <% @logement.images.each do |photo| %>
+        <%# <%= image_tag photo.url %>
+   <%#  <% end %>
 
 
     
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <%= image_tag "téléchargement.jpeg", class:"d-block w-50" %>
-            </div>
-            <div class="carousel-item">
-                <%= image_tag "la_bresse.webp", class:"d-block w-50" %>
-            </div>
-            <div class="carousel-item">
-                <%= image_tag "granville.jpg", class:"d-block w-50" %>
-            </div>
+            <% @logement.images.each_with_index do |photo, index| %>
+                <div class="carousel-item <%= index == 0 ? 'active' : ' ' %>">
+                    <%= image_tag photo.url class:"d-block w-50"  %>
+                <end>
+            <% end %>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -38,13 +34,6 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
-
-
-            
-        
-
-
 
 <%= tag.div id: "map", data: { markers: @logement.to_json(methods: [:address])} %> 
 
