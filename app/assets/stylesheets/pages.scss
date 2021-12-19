@@ -41,6 +41,13 @@
     object-fit: $object-fit;
 }
 
+.carousel-item{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+
 /////*body*///
 body{
     // background-color: #F2F0EB;

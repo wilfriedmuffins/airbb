@@ -2,34 +2,37 @@
 
 <div class="contaianer">
     <div class="row">
-        <div id="block1" class="col-md-6" style="border: 1px solid red">
+        <div id="block1" class="col-md-6 " style="border: 1px solid red">
             <% @logements_disponible.each do |logement| %>
-                <div class="card " style="width: 18rem;">
-
-                    <div class="card-header">
-                        <%= logement.title %>
-                    </div>
-
-                    <div class="card-body">
-                        <div class="row">
                 
-                            <div class="col">
-                                <%= image_tag logement.images[0].url, class: "img-fluid" %>
-                            </div>
+                
+                    <div class="card" style="width: 18rem;">
 
-                            <div class="col">
-                                <div class="row">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><p class="card-text">Pour <%= logement.voyageur %> voyageur</p></li>
-                                        <li class="list-group-item"><p class="card-text"><%= logement.price %>€/nuit</p></li>
-                                    </ul>
-                                    <a class="card-link"><%= link_to "voir", page_path(logement, depart: @depart, arrive: @arrive, voyageur: @voyageur), class:"btn btn-primary stretched-link" %></a>
+                        <div class="card-header">
+                            <%= logement.title %>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="row">
+                    
+                                <div class="col">
+                                    <%= image_tag logement.images[0].url, class: "img-fluid" %>
+                                </div>
+
+                                <div class="col">
+                                    <div class="row">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item"><p class="card-text">Pour <%= logement.voyageur %> voyageur</p></li>
+                                            <li class="list-group-item"><p class="card-text"><%= logement.price %>€/nuit</p></li>
+                                        </ul>
+                                        <a class="card-link"><%= link_to "voir", page_path(logement, depart: @depart, arrive: @arrive, voyageur: @voyageur), class:"btn btn-primary stretched-link" %></a>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-                </div>
+              
+                
             <% end %>
         </div>
                 
