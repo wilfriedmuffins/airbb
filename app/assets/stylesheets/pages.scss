@@ -41,10 +41,14 @@
     object-fit: $object-fit;
 }
 
-.carousel-item{
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+// .carousel-item{
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     background-position: center center;
+// }
+
+.top{
+   
 }
 
 
@@ -65,392 +69,392 @@ body{
     background-size: cover;
 }
 
-//=>>>navbar
-.navbar{
-    @include flex(flex, space-between, center);
-    padding: 20px 80px;
-}
+// //=>>>navbar
+// navbar{
+//     @include flex(flex, space-between, center);
+//     padding: 20px 80px;
+// }
 
-.navbar-logo, .lang_and_region{
-    @include flex(flex, center , center);
-}
+// navbar-logo, .lang_and_region{
+//     @include flex(flex, center , center);
+// }
 
-.lang_and_region:hover{
-    @include flex(flex, center, center);
-    height: 40px;
-    background-color:LightGray;
-    border-radius: 20px;
-}
+// .lang_and_region:hover{
+//     @include flex(flex, center, center);
+//     height: 40px;
+//     background-color:LightGray;
+//     border-radius: 20px;
+// }
 
-.menu{
-    @include center(flex, center);
-    padding-inline-start: 100px;
-}
+// .menu{
+//     @include center(flex, center);
+//     padding-inline-start: 100px;
+// }
 
-.navbar-end{
-    display: flex;
-    align-items: center;
-}
+// .navbar-end{
+//     display: flex;
+//     align-items: center;
+// }
 
-.navbar-end-items{
-    padding: 0px 16px;
-    box-sizing: initial;
-}
+// .navbar-end-items{
+//     padding: 0px 16px;
+//     box-sizing: initial;
+// }
 
-.nav-item{
-    list-style: none;
-    padding: 0px 16px;
-}
+// .nav-item{
+//     list-style: none;
+//     padding: 0px 16px;
+// }
 
-.devenir_hote:hover{
-    @include flex(flex, center, center);
-    height:40px;
-    background-color:LightGray;
-    border-radius: 20px;
-}
+// .devenir_hote:hover{
+//     @include flex(flex, center, center);
+//     height:40px;
+//     background-color:LightGray;
+//     border-radius: 20px;
+// }
 
-.end{
-    @include flex(flex, center, center);
-    height:40px;
-    width: 60px;
-    background-color: white;
-    border-radius: 20px;
-}    
+// .end{
+//     @include flex(flex, center, center);
+//     height:40px;
+//     width: 60px;
+//     background-color: white;
+//     border-radius: 20px;
+// }    
 
-end:hover{
-    box-shadow: #484848;
-}
+// end:hover{
+//     box-shadow: #484848;
+// }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    z-index: 1;
-    height:250px;
-    width: 270px;
-    top: 48px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    border-radius: 20px;
-}
+// .dropdown-content {
+//     display: none;
+//     position: absolute;
+//     background-color: #ffffff;
+//     z-index: 1;
+//     height:250px;
+//     width: 270px;
+//     top: 48px;
+//     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+//     border-radius: 20px;
+// }
 
-.dropdown-container{
-    margin: 20px;
-}
+// .dropdown-container{
+//     margin: 20px;
+// }
 
-.dropdown-content-items{
-    padding: 5px 0px;
-}
+// .dropdown-content-items{
+//     padding: 5px 0px;
+// }
 
-.dropdown-content-items:hover{
-    background-color: #E3E2E2;
-}
+// .dropdown-content-items:hover{
+//     background-color: #E3E2E2;
+// }
 
 
-/* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
+// /* The Close Button */
+// .close {
+//     color: #aaa;
+//     float: right;
+//     font-size: 28px;
+//     font-weight: bold;
+// }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
+// .close:hover,
+// .close:focus {
+//     color: black;
+//     text-decoration: none;
+//     cursor: pointer;
+// }
 
-//=>>>search_bar
+// //=>>>search_bar
 
-.bar-menu{
-    @include center(flex, center);
-}
+// .bar-menu{
+//     @include center(flex, center);
+// }
 
-.bar-content{
-    @include flex(flex, row, center);
-    width: 750px;
-    height: 55px;
-    background: white;
-    border-radius: 35px;
-    padding: 10px;
-}
+// .bar-content{
+//     @include flex(flex, row, center);
+//     width: 750px;
+//     height: 55px;
+//     background: white;
+//     border-radius: 35px;
+//     padding: 10px;
+// }
 
-.border-1, .border-2, .border-3{
-    height: 32px;
-    border-left: 2px solid #e2e2e2;
-}
+// .border-1, .border-2, .border-3{
+//     height: 32px;
+//     border-left: 2px solid #e2e2e2;
+// }
 
-.item-bar-menu{
-    padding: 5px;
-    margin: 5px; 
-} 
+// .item-bar-menu{
+//     padding: 5px;
+//     margin: 5px; 
+// } 
 
-.item-bar-menu:hover{
-    border-radius: 25px;
-    background-color: #e2e2e2;
-}
+// .item-bar-menu:hover{
+//     border-radius: 25px;
+//     background-color: #e2e2e2;
+// }
 
-.input-bar{
-    width: 100px;
-    text-overflow: ellipsis;
-}
+// .input-bar{
+//     width: 100px;
+//     text-overflow: ellipsis;
+// }
 
-.search{
-    display: flex;
-    flex-direction: row;
+// .search{
+//     display: flex;
+//     flex-direction: row;
 
-    align-items: center;
+//     align-items: center;
     
-    //@include center(flex, center);
+//     //@include center(flex, center);
 
-    background-color: rgb(244, 92, 102);
-    padding: 10px;
-    border-radius: 25px;
+//     background-color: rgb(244, 92, 102);
+//     padding: 10px;
+//     border-radius: 25px;
     
-    .svg_search{
-        fill: white;
-    }
+//     .svg_search{
+//         fill: white;
+//     }
 
-    .recherche{
-        background-color: rgb(244, 92, 102);
-        border: none;
-        color: white;
-    }
-}
+//     .recherche{
+//         background-color: rgb(244, 92, 102);
+//         border: none;
+//         color: white;
+//     }
+// }
 
-.voyagez{
-    font-size: 50px;
-    font-weight: bold;
-    color: rgb(244, 92, 102);
-    position: absolute;
-    left: 80px;
-    top: 500px;
-}
+// .voyagez{
+//     font-size: 50px;
+//     font-weight: bold;
+//     color: rgb(244, 92, 102);
+//     position: absolute;
+//     left: 80px;
+//     top: 500px;
+// }
 
-.button-main{
-    position: absolute;
-    padding: 10px;
-    left: 80px;
-    top: 630px;
-    background-color: rgb(244, 92, 102);
-    color: white;
-    font-weight: bold;
-    font-size: 15px;
-    border-radius: 10px;
-    border-width: 0px;
-}
+// .button-main{
+//     position: absolute;
+//     padding: 10px;
+//     left: 80px;
+//     top: 630px;
+//     background-color: rgb(244, 92, 102);
+//     color: white;
+//     font-weight: bold;
+//     font-size: 15px;
+//     border-radius: 10px;
+//     border-width: 0px;
+// }
 
-//////////8 img
+// //////////8 img
 
-.flex-container1 {
-    display: flex;
-    justify-content: space-between;
+// .flex-container1 {
+//     display: flex;
+//     justify-content: space-between;
     
-    padding-left: 80px;
-    padding-right: 80px;
-    margin: 60px auto;
-}
+//     padding-left: 80px;
+//     padding-right: 80px;
+//     margin: 60px auto;
+// }
 
-.img-div{
-    width: 70px;
-    height: 70px;
-    margin-right: 16px ;
-}
+// .img-div{
+//     width: 70px;
+//     height: 70px;
+//     margin-right: 16px ;
+// }
 
-.img-flex{
-    @include img_fit(100%, auto, 5px, cover)
-} 
+// .img-flex{
+//     @include img_fit(100%, auto, 5px, cover)
+// } 
 
-p{
-    margin:0px;
-}
+// p{
+//     margin:0px;
+// }
 
-.h-route{
-    margin: 15px;
-    font-size: 18px;
-}
+// .h-route{
+//     margin: 15px;
+//     font-size: 18px;
+// }
 
-.city{
-    font-weight: bold;
-}
+// .city{
+//     font-weight: bold;
+// }
 
-.row1{
-    @include flex-direction(flex, column);
-    margin-bottom: 5px;
-}
+// .row1{
+//     @include flex-direction(flex, column);
+//     margin-bottom: 5px;
+// }
 
-.test-1{
-    @include flex-direction(flex, row);
-    margin-bottom: 5px;
-}
+// .test-1{
+//     @include flex-direction(flex, row);
+//     margin-bottom: 5px;
+// }
 
-.test-2{
-    @include flex-direction(flex, row);
-    margin-top: 5px;
-}
+// .test-2{
+//     @include flex-direction(flex, row);
+//     margin-top: 5px;
+// }
 
-///////////////*chez vous partout */////
-/* */
+// ///////////////*chez vous partout */////
+// /* */
 
-.flex-container2{
-    @include flex_direction(flex, column);
-    padding-left: 80px;
-    padding-right: 80px;
-}
+// .flex-container2{
+//     @include flex_direction(flex, column);
+//     padding-left: 80px;
+//     padding-right: 80px;
+// }
 
-.fc2, .fc3, .fc4{
-    @include center(flex, space-between);
-}
+// .fc2, .fc3, .fc4{
+//     @include center(flex, space-between);
+// }
 
-.cvp{
-    @include flex_direction(flex, column);
-}
+// .cvp{
+//     @include flex_direction(flex, column);
+// }
 
-.cv{
-    height: 280px;
-    width : 280px;
-    margin-bottom: 15px;
-}
+// .cv{
+//     height: 280px;
+//     width : 280px;
+//     margin-bottom: 15px;
+// }
 
-.img-cvp{
-    @include img_fit(100%, auto, 5px, cover);
-}
+// .img-cvp{
+//     @include img_fit(100%, auto, 5px, cover);
+// }
 
-///////* Dcourvre le monde *//////
-.fc3-bckgrd{
-    height: 700px;
-    width: auto;
-    background-color: black;
-}
+// ///////* Dcourvre le monde *//////
+// .fc3-bckgrd{
+//     height: 700px;
+//     width: auto;
+//     background-color: black;
+// }
 
-.flex-container3{
-    @include flex_direction(flex, column);
+// .flex-container3{
+//     @include flex_direction(flex, column);
 
-    padding-left: 80px;
-    padding-right: 80px;
-    margin-top: 25px;
-    // margin-bottom: 25px;
-}
+//     padding-left: 80px;
+//     padding-right: 80px;
+//     margin-top: 25px;
+//     // margin-bottom: 25px;
+// }
 
-.text-fc3{
-    float: right;
-    color: white;
-}
+// .text-fc3{
+//     float: right;
+//     color: white;
+// }
 
-.dlm{
-    @include flex_direction(flex, column);
-}
+// .dlm{
+//     @include flex_direction(flex, column);
+// }
 
-.dm{
-    height: 400px;
-    width: 400px;
-}
+// .dm{
+//     height: 400px;
+//     width: 400px;
+// }
 
-.img-dlm{
-    @include img_fit(100%, auto, 5px, cover);
-}
+// .img-dlm{
+//     @include img_fit(100%, auto, 5px, cover);
+// }
 
-///////*Rejoignez des millions d'hôtes sur Airbnb *//////
+// ///////*Rejoignez des millions d'hôtes sur Airbnb *//////
 
-.flex-container4{
-    padding-left: 80px;
-    padding-right: 80px;
-    margin-top: 25px;
-    // margin-bottom: 25px;
-}
+// .flex-container4{
+//     padding-left: 80px;
+//     padding-right: 80px;
+//     margin-top: 25px;
+//     // margin-bottom: 25px;
+// }
 
-.text-fc4{
-    color: rgb(7, 7, 7);
-    margin-top: 5px;
-}
+// .text-fc4{
+//     color: rgb(7, 7, 7);
+//     margin-top: 5px;
+// }
 
-.rz{
-    height: 300px;
-    width: 380px;
-}
+// .rz{
+//     height: 300px;
+//     width: 380px;
+// }
 
-.img-rz{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-}
+// .img-rz{
+//     height: 100%;
+//     width: 100%;
+//     object-fit: cover;
+//     border-radius: 5px;
+// }
 
-/*FOOTER*/
+// /*FOOTER*/
 
-.footer{
-    padding-left: 80px;
-    padding-right: 80px;
-    margin-top: 50px;
-}
+// .footer{
+//     padding-left: 80px;
+//     padding-right: 80px;
+//     margin-top: 50px;
+// }
 
-.f1{
-    display: flex;
-}
+// .f1{
+//     display: flex;
+// }
 
-.ul-f1{
-    padding: 0px;
-    font-size: 14px;
-}
+// .ul-f1{
+//     padding: 0px;
+//     font-size: 14px;
+// }
 
-.ul-f2-left{
-    padding: 0px;
-    border-top: 1px solid black;
-    font-size: 14px;
-}
+// .ul-f2-left{
+//     padding: 0px;
+//     border-top: 1px solid black;
+//     font-size: 14px;
+// }
 
-.ul-f2-right{
-    float: right;
-    display: flex;
-    margin: 0px;
-    padding: 9px 0px 9px;
-}
+// .ul-f2-right{
+//     float: right;
+//     display: flex;
+//     margin: 0px;
+//     padding: 9px 0px 9px;
+// }
 
-.f2-item-left{
-    float: left;
-    list-style: none;
-    padding: 24px 0px;
-    margin-right: 10px;
-}
-.lang{
-    margin-right: 24px;
-}
+// .f2-item-left{
+//     float: left;
+//     list-style: none;
+//     padding: 24px 0px;
+//     margin-right: 10px;
+// }
+// .lang{
+//     margin-right: 24px;
+// }
 
-.social{
-    margin-right: 24px;
-}
+// .social{
+//     margin-right: 24px;
+// }
 
-.f2-item-right{
-    padding: 0px 0px;
-}
+// .f2-item-right{
+//     padding: 0px 0px;
+// }
 
-.col{
-    margin-right: auto;
-}
+// .col{
+//     margin-right: auto;
+// }
 
-.col-item{
-    list-style: none;
-    margin-top: 16px;
-}
+// .col-item{
+//     list-style: none;
+//     margin-top: 16px;
+// }
 
-.first-col {
-    text-transform: uppercase;
-}
+// .first-col {
+//     text-transform: uppercase;
+// }
 
-a{
-    color: #484848;
-    text-decoration: none;
-}
+// a{
+//     color: #484848;
+//     text-decoration: none;
+// }
 
-a:hover{
-    text-decoration: underline;
-}
+// a:hover{
+//     text-decoration: underline;
+// }
 
-////end
-li{
-    list-style: none;
-}
+// ////end
+// li{
+//     list-style: none;
+// }
 
 
 #map {

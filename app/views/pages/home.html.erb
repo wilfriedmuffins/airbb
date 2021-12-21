@@ -1,24 +1,43 @@
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <%= video_tag "tropical.mp4", :size => "3840 x 2160", class:"d-block w-100",autoplay: :autoplay, loop: :loop, muted: :muted %>
-        </div>
-
-        <div class="carousel-item">
-            <%= video_tag "video.mp4", :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
-        </div>
-
-        <div class="carousel-item">
-            <%= video_tag "production ID_3783242.mp4", :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
-        </div>
-
-        <div class="carousel-item">
-            <%= video_tag "pexels-tima-miroshnichenko-5992585.mp4", :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
-        </div>
-
-        <div class="carousel-item">
-            <%= video_tag "Pexels Videos 2252797.mp4", :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
-        </div>
-    </div>
+<div class="d-flex justify-content-around top ">
+  <a class="nav-link" href="#">Features</a>
+  <a class="nav-link" href="#">Features</a>
+  <a class="nav-link" href="#">Features</a>
 </div>
 
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <%= video_tag "tropical.mp4", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
+        </div>
+
+        <div class="carousel-item">
+        </div>
+
+        <div class="carousel-item">
+            <%= video_tag "production ID_3783242.mp4", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
+        </div>
+
+        <div class="carousel-item">
+            <%= video_tag "pexels-tima-miroshnichenko-5992585.mp4", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
+        </div>
+
+        <div class="carousel-item">
+            <%= video_tag "Pexels Videos 2252797.mp4", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
+        </div>
+    </div>
+
+</div>
+
+
+
+<%= form_tag (logements_path, method: :get) do |form| %>
+
+<%= form.label :city %><br>
+<%= form.text_area :city %>
+
+<%= form.label :start_date_of_availability %><br>
+<%= form.date_field :start_date_of_availability %>
+
+<% end %>
