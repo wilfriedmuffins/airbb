@@ -1,43 +1,87 @@
-<div class="d-flex justify-content-around top ">
-  <a class="nav-link" href="#">Features</a>
-  <a class="nav-link" href="#">Features</a>
-  <a class="nav-link" href="#">Features</a>
-</div>
 
 
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+<nav class="navbar navbar-light bg-light">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">AIRBIBI</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
 
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <%= video_tag "tropical.mp4", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
-        </div>
+  <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Menu
+          </a>
 
-        <div class="carousel-item">
-        </div>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Profil</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Liste des logements</a></li>
+            <li><a class="dropdown-item" href="#">Liste des bookings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">sign out</a></li>
+          </ul>
+        </li>
+</nav>
 
-        <div class="carousel-item">
-            <%= video_tag "production ID_3783242.mp4", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
-        </div>
 
-        <div class="carousel-item">
-            <%= video_tag "pexels-tima-miroshnichenko-5992585.mp4", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
-        </div>
 
-        <div class="carousel-item">
-            <%= video_tag "Pexels Videos 2252797.mp4", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
-        </div>
+<div class="carousel slide carousel-fade" id="carouselExampleFade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="5900">
+      <%= video_tag "production ID_3783242.mp4", :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
+      <div class=" carousel-caption">
+        <h1>Envie d'évasion?</h1>
+      </div>
+    </div>
+    
+    <div class="carousel-item" data-bs-interval="5010" >
+      <%= video_tag "video.mp4", :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
+      <div class=" carousel-caption">
+        <h1>Dans une destination de rêve?</h1>
+      </div>    
     </div>
 
+    <div class="carousel-item" data-bs-interval="5010">
+      <%= video_tag "tropical.mp4", :size => "3840 x 2160", class:"d-block w-100 cover",autoplay: :autoplay, loop: :loop, muted: :muted %>
+      <div class=" carousel-caption d-none d-md-block">
+        <h1>Dans une destination de rêve?</h1>
+      </div>
+    </div>
+
+    <div class="carousel-item" data-bs-interval="6010">
+      <%= video_tag "Pexels Videos 2252797.mp4", :size => "3840 x 2160", class:"d-block w-100 ", autoplay: :autoplay, loop: :loop, muted: :muted %>
+      <div class=" carousel-caption">
+        <h1>Aors envole toi</h1>
+        <a href="#search" class="btn btn-primary">Par ici</a>
+      </div>
+    </div>
 </div>
 
 
 
-<%= form_tag (logements_path, method: :get) do |form| %>
 
-<%= form.label :city %><br>
-<%= form.text_area :city %>
 
-<%= form.label :start_date_of_availability %><br>
-<%= form.date_field :start_date_of_availability %>
 
-<% end %>
+
+
+
+<div id="search">
+    <%= form_with url: '/search', method: :get, local: true do |form| %>
+      <%= form.text_field :city, placeholder:"City" %>
+
+      <%= form.label :arrive %>
+      <%= form.date_field :arrive, placeholder:"Arrivée" %>
+
+      <%= form.label :depart %>
+      <%= form.date_field :depart, placeholder:"Départ" %>
+
+      <%= form.label :voyageur %>
+      <%= form.number_field :voyageur, placeholder:"Voyageur", in: 1..10, step: 1 %>
+
+      <%= form.submit "Recherche" %>
+  <% end %>
+</div>
+
+
+

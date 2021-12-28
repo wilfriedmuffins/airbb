@@ -60,12 +60,32 @@
                 <%= form.text_area :body %>
             </p>
 
-            <p>
+            <p>c id="carouselExampleControls" class="carousel slide"gh
                 <%= form.submit %>
             </p>
         <% end %>
 <% end %> 
 
 
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active block-header">
+      <%= video_tag "Pexels Videos 2252797.mp4", :size => "3840 x 2160", class:"d-block w-100 ", autoplay: :autoplay, loop: :loop, muted: :muted %>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, temporibus?
+      </div>
+    </div>
+    
+    <div class="carousel-item block-header">
+      <%= video_tag "video.mp4", :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
+    </div>
 
+    <div class="carousel-item block-header">
+      <%= video_tag "production ID_3783242.mp4", :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
+    </div>
+
+    <div class="carousel-item block-header ">
+      <%= video_tag "tropical.mp4", :size => "3840 x 2160", class:"d-block w-100 cover",autoplay: :autoplay, loop: :loop, muted: :muted %>
+    </div>
+</div>
 

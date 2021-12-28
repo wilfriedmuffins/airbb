@@ -1,10 +1,8 @@
-<h1>Logement disponible pour réservation du <%= Date.parse(@arrive).try(:strftime, ("%e %B %Y")) %> jusqu'au <%= Date.parse(@depart).try(:strftime, ("%e %B %Y")) %></h1>
 
 <div class="contaianer">
     <div class="row">
         <div id="block1" class="col-md-6 " style="border: 1px solid red">
             <% @logements_disponible.each do |logement| %>
-                
                 
                     <div class="card" style="width: 18rem;">
 

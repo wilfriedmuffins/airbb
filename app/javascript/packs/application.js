@@ -29,6 +29,7 @@ document.addEventListener("turbolinks:load", () => {
 })
 
 import "controllers"
+import { Carousel } from 'bootstrap'
 
 window.initMap = function(...args) {
     const event = document.createEvent("Events")
@@ -36,6 +37,8 @@ window.initMap = function(...args) {
     event.args = args
     window.dispatchEvent(event)
 }
+
+
 
 
 // // Get the modal
