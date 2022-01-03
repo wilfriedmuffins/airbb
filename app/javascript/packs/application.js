@@ -12,16 +12,15 @@ require("channels")
 require("./maps")
 
 import 'bootstrap'; 
-import "packs/maps"
+                            import "packs/maps"
 import 'packs/gmaps';
 import GMaps from 'packs/gmaps';
 window.GMaps = GMaps;
 
 
-
 document.addEventListener("turbolinks:load", () => {
     $(".dropbtn").on("click", function () {
-        $(".dropdown-content").show();
+                                  $(".dropdown-content").show();
     }),
     $(".close").on("click", function () {
         $(".dropdown-content").hide();
@@ -34,7 +33,7 @@ import { Carousel } from 'bootstrap'
 window.initMap = function(...args) {
     const event = document.createEvent("Events")
     event.initEvent("google-maps-callback", true, true)
-    event.args = args
+                event.args = args
     window.dispatchEvent(event)
 }
 

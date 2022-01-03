@@ -6,8 +6,7 @@
             <th>Title </th>
             <th>Adresse</th>
             <th>City</th>
-            <th>lat</th>
-            <th>lng</th>
+            <th>Zipcode</th>
             <th>voyageurs</th>
             <th>Prix</th>
             <th>Date de début de disponibilité</th>
@@ -20,8 +19,7 @@
             <td><%= @logement.title %></td>
             <td><%= @logement.adresse %></td>
             <td><%= @logement.city %></td>
-            <td><%= @logement.latitude %></td> 
-            <td><%= @logement.longitude %></td> 
+            <td><%= @logement.zipcode %></td>
             <td><%= @logement.voyageur %></td>
             <td><%= @logement.price%></td>
             <td><%= @logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
@@ -65,27 +63,4 @@
             </p>
         <% end %>
 <% end %> 
-
-
-<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active block-header">
-      <%= video_tag "Pexels Videos 2252797.mp4", :size => "3840 x 2160", class:"d-block w-100 ", autoplay: :autoplay, loop: :loop, muted: :muted %>
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, temporibus?
-      </div>
-    </div>
-    
-    <div class="carousel-item block-header">
-      <%= video_tag "video.mp4", :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
-    </div>
-
-    <div class="carousel-item block-header">
-      <%= video_tag "production ID_3783242.mp4", :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
-    </div>
-
-    <div class="carousel-item block-header ">
-      <%= video_tag "tropical.mp4", :size => "3840 x 2160", class:"d-block w-100 cover",autoplay: :autoplay, loop: :loop, muted: :muted %>
-    </div>
-</div>
 

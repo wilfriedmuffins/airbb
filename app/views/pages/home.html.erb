@@ -25,14 +25,13 @@
                                             
                                             <li><%= link_to "Liste des logements", logements_path, class:"dropdown-item" %></li>
                                             <li><%= link_to "Liste des bookings", bookings_path, class:"dropdown-item" %></li>
-                                            <li><hr class="dropdown-divider"></li>
+                                          <li><hr class="dropdown-divider"></li>
                                             
                                           <% end %>
 
                                           <li><%= link_to "Sign Out", destroy_user_session_path, class:"dropdown-item", method: :delete %></li>
 
                                           <% else %>
-
                                             <li class="nav-item" > <%= link_to "Sign Up", new_user_registration_path, class:"nav-link active" %> </li> 
 
                 <li class="nav-item" > <%= link_to "Sign In", new_user_session_path, class:"nav-link active" %>  </li>
@@ -89,14 +88,9 @@
 
 
 
+    <%= form_with url: "/search", method: :get, local: true do |form| %>
 
-
-
-
-
-
-<div id="search">
-    <%= form_with url: '/search', method: :get, local: true do |form| %>
+      <%= form.label :city %>
       <%= form.text_field :city, placeholder:"City" %>
 
       <%= form.label :arrive %>
@@ -109,5 +103,6 @@
       <%= form.number_field :voyageur, placeholder:"Voyageur", in: 1..10, step: 1 %>
 
       <%= form.submit "Recherche" %>
+
   <% end %>
-</div>
+
