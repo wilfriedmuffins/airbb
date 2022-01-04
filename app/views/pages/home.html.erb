@@ -85,24 +85,18 @@
     </div>
 </div>
 
+<%= form_with url: "/search", method: :get, local: true do |form|%>
+    <%= form.label :city, "Ville" %><br>
+    <%= form.text_field :city, placeholder:"Où allez-vous?" %><br>
 
+    <%= form.label :arrive, "Arrivée" %><br>
+    <%= form.date_field :arrive, placeholder:"Ajoutes des dates" %><br>
 
+    <%= form.label :depart, "Départ" %><br>
+    <%= form.date_field :depart, placeholder:"Ajoutes des voyageurs" %><br>
 
-    <%= form_with url: "/search", method: :get, local: true do |form| %>
+    <%= form.label :voyageur, "Voyageurs" %><br>
+    <%= form.number_field :voyageur, placeholder:"Ajoutes des voyageurs" %><br> 
 
-      <%= form.label :city %>
-      <%= form.text_field :city, placeholder:"City" %>
-
-      <%= form.label :arrive %>
-      <%= form.date_field :arrive, placeholder:"Arrivée" %>
-
-      <%= form.label :depart %>
-      <%= form.date_field :depart, placeholder:"Départ" %>
-
-      <%= form.label :voyageur %>
-      <%= form.number_field :voyageur, placeholder:"Voyageur", in: 1..10, step: 1 %>
-
-      <%= form.submit "Recherche" %>
-
-  <% end %>
-
+    <%= form.submit "Recherche"%>
+<% end %>
