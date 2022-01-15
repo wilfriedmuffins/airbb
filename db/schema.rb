@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 2021_12_02_065015) do
     t.float "longitude"
     t.bigint "user_id"
     t.string "images"
-    t.integer "bookings_count"
-    t.integer "comments_count"
+    t.integer "bookings_count", default: 0
+    t.integer "comments_count", default: 0
     t.integer "price"
     t.index ["user_id"], name: "index_logements_on_user_id"
   end

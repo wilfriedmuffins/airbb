@@ -17,6 +17,10 @@ class BookingsController < ApplicationController
         @booking.logement = Logement.find(params[:logement_id])
         @booking.user = current_user
         @logement = Logement.find(params[:logement_id])
+        jour = (@booking.end_booking-@booking.start_booking).to_i
+
+        @booking.t_price = jour*@logement.price
+
         if @booking.save
             flash[:notice] = "booking save"
             redirect_to booking_path(@booking) 

@@ -4,6 +4,7 @@ class Logement < ApplicationRecord
     geocoded_by :address
 
     before_save {self.city.downcase!}
+    #before_save :init_bookings_count
     after_validation :geocode, if: :address_changed?
 
     def address
@@ -24,4 +25,11 @@ class Logement < ApplicationRecord
     validates :voyageur, presence: true
     validates :city, presence: true
     validates :zipcode, presence: true
+
+    # private
+
+    # def init_bookings_count
+    #     Logement.reset_counters(logement.id, :bookings_count)
+    #     Logement.reset_counters(logement.id, :comments_count)
+    # end
 end

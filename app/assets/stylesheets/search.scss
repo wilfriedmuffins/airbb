@@ -1,6 +1,8 @@
 #map{
-    height: 500px;
-    max-width: auto;
+    //position: relative;
+    //height: 500px;
+    padding: 0px;
+    //max-width: auto;
 }
 
 #carouselExampleSlidesOnly{
@@ -9,4 +11,10 @@
 
 .nav{
     opacity: 0%;
+}
+
+.card{
+    // max-width: 00px;
+    // max-height: 300px;
+    // padding: 0px;
 }
