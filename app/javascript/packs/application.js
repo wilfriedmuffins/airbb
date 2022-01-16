@@ -5,40 +5,36 @@
 
 //= require jquery3
 
-require("@rails/ujs").start()
-require("turbolinks").start()
-require("@rails/activestorage").start()
-require("channels")
-require("./maps")
+require("@rails/ujs").start();
+require("turbolinks").start();
+require("@rails/activestorage").start();
+require("channels");
+require("./maps");
 
-import 'bootstrap'; 
-                            import "packs/maps"
-import 'packs/gmaps';
-import GMaps from 'packs/gmaps';
+import "bootstrap";
+import "packs/maps";
+import "packs/gmaps";
+import GMaps from "packs/gmaps";
 window.GMaps = GMaps;
 
-
 document.addEventListener("turbolinks:load", () => {
-    $(".dropbtn").on("click", function () {
-                                  $(".dropdown-content").show();
-    }),
+  $(".dropbtn").on("click", function () {
+    $(".dropdown-content").show();
+  }),
     $(".close").on("click", function () {
-        $(".dropdown-content").hide();
+      $(".dropdown-content").hide();
     });
-})
+});
 
-import "controllers"
-import { Carousel } from 'bootstrap'
+import "controllers";
+import { Carousel } from "bootstrap";
 
-window.initMap = function(...args) {
-    const event = document.createEvent("Events")
-    event.initEvent("google-maps-callback", true, true)
-                event.args = args
-    window.dispatchEvent(event)
-}
-
-
-
+window.initMap = function (...args) {
+  const event = document.createEvent("Events");
+  event.initEvent("google-maps-callback", true, true);
+  event.args = args;
+  window.dispatchEvent(event);
+};
 
 // // Get the modal
 // var modal = document.getElementById("myModal");
@@ -66,11 +62,8 @@ window.initMap = function(...args) {
 //   }
 // }
 
-
-
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

@@ -1,26 +1,38 @@
+<div class="row g-0">
 
-<div class="contaianer">
-    <div class="row row-cols-2">
-        <div id="block1" class="row row-cols-2 m-1" style="border: 1px solid red">
-            <% @logements_disponible.each do |logement| %>
+    <div class="row">
 
-               <div class="card m-2" style="width: 20rem; ">
-                    <%= image_tag logement.images[0].url, class: "card-img-top", style:"width: 18rem; height: 14rem;" %>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a class="card-link"><%= link_to "voir", page_path(logement, depart: @depart, arrive: @arrive, voyageur: @voyageur), class:"btn btn-primary stretched-link" %></a>
+        <div class="col-6" style="">
+            <div class="row row-cols-1 row-cols-md-2">
+                
+                <% @logements_disponible.each do |logement| %>
+
+                    <div class="card m-2" style="width: 20rem; ">
+                        <%= image_tag logement.images[0].url, class: "card-img-top", style:"width: 18rem; height: 14rem;" %>
+                        <div class="card-body">
+                            <h5 class="card-title"><%= logement.title%></h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="row row-cols-2">
+                                <a class="card-link"><%= link_to "voir", page_path(logement, depart: @depart, arrive: @arrive, voyageur: @voyageur), class:"btn btn-primary stretched-link" %></a>
+                                <p class="card-text"><%= logement.price%></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-            <% end %>
-        </div>
-                
-        <div id="block2" class="row row-cols-2" style="border: 1px solid red; height:400px">
-            <%= tag.div id: "map", data: { markers: @logements_disponible.to_json(methods: [:address]) }%> 
+        
+                <% end %>
+
+            </div>
+        </div>  
+
+        <div class="col-6 ">
+            <div class="sticky-top div-map">
+                <%= tag.div id: "map", class: "", data: { markers: @logements_disponible.to_json(methods: [:address]) }%> 
+            </div>
         </div>
 
     </div>
+
 </div>
 
 <%# caraouseul de carte %>
+
