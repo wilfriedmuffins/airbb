@@ -32,7 +32,7 @@ document.addEventListener("turbolinks:load", function(){
             lng: element.longitude,
             title: element.address,
             infoWindow: {
-                content: `<p><a href="/transactions/${element.id}">${element.address}</a></p>`
+                content: `<p><a href="/transactions/${element.id}">${element.price}€</a></p>`
             }
             });
         });

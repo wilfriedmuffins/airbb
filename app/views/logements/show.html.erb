@@ -24,8 +24,8 @@
             <td><%= @logement.price%></td>
             <td><%= @logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
             <td><%= @logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
-            <td><% @logement.images.each do |photo| %>
-                    <%= image_tag photo.url %>
+            <% @logement.images.each do |photo| %>
+                    <td><%= image_tag photo.url %>
             <% end %></td>
             <td><%= link_to "Edit", edit_logement_path(@logement) %></td>
         </tr>
