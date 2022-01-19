@@ -20,7 +20,8 @@ class PagesController < ApplicationController
         @logement.bookings.each do |id|
             @user_id.push(id.user_id)
         end
-
+        
+        @index = [0]
         #puts @user_id.inspect
         @user_id.uniq!
         #puts @user_id.inspect
