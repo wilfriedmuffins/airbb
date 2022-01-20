@@ -1,0 +1,31 @@
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+    <div class="carousel-inner">
+
+        <% 1.times do |i|%>
+            <% @logement.images.each_slice(3) do |row| %>
+                <div class="carousel-item <%= i == 0 ? 'active' : ' ' %>" >
+                    <% i=1 %>
+                    <div class="d-flex justify-content-center">
+                            <% row.each do |image| %>
+                                <div class="col">
+                                    <%= image_tag image.url, class:"d-block w-100" %>
+                                </div>
+                            <% end %>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+
+</div> 

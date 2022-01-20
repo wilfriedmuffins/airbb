@@ -38,8 +38,6 @@ window.initMap = function (...args) {
 
 
 
-
-
 // // Get the modal
 // var modal = document.getElementById("myModal");
 

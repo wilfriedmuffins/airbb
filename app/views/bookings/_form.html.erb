@@ -8,11 +8,15 @@
         <%= hidden_field_tag :logement_id, value= @logement.id%>
 
             <div class="form-label">
+                <%= form.label @logement.price.to_s+'€/nuit' %>
+            </div>
+
+            <div class="form-label">
                 <%= form.label :start_booking %>
             </div>
-            
+
             <div class="mb-3">
-                <%= form.date_field :start_booking, value: @arrive %>
+                <%= form.date_field :start_booking, value: @arrive, class: "form-control" %>
             </div>
 
             <div class="form-label">
@@ -20,25 +24,21 @@
             </div>
 
             <div class="mb-3">
-                <%= form.date_field :end_booking, value: @depart %>
-            </div>
-            
-            <div class="form-label">
-                <%= form.label 'Prix: '+@logement.price.to_s+'€/nuit' %>
+                <%= form.date_field :end_booking, value: @depart, class: "form-control" %>
             </div>
 
             <div class="mb-3">
-                <%= form.label 'Prix Total: '+@total+'€' %>
+                <%= form.label 'Prix Total: '+@total+'€', class: "form-control" %>
             </div>
 
-            <%= form.hidden_field :t_price, value: @total.to_i%>
+            <%= form.hidden_field :t_price, value: @total.to_i, class: "form-control"%>
 
             <div class="form-label">
                 <%= form.label :voyageur %>
             </div>
 
             <div class="mb-3">
-                <%= form.number_field :voyageur , in: 1...20, step: 1, value: @voyageur %>
+                <%= form.number_field :voyageur , in: 1...20, step: 1, value: @voyageur, class: "form-control" %>
             </div>
         
             <%= form.submit "Reserver" %>

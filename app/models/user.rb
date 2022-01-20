@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :logements, dependent: :destroy
 
+
   # validate :admin
 
   # def admin

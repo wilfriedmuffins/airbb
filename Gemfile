@@ -36,6 +36,7 @@ gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 gem 'image_processing', '~> 1.12', '>= 1.12.1'
 gem 'image_magick', '~> 0.1.9'
 
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
 

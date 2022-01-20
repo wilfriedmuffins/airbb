@@ -64,10 +64,16 @@
                 <%= form.file_field :images, multiple: true, class: "form-control"%>
             </div>
         </div>
+
+        <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label"><%= form.label :description %></label>
+            <div class="col-sm-3">
+                <%= form.text_area :description, class: "form-control"%>
+            </div>
+        </div>
         
         <button type="button" class="btn" ><%= form.submit "Ajouter logement", class:"btn btn-primary" %></button>
         
     <% end %>
 
 </div>
-
