@@ -27,6 +27,13 @@
             <td><%= @logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
             <td><%= @logement.description%></td>
 
+            <% @logement.equipments.each do |key| %>
+            
+                <td><%= key %></td>
+                <td><%= render "svg/#{key}" %></td>
+                
+            <% end %>
+
             <td><%= link_to "Edit", edit_logement_path(@logement) %></td>
         </tr>
     </tbody>
