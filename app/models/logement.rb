@@ -1,7 +1,6 @@
 class Logement < ApplicationRecord
     mount_uploaders :images, ImageUploader
     serialize :images
-    serialize :equipments
 
     geocoded_by :address
 
@@ -28,6 +27,8 @@ class Logement < ApplicationRecord
     validates :city, presence: true
     validates :zipcode, presence: true
 
+
+    ICONS = %i[cuisine couverts refrigirateur lave_linge fer seche_cheveux wifi work tv animaux]
     # private
 
     # def init_bookings_count

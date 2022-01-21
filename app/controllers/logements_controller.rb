@@ -61,4 +61,6 @@ class LogementsController < ApplicationController
     def set_logement
         @logement = Logement.find(params[:id])
     end
+
+    
 end
