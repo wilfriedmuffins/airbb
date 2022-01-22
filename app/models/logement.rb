@@ -28,7 +28,7 @@ class Logement < ApplicationRecord
     validates :zipcode, presence: true
 
 
-    ICONS = %i[cuisine couverts refrigirateur lave_linge fer seche_cheveux wifi work tv animaux]
+    ICONS = %i[cuisine couverts refrigirateur mini_refrigirateur four micro_onde lave_vaisselle congelateur lave_linge seche_linge baignoire savon_pour_le_corps shampooing fer seche_cheveux armoire cintre draps oreillers_couettes wifi work tv animaux clim fumeur]
     # private
 
     # def init_bookings_count
