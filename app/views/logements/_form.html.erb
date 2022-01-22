@@ -73,17 +73,17 @@
         </div>
 
         <div class="row mb-3"> 
-            <label for="inputEmail3" class="col-sm-2 col-form-label"><%= form.label :equipment %></label>
+            <label for="inputEmail3" class="col-sm-2 col-form-label"><%= form.label :equipments %></label>
             
-            
-                <% Logement::ICONS.each_slice (13)do |key| %>
+                <% Logement::ICONS.each_slice (13) do |key| %>
                     <div class="col-3">
                         <div class="d-flex flex-column ">
                             <% key.each do |icons| %>
+
                                 <div class="d-flex flex-row ">
 
                                     <div class="m-2 align-self-center">
-                                        <%= form.check_box :equipments, {multiple: true}, key, nil %>
+                                        <%= form.check_box :equipments, { multiple: true, checked: form.object.equipments&.include?(icons.to_s) }, icons, nil %>
                                     </div>
 
                                     <div class="m-2 align-self-center">
@@ -93,12 +93,13 @@
                                     <div class="m-2 align-self-center"> 
                                         <label for="inputEmail3" class="col-form-label"><%= form.label icons %></label>
                                     </div>
+
                                 </div>  
+                            
                             <% end %>
                         </div>
-                     </div>
+                    </div>
                 <% end %> 
-           
         </div>
 
         <button type="button" class="btn" ><%= form.submit "Ajouter logement", class:"btn btn-primary" %></button>

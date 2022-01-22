@@ -13,7 +13,8 @@
             <th>Prix</th>
             <th>Date de début de disponibilité</th>
             <th>Date de fin de disponibilité</th>
-            <th>Photos</th>
+            <th>description</th>
+            <th>equipment</th>
         </tr>
     </thead>
     <tbody>
@@ -25,12 +26,13 @@
             <td><%= @logement.voyageur %></td>
             <td><%= @logement.price%></td>
             <td><%= @logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
-            <td><%= @logement.description%></td>
+            <td><%= @logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
+            <td><%= @logement.description %></td>
 
             <% @logement.equipments.each do |key| %>
-            
+
+                <td><%= render "svg/#{key}" %></td>            
                 <td><%= key %></td>
-                <td><%= render "svg/#{key}" %></td>
                 
             <% end %>
 
@@ -38,6 +40,19 @@
         </tr>
     </tbody>
 </table> 
+
+
+
+<% @logement.bookings.each do |booking| %>
+            
+    <%= booking.start_booking %>
+    <%= booking.end_booking %>
+    <%= booking.total %>
+
+<% end %>
+
+
+
 
 
 <% if !@logement.comments.empty? %>
@@ -54,6 +69,7 @@
         </p>
     <% end %>
 <% end %> 
+
 
 
 <% if @test %>
