@@ -30,9 +30,4 @@ class Booking < ApplicationRecord
     end
   end
 
-  def check_t_price
-    
-    
-  end
-
 end

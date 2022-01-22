@@ -1,58 +1,81 @@
 <%=  render "shared/carousel"%>
 
-<h1 class="container-fluid">Logement <%= @logement.title %></h1>
+<div class="row m-5">
+    <div class="col-7">
+        <h2 class="container"><%= link_to "Edit", edit_logement_path(@logement), class:"link-primary" %></h2>
 
-<table>
-    <thead>
-        <tr>
-            <th>Title </th>
-            <th>Adresse</th>
-            <th>City</th>
-            <th>Zipcode</th>
-            <th>voyageurs</th>
-            <th>Prix</th>
-            <th>Date de début de disponibilité</th>
-            <th>Date de fin de disponibilité</th>
-            <th>description</th>
-            <th>equipment</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><%= @logement.title %></td>
-            <td><%= @logement.adresse %></td>
-            <td><%= @logement.city %></td>
-            <td><%= @logement.zipcode %></td>
-            <td><%= @logement.voyageur %></td>
-            <td><%= @logement.price%></td>
-            <td><%= @logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
-            <td><%= @logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
-            <td><%= @logement.description %></td>
+        <div class="d-flex flex-column m-4">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1 class="display-4"><%= @logement.title %></h1>
+
+                <div class="d-flex flex-row">
+                    <%= render "svg/pointer" %> 
+                    <%= @logement.city.capitalize %> 
+                 </div>
+            </div>
+
+            <div class="dropdown-divider "></div>
+
+            <%= @logement.description %>
+
+            <div class="dropdown-divider "></div>
 
             <% @logement.equipments.each do |key| %>
-
-                <td><%= render "svg/#{key}" %></td>            
-                <td><%= key %></td>
-                
+                <div class="d-flex flex-row ">
+                    <div class="m-2 align-self-center">
+                        <%= render "svg/#{key}" %> 
+                    </div>
+                    <div class="m-2 align-self-center">
+                        <%= key %>  
+                    </div>
+                </div>  
             <% end %>
 
-            <td><%= link_to "Edit", edit_logement_path(@logement) %></td>
-        </tr>
-    </tbody>
-</table> 
+            <div class="dropdown-divider "></div>
+        </div>
+    </div>
 
+    <div class="col-5 ">
+        <div class="sticky-top shadow-lg p-1 bg-body rounded">
+            <div class="d-flex flex-column m-4">
 
+                <h2>Date de disponibilité</h2>
 
-<% @logement.bookings.each do |booking| %>
-            
-    <%= booking.start_booking %>
-    <%= booking.end_booking %>
-    <%= booking.total %>
+                <div>
+                    <p>Du <%= @logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %> jusqu'au <%= @logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %>    </p>
+                </div>
 
-<% end %>
+                <div>
+                    <h2>Reservation</h2> 
 
+                    <div class="d-flex flex-column ">
 
-
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Date de début</th>
+                                    <th scope="col">Date de fin</th>
+                                    <th scope="col">Prix</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% @logement.bookings.each do |booking| %>
+                                    <tr>
+                                        <td><%= booking.start_booking.try(:strftime, ("%e %B %Y")) %></td>
+                                        <td><%= booking.end_booking.try(:strftime, ("%e %B %Y")) %></td>
+                                        <td><%= booking.t_price %></td>
+                                        <td><p> en cours / done </p></td>
+                                    </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <% if !@logement.comments.empty? %>
@@ -72,7 +95,7 @@
 
 
 
-<% if @test %>
+<% if @user_booked %>
     <h1>Add a comment:</h1>
         <%= form_with model: [ @logement, @logement.comments.build ] do |form| %>
             <%= form.hidden_field :user_id, value: current_user.id %>
@@ -89,4 +112,7 @@
 <% end %> 
 
 
-    
+
+
+
+

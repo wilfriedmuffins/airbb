@@ -16,13 +16,13 @@ class LogementsController < ApplicationController
             @user_id.push(id.user_id)
         end
 
-        #puts @user_id.inspect
+       
         @user_id.uniq!
         puts @user_id.inspect
         puts current_user.id
         
-        @test = @user_id.include? current_user.id
-        puts @test.inspect
+        @user_booked = @user_id.include? current_user.id
+       
         
     end
 

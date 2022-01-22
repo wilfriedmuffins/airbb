@@ -10,8 +10,14 @@
                 <div class="dropdown-divider "></div>
 
                 <%= @logement.description %>
+
+                <div class="dropdown-divider "></div>
+
                 <% @logement.equipments.each do |key| %>
-                    
+
+                    <td><%= render "svg/#{key}" %></td>            
+                    <td><%= key %></td>
+
                 <% end %>
                 
                 <div class="dropdown-divider "></div>
@@ -26,13 +32,11 @@
                     <h1 class="container">Booking</h1>
                     <%= render 'bookings/form' %>
                 </div>
-                
+
             </div>
 
         </div>
 </div>
-
-
 
 
 <div class="container-fluid">
@@ -53,7 +57,7 @@
 
 
     <% @logement.images.each_slice(2) do |row| %>
-                
+
         <div class="d-flex justify-content-center">
                 <% row.each do |image| %>
                     <div class="col">
