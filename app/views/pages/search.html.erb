@@ -5,27 +5,26 @@
         <div class="row row-cols-1 row-cols-md-2 g-auto">
             
             <% @logements_disponible.each do |logement| %>
-                    <div class="card m-auto" style="width: 20rem;">
-                        <%= image_tag logement.images[0].url, class: "card-img-top", style:"max-height: 200px;" %>
-                        <div class="card-body">
-                            <h5 class="card-title"><%= logement.title%></h5>
-                            <p class="card-text"></p>
-                            <div class="row row-cols-2">
-                                <p class="card-text"><%= logement.price%>€/nuit</p>
-                                <a><%= link_to "voir", page_path(logement, depart: @depart, arrive: @arrive, voyageur: @voyageur), class:"btn btn-primary stretched-link" %></a>
-                            </div>
+                <div class="card m-auto" style="width: 20rem;">
+                    <%= image_tag logement.images[0].url, class: "card-img-top", style:"max-height: 200px;" %>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= logement.title%></h5>
+                        <p class="card-text"></p>
+                        <div class="row row-cols-2">
+                            <p class="card-text"><%= logement.price%>€/nuit</p>
+                            <a><%= link_to "voir", page_path(logement, depart: @depart, arrive: @arrive, voyageur: @voyageur), class:"btn btn-primary stretched-link" %></a>
                         </div>
                     </div>
-
+                </div>
             <% end %>
-                
+            
         </div>  
 
-        </div>  
+    </div>  
 
-        <div class="col-6">
-            <div class="sticky-top div-map">
-                <%= tag.div id: "map", class: "", data: { markers: @logements_disponible.to_json(methods: [:address]) }%> 
-            </div>
+    <div class="col-6">
+        <div class="sticky-top div-map">
+            <%= tag.div id: "map", class: "", data: { markers: @logements_disponible.to_json(methods: [:address]) }%> 
         </div>
+    </div>
 </div>
