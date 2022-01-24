@@ -68,7 +68,7 @@
                                         <td><%= booking.start_booking.try(:strftime, ("%e %B %Y")) %></td>
                                         <td><%= booking.end_booking.try(:strftime, ("%e %B %Y")) %></td>
                                         <td><%= booking.t_price %></td>
-                                        <td><p> en cours / done </p></td>
+                                        <td><%= check_status(booking.id) %><%= render "svg/animaux" %> </td>
                                     </tr>
                                 <% end %>
                             </tbody>

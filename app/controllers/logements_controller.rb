@@ -1,5 +1,6 @@
 class LogementsController < ApplicationController
     before_action :set_logement, only: [ :edit, :update, :destroy]
+    helper_method :check_status
 
     def new
         @logement = Logement.new
@@ -16,15 +17,19 @@ class LogementsController < ApplicationController
             @user_id.push(id.user_id)
         end
 
-       
         @user_id.uniq!
         puts @user_id.inspect
         puts current_user.id
         
         @user_booked = @user_id.include? current_user.id
-       
+
+        #@status = Date.today     
         
+
+        
+
     end
+
 
     def create
         @logement = Logement.new(logement_params)
@@ -61,6 +66,8 @@ class LogementsController < ApplicationController
     def set_logement
         @logement = Logement.find(params[:id])
     end
+
+    
 
     
 end
