@@ -1,51 +1,58 @@
 <div class="container">
-    <h1 class="container-fluid text-center">Mes logements</h1>
+    <h2 class="container-fluid text-center">Mes logements</h2>
 
     <a class="badge badge-primary text center"><%= link_to "Nouveau logement", new_logement_path %></a>
 </div>
 
-<% if current_user.logements.present? %>
-<div class="container">
-    <table class="table table-hover" >
-        <thead>
-            <tr>
-                <th scope="col" >Title </th>
-                <th scope="col" >Adresse</th>
-                <th scope="col" >City</th>
-                <th scope="col" >Zipcode</th>
-                <th scope="col" >voyageurs</th>
-                <th scope="col" >Date de début de disponibilité</th>
-                <th scope="col" >Date de fin de disponibilité</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% current_user.logements.each do |logement| %>
+<div class="d-flex flex-column">
+
+    <% if current_user.logements.present? %>
+    <div class="container">
+        <table class="table table-hover" >
+            <thead>
                 <tr>
-                    <td><%= logement.title %></td>
-                    <td><%= logement.adresse %></td>
-                    <td><%= logement.city %></td>
-                    <td><%= logement.zipcode %></td> 
-                    <td><%= logement.voyageur %></td>
-                    <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
-                    <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
-                    <td><button type="button" class="btn btn-primary"><%= link_to "show", logement_path(logement), class: "link-light" %></button></td>
-                    <td><button type="button" class="btn btn-danger"><%= link_to "Delete", logement_path(logement), class: "link-light", method: :delete %></button></td>
+                    <th scope="col" >Title </th>
+                    <th scope="col" >Adresse</th>
+                    <th scope="col" >City</th>
+                    <th scope="col" >Zipcode</th>
+                    <th scope="col" >voyageurs</th>
+                    <th scope="col" >Date de début de disponibilité</th>
+                    <th scope="col" >Date de fin de disponibilité</th>
                 </tr>
-            <% end %>
-        </tbody>
-    </table> 
+            </thead>
+            <tbody>
+                <% current_user.logements.each do |logement| %>
+                    <tr>
+                        <td><%= logement.title %></td>
+                        <td><%= logement.adresse %></td>
+                        <td><%= logement.city %></td>
+                        <td><%= logement.zipcode %></td> 
+                        <td><%= logement.voyageur %></td>
+                        <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
+                        <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
+                        <td><button type="button" class="btn btn-primary"><%= link_to "show", logement_path(logement), class: "link-light" %></button></td>
+                        <td><button type="button" class="btn btn-danger"><%= link_to "Delete", logement_path(logement), class: "link-light", method: :delete %></button></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table> 
+    </div>
+
+
+    <%= tag.div id: "map", data: { markers: current_user.logements.to_json(methods: [:address])} %> 
+
+    <% end %>
+
+    <div class="m-auto">
+
+        <h2 class="container-fluid text-center">Mes Rservations</h2>
+
+        <% @book.each do |id| %>
+        <p> Réservation du <%= id.start_booking.try(:strftime, ("%e %B %Y"))%>  au <%= id.end_booking.try(:strftime, ("%e %B %Y")) %> <%= link_to "Ajouter commentaire", logement_path(id.logement_id) %> </p>
+        <%end%>
+
+        <%= link_to "Modifier profil", edit_user_registration_path %>
+    
+    </div>
+    
 </div>
-
-
-<%= tag.div id: "map", data: { markers: current_user.logements.to_json(methods: [:address])} %> 
-
-<% end %>
-
-<h2>Mes Réservations</h2>
-
-<% @book.each do |id| %>
-  <p> Réservation du <%= id.start_booking.try(:strftime, ("%e %B %Y"))%>  au <%= id.end_booking.try(:strftime, ("%e %B %Y")) %> <%= link_to "Ajouter commentaire", logement_path(id.logement_id) %> </p>
-<%end%>
-
-<%= link_to "Modifier profil", edit_user_registration_path %>
-
