@@ -12,6 +12,7 @@ module Airbb
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     config.assets.paths << "#{Rails.root}/app/assets/videos"
+    config.assets.enabled = true
     
     # Configuration for the application, engines, and railties goes here.
     #
