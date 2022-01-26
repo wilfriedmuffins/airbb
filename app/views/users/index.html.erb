@@ -23,8 +23,9 @@
                 <td><%= user.email %></td>
                 <td><%= user.confirmation_sent_at.try(:strftime, ("%e %B %Y")) %></td>
                 <td><%= user.confirmed_at.try(:strftime, ("%e %B %Y")) %></td>
-                <%# <td><%= link_to "Show", edit_user_registration_path(user.id) </td>%>
-                <%#<td><%= link_to "Profil", user_path(user.id) </td> %>
+                <td><%= link_to "Show", edit_user_registration_path(user.id)  %> </td>
+                <td><%= link_to "Profil", user_path(user.id) %> </td> 
+            <tr>
         <% end %>
     </tbody>
 </table>
