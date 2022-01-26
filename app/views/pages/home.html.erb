@@ -4,9 +4,7 @@
   <div class="carousel-inner">
 
     <div class="carousel-item active" data-bs-interval="5900">
-    <video class="d-block w-100"  muted autoplay="autoplay" loop="loop" preload="auto" muted="muted">
-        <source src="videos/production_id_3783242.mp4"></source>
-      </video>
+    <%= video_tag ["production_id_3783242.mp4"], :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
       <div class=" carousel-caption">
         <h1>Envie d'évasion?</h1>
         <h1 class="title"> ready to get next holiday</h1>
@@ -14,27 +12,21 @@
     </div>
     
     <div class="carousel-item" data-bs-interval="5010" >
-    <video class="d-block w-100"  muted autoplay="autoplay" loop="loop" preload="auto" muted="muted">
-        <source src="videos/video.mp4"></source>
-      </video>
+      <%= video_tag ["18_016_02.mov"], :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
       <div class=" carousel-caption">
         <h1 class="title">Dans une destination de rêve?</h1>
       </div>    
     </div>
 
     <div class="carousel-item" data-bs-interval="5010">
-    <video class="d-block w-100"  muted autoplay="autoplay" loop="loop" preload="auto" muted="muted">
-        <source src="videos/tropical.mp4"></source>
-      </video>
+      <%= video_tag ["tropical.mp4"], :size => "3840 x 2160", class:"d-block w-100 cover",autoplay: :autoplay, loop: :loop, muted: :muted %>
       <div class=" carousel-caption">
         <h1 class="title">Dans une destination de rêve?</h1>
       </div>
     </div>
 
     <div class="carousel-item" data-bs-interval="6010">
-      <video class="d-block w-100"  muted autoplay="autoplay" loop="loop" preload="auto" muted="muted">
-        <source src="videos/pexels_videos_2252797.mp4"></source>
-      </video>
+      <%= video_tag ["pexels_videos_2252797.mp4"], :size => "3840 x 2160", class:"d-block w-100 ", autoplay: :autoplay, loop: :loop, muted: :muted %>
       <div class=" carousel-caption">
         <h1 class="title">Alors envole toi par ici!</h1>
       </div>
