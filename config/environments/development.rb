@@ -83,7 +83,7 @@ Rails.application.configure do
     password: Rails.application.credentials.dig(:sendgrid, :api_key), # This is the secret sendgrid API key which was issued during API key creation
     domain: 'desolate-springs-82006.herokuapp.com/',
     address: 'smtp.sendgrid.net',
-    port: 587,
+    port: 25,
     authentication: :plain,
     enable_starttls_auto: true
   }
