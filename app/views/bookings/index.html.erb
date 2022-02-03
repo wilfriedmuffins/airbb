@@ -15,6 +15,7 @@
             <th scope="col" >Date de fin de reservation</th>
             <th scope="col" >Date de création</th>
             <th scope="col" >Prix Total</th>
+            <th scope="col" >Status</th>
         </tr>
     </thead>
     <tbody>
@@ -27,13 +28,15 @@
                 <td><%= reservation.end_booking.try(:strftime, ("%e %B %Y")) %></td>
                 <td><%= reservation.created_at.try(:strftime, ("%e %B %Y")) %></td>
                 <td><%= reservation.t_price %></td>
+                <td>
+                    <div class="row">
+                        <div class="col-1"><%= render "svg/"+ check_status(reservation.id) %></div>
+                        <div class="col-1"><%= check_status(reservation.id)%></div>
+                    </div>
+                </td>
                 <td><button type="button" class="btn btn-primary"><%= link_to "show", booking_path(reservation), class: "link-light", style: "text-decoration:none" %></button></td>
             </tr>
         <% end %>
     </tbody>
 </table> 
 </div>
-
-
-
-   

@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
     def index
         if current_user.admin? == false
-            flash[:danger] = "attention tu fais quoi la tu n'es pas l'admin"
             redirect_to root_path
+            flash[:danger] = "attention tu fais quoi la tu n'es pas l'admin"
         else
             @users = User.all
         end
@@ -13,6 +13,7 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         puts current_user.id
         puts @user.name.inspect
+        puts @user.logements.inspect
         @book = Booking.where(user_id: current_user.id)
 
         @book.each do |logement| #= @book.logement_id

@@ -7,7 +7,11 @@ class LogementsController < ApplicationController
     end
 
     def index
-        @logements = Logement.all
+        if current_user.admin? == false
+            redirect_to root_path
+        else
+            @logements = Logement.all
+        end
     end
 
     def show
@@ -24,10 +28,6 @@ class LogementsController < ApplicationController
         @user_booked = @user_id.include? current_user.id
 
         #@status = Date.today     
-        
-
-        
-
     end
 
 
@@ -35,6 +35,8 @@ class LogementsController < ApplicationController
         @logement = Logement.new(logement_params)
         @logement.user = current_user
         if @logement.save
+            puts current_user.email.inspect
+            LogementMailer.send_signup_email(current_user).deliver_now
             redirect_to logement_path(@logement)
         else
             render 'new'

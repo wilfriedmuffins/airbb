@@ -19,11 +19,11 @@ helper_method :check_status
         puts @check_date.inspect
 
         if @check_date
-            @status = "En cours"
+            @status = "en_cours"
         elsif  @debut > Date.today
-            @status = "Futur séjour"
+            @status = "futur_séjour"
         elsif @fin < Date.today
-            @status = "Séjour effectué"
+            @status = "séjour_effectué"
         end
         
     end

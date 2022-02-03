@@ -13,6 +13,10 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
+  # def index
+  #     @user = User.all
+  # end
+
   # DELETE /resource/sign_out
   # def destroy
   #   super

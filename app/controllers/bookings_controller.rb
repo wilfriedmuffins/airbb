@@ -2,7 +2,11 @@ class BookingsController < ApplicationController
     before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
     def index
-        @bookings = Booking.all
+        if current_user.admin? == false
+            redirect_to root_path
+        else
+            @bookings = Booking.all
+        end
     end
 
     def new
