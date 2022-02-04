@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-helper_method :check_status
+helper_method :check_status, :current_user
 
 
     def check_status(id)
@@ -12,11 +12,11 @@ helper_method :check_status
 
         #puts booking.start_booking
         #puts booking.end_booking
-        puts range
+        #puts range
 
         #en cours
         @check_date = range.include?(Date.today)
-        puts @check_date.inspect
+        #puts @check_date.inspect
 
         if @check_date
             @status = "en_cours"

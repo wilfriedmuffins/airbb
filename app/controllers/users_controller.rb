@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    before_action :set_user, only: [:show]
+
     def index
         if current_user.admin? == false
             redirect_to root_path
@@ -10,21 +12,22 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:id])
         puts current_user.id
         puts @user.name.inspect
         puts @user.logements.inspect
         @book = Booking.where(user_id: current_user.id)
-
-        @book.each do |logement| #= @book.logement_id
-
-        end 
-        
-        # @book.each do |id|
-        #     @user_id.push(id.user_id)
-        # end
-
         puts @book.inspect
-        #puts @logement.inspect
+    end
+end
+
+private
+
+def set_user
+    @user1 = User.find(params[:id])
+
+    if current_user.id == @user1.id || current_user.admin?
+        @user = User.find(params[:id])
+    else
+        redirect_to root_path
     end
 end

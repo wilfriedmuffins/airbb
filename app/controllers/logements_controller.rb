@@ -15,19 +15,22 @@ class LogementsController < ApplicationController
     end
 
     def show
-        @logement = Logement.includes(:comments).find(params[:id])
+        @logement1 = Logement.find(params[:id])
         @user_id = []
-        @logement.bookings.each do |id|
+        @logement1.bookings.each do |id|
             @user_id.push(id.user_id)
         end
 
         @user_id.uniq!
-        puts @user_id.inspect
-        puts current_user.id
-        
         @user_booked = @user_id.include? current_user.id
 
-        #@status = Date.today     
+        #je suis ni le onwer ni l'admin ni booker => je ne peux voir le logement 
+        if (current_user.id != @logement1.user_id) || (!current_user.admin) || (!@user_booked)
+            redirect_to root_path
+        else
+            @logement = Logement.includes(:comments).find(params[:id])
+        end
+
     end
 
 

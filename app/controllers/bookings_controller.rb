@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-    before_action :set_booking, only: [:show, :edit, :update, :destroy]
+    before_action :set_booking, only: [:show, :edit, :update, :destroy] #
 
     def index
         if current_user.admin? == false
@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
     end
 
     def show
+
     end
 
     def create
@@ -23,7 +24,7 @@ class BookingsController < ApplicationController
         @logement = Logement.find(params[:logement_id])
         @jour = (@booking.end_booking-@booking.start_booking).to_i
 
-        puts @jour.inspect
+        #puts @jour.inspect
 
         @booking.t_price = @jour*@logement.price
 
@@ -58,7 +59,14 @@ class BookingsController < ApplicationController
         params.require(:booking).permit(:start_booking, :end_booking, :voyageur, :t_price)
     end
 
+
     def set_booking
-        @booking = Booking.find(params[:id])
+        @booking1 = Booking.find(params[:id])
+
+        if current_user.id == @booking1.user_id || current_user.admin?
+            @booking = Booking.find(params[:id])
+        else
+            redirect_to root_path
+        end
     end
 end
