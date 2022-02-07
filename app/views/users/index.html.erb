@@ -23,7 +23,7 @@
                 <td><%= user.email %></td>
                 <td><%= user.confirmation_sent_at.try(:strftime, ("%e %B %Y")) %></td>
                 <td><%= user.confirmed_at.try(:strftime, ("%e %B %Y")) %></td>
-                <td><%= link_to "Profil", user_path(user) %> </td> 
+                <td><button type="button" class="btn btn-primary"><%= link_to "Profil", user_path(user), class: "link-light" %></button></td> 
             <tr>
         <% end %>
     </tbody>

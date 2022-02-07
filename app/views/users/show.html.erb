@@ -44,8 +44,6 @@
  <% end %>
 
 
-    
-
     <%= tag.div id: "map", data: { markers: current_user.logements.to_json(methods: [:address])} %> 
 
 
@@ -54,10 +52,15 @@
         <h2 class="container-fluid text-center">Mes Reservations</h2>
 
         <% @user.bookings.each do |booking| %>
-            <p> Réservation du <%= booking.start_booking.try(:strftime, ("%e %B %Y"))%>  au <%= booking.end_booking.try(:strftime, ("%e %B %Y")) %> <%= link_to "Ajouter commentaire", logement_path(booking.logement_id) %> </p>
+            <p>Réservation du <%= booking.start_booking.try(:strftime, ("%e %B %Y"))%>  au <%= booking.end_booking.try(:strftime, ("%e %B %Y")) %>
+            <button type="button" class="btn btn-primary"><%= link_to "Ajouter commentaire", logement_path(booking.logement_id), class: "link-light", style: "text-decoration:none" %></button>
+            <button type="button" class="btn btn-primary"><%= link_to "show", booking_path(booking.id), class: "link-light", style: "text-decoration:none" %></button></p>
         <%end%>
 
-        <%= link_to "Modifier profil", edit_user_registration_path %>
+
+        <% if current_user.id ==  @user.id %>
+            <%= link_to "Modifier profil", edit_user_registration_path %>
+        <% end %>
     
     </div>
     

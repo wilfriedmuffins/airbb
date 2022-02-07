@@ -24,8 +24,6 @@ class BookingsController < ApplicationController
         @logement = Logement.find(params[:logement_id])
         @jour = (@booking.end_booking-@booking.start_booking).to_i
 
-        #puts @jour.inspect
-
         @booking.t_price = @jour*@logement.price
 
         if @booking.save
@@ -35,6 +33,7 @@ class BookingsController < ApplicationController
             flash[:alert] = "booking non save, verifier les dates et/ou le nombre de voyageur"
             redirect_to page_path(@logement)
         end
+        
     end
 
     def edit

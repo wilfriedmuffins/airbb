@@ -73,20 +73,33 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+  #Devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   config.action_mailer.delivery_method = :smtp
   
-  #config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.smtp_settings = {
-    user_name: 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
-    password: Rails.application.credentials.dig(:sendgrid, :api_key), # This is the secret sendgrid API key which was issued during API key creation
-    domain: 'heroku.com',
-    address: 'smtp.sendgrid.net',
-    port: 587,
-    authentication: :plain,
-    enable_starttls_auto: true
+    :user_name => Rails.application.credentials.dig(:sendgrid, :username), # This is the string literal 'apikey', NOT the ID of your API key
+    :password => Rails.application.credentials.dig(:sendgrid, :api_key), # This is the secret sendgrid API key which was issued during API key creation
+    :domain => 'herokuapp.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
   }
+  #config.action_mailer.perform_deliveries = true
+
+  # config.action_mailer.smtp_settings = {
+  #   user_name: 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
+  #   password: Rails.application.credentials.dig(:sendgrid, :api_key), # This is the secret sendgrid API key which was issued during API key creation
+  #   domain: 'heroku.com',
+  #   address: 'smtp.sendgrid.net',
+  #   port: 587,
+  #   authentication: :plain,
+  #   enable_starttls_auto: true
+  # }
   
   config.assets.check_precompiled_asset = false
 end

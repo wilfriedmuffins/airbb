@@ -23,14 +23,13 @@ class LogementsController < ApplicationController
 
         @user_id.uniq!
         @user_booked = @user_id.include? current_user.id
-
+        
         #je suis ni le onwer ni l'admin ni booker => je ne peux voir le logement 
-        if (current_user.id != @logement1.user_id) || (!current_user.admin) || (!@user_booked)
-            redirect_to root_path
-        else
+        if ( @user_booked || (current_user.id == @logement1.user_id) ) || ( current_user.admin ) 
             @logement = Logement.includes(:comments).find(params[:id])
+        else
+            redirect_to root_path
         end
-
     end
 
 
@@ -72,7 +71,4 @@ class LogementsController < ApplicationController
         @logement = Logement.find(params[:id])
     end
 
-    
-
-    
 end

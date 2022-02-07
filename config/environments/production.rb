@@ -124,9 +124,9 @@ Rails.application.configure do
   config.action_mailer.default_options = {from: 'no-reply@example.com'}
 
   config.action_mailer.smtp_settings = {
-    user_name: 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
+    user_name: Rails.application.credentials.dig(:sendgrid, :username), # This is the string literal 'apikey', NOT the ID of your API key
     password: Rails.application.credentials.dig(:sendgrid, :api_key), # This is the secret sendgrid API key which was issued during API key creation
-    domain: 'https://airbibi.herokuapp.com',
+    domain: 'herokuapp.com',
     address: 'smtp.sendgrid.net',
     port: 587,
     authentication: :plain,

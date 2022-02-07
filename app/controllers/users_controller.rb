@@ -12,9 +12,6 @@ class UsersController < ApplicationController
     end
 
     def show
-        puts current_user.id
-        puts @user.name.inspect
-        puts @user.logements.inspect
         @book = Booking.where(user_id: current_user.id)
         puts @book.inspect
     end

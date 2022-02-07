@@ -10,13 +10,7 @@ helper_method :check_status, :current_user
         @fin = @booking.end_booking
         range = (@debut)..(@fin)
 
-        #puts booking.start_booking
-        #puts booking.end_booking
-        #puts range
-
-        #en cours
         @check_date = range.include?(Date.today)
-        #puts @check_date.inspect
 
         if @check_date
             @status = "en_cours"

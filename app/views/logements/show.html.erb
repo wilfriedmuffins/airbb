@@ -3,9 +3,12 @@
 <div class="d-flex flex-column flex-md-row flex-sm-row m-5">
 
     <div class="col-7">
-        <h2 class="container"><%= link_to "Edit", edit_logement_path(@logement), class:"link-primary" %></h2>
-        <div class="d-flex flex-column m-4">
 
+        <% if current_user.id == @logement.user_id%>
+            <h2 class="container"><%= link_to "Edit", edit_logement_path(@logement), class:"link-primary" %></h2> 
+        <% end %>
+        
+        <div class="d-flex flex-column m-4">
 
             <div class="d-flex justify-content-between align-items-center">
                 <h1 class="display-4"><%= @logement.title %></h1>
@@ -13,9 +16,8 @@
                 <div class="d-flex flex-row mx-5">
                     <%= render "svg/pointer" %> 
                     <%= @logement.city.capitalize %> 
-                 </div>
+                </div>
             </div>
-
 
             <div class="dropdown-divider "></div>
 
@@ -35,6 +37,46 @@
             <% end %>
 
             <div class="dropdown-divider "></div>
+
+            <h3>Commentaire</h3>
+            
+            <div>
+                <% if !@logement.comments.empty? %>
+
+                    <% @logement.comments.each do |comment| %>
+
+                        <div class="card">
+                            <div class="card-header"></div>
+
+                                <div class="card-body">
+                                    <blockquote class="blockquote mb-0">
+                                    <p><strong>Commenter:</strong><%= comment.user.name %></p>
+                                    <footer class="blockquote-footer"><cite title="Source Title"><%= comment.body %></cite></footer>
+                                    </blockquote>
+                                </div>
+                        </div>
+
+                    <% end %>
+
+                <% end %> 
+
+                <div class="dropdown-divider "></div>
+
+                <% if @user_booked %>
+                    <h3>Add a comment:</h3>
+
+                    <%= form_with model: [ @logement, @logement.comments.build ] do |form| %>
+                            <%= form.hidden_field :user_id, value: current_user.id %>
+
+                            <div class="mb-3">
+                                <%= form.label :body, class:"form-label" %><br>
+                                <%= form.text_area :body, class:"form-control" %>
+                            </div>
+
+                            <%= form.submit class:"btn btn-primary mb-3"%>
+                    <% end %>
+                <% end %> 
+            </div>
         </div>
     </div>
 
@@ -83,45 +125,4 @@
             </div>
         </div>
     </div>
-
 </div>
-
-
-<% if !@logement.comments.empty? %>
-    <% @logement.comments.each do | |comment| %>
-
-        <p>
-            <strong>Commenter:</strong>
-            <%= comment.user.name %>
-        </p>
-
-        <p>
-            <strong>Comment:</strong>
-            <%= comment.body %>
-        </p>
-    <% end %>
-<% end %> 
-
-
-
-<% if @user_booked %>
-    <h1>Add a comment:</h1>
-        <%= form_with model: [ @logement, @logement.comments.build ] do |form| %>
-            <%= form.hidden_field :user_id, value: current_user.id %>
-        
-            <p>
-                <%= form.label :body %><br>
-                <%= form.text_area :body %>
-            </p>
-
-            <p>
-                <%= form.submit %>
-            </p>
-        <% end %>
-<% end %> 
-
-
-
-
-
-

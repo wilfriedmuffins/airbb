@@ -7,16 +7,18 @@ class CommentsController < ApplicationController
     def create
         @comment = Comment.new(comment_params)
         @logement = Logement.find(params[:logement_id])
-        #@user = User.find()
+
         @comment.user_id = params[:user_id]
-        #puts user_id
+
         @comment = @logement.comments.create!(comment_params)
-        if @comment.save
+
+        @double = @logement.comments.where(user_id: current_user.id).exists?
+
+        if @double
+            flash[:alert] = "commentaire non publique car nous avez déja mis une commentaire"
             redirect_to logement_path(@logement)
-        else
-            flash[:alert] = "commentaire non save"
-            puts current_user
-            redirect_to logement_path(@logement)
+        elsif @comment.save
+            redirect_to logement_path(@logement) 
         end
     end
 
