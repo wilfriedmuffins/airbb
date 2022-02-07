@@ -118,15 +118,15 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.action_mailer.default_url_options = { :host => 'airbibi.heroku.com' }
-  #config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'no-reply@example.com'}
+  #config.action_mailer.raise_delivery_errors = true
+  #config.action_mailer.default_options = {from: 'no-reply@example.com'}
 
   config.action_mailer.smtp_settings = {
     user_name: Rails.application.credentials.dig(:sendgrid, :username), # This is the string literal 'apikey', NOT the ID of your API key
     password: Rails.application.credentials.dig(:sendgrid, :api_key), # This is the secret sendgrid API key which was issued during API key creation
-    domain: 'herokuapp.com',
+    domain: 'airbibi.herokuapp.com',
     address: 'smtp.sendgrid.net',
     port: 587,
     authentication: :plain,
