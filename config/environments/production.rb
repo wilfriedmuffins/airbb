@@ -123,8 +123,8 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => 'airbibi.heroku.com' }
   ActionMailer::Base.smtp_settings = {
-    :user_name            => Rails.application.credentials.dig(:sendgrid, :username),
-    :password             => Rails.application.credentials.dig(:sendgrid, :api_key),
+    :user_name            => "apikey",
+    :password             => ENV['SENDGRID_API_KEY'],
     :address              => "smtp.sendgrid.net",
     :port                 => 587,
     :enable_starttls_auto => true,
