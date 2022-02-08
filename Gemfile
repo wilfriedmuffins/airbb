@@ -26,7 +26,6 @@ gem 'active_model_serializers', '~> 0.10.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-
 gem 'geocoder', '~> 1.6', '>= 1.6.7'
 gem 'redis', '~> 4.3', '>= 4.3.1'
 gem 'figaro', '~> 1.2'
@@ -69,8 +68,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
   gem 'pg', '~> 1.2', '>= 1.2.3'
-  
-  
 end
 
 
