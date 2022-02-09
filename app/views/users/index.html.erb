@@ -23,7 +23,9 @@
                 <td><%= user.email %></td>
                 <td><%= user.confirmation_sent_at.try(:strftime, ("%e %B %Y")) %></td>
                 <td><%= user.confirmed_at.try(:strftime, ("%e %B %Y")) %></td>
-                <td><button type="button" class="btn btn-primary"><%= link_to "Profil", user_path(user), class: "link-light" %></button></td> 
+                <td><button type="button" class="btn btn-primary"><%= link_to "Profil", user_path(user), class: "link-light" %></button></td>
+                <td><button type="button" class="btn btn-danger"><%= link_to "Suprimer", user_path(user.id), class: "link-light", method: :delete %></button></td> 
+
             <tr>
         <% end %>
     </tbody>

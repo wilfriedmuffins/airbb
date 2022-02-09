@@ -15,6 +15,12 @@ class UsersController < ApplicationController
         @book = Booking.where(user_id: current_user.id)
         puts @book.inspect
     end
+
+
+    def destroy
+        @user = User.find(user.id)
+        
+    end
 end
 
 private
