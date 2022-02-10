@@ -7,19 +7,14 @@ class UsersController < ApplicationController
             flash[:danger] = "attention tu fais quoi la tu n'es pas l'admin"
         else
             @users = User.all
-        end
 
+            puts params[:user_id].inspect
+        end
     end
 
     def show
         @book = Booking.where(user_id: current_user.id)
         puts @book.inspect
-    end
-
-
-    def destroy
-        @user = User.find(user.id)
-        
     end
 end
 
