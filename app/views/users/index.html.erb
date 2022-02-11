@@ -20,13 +20,11 @@
             <tr>
                 <td> <%= user.id %></td>
                 <%= hidden_field_tag :user_id, value: user.id %>
-                <%# <%= :user_id, value: current_user.id %>
                 <td><%= user.name %></td>
                 <td><%= user.email %></td>
                 <td><%= user.confirmation_sent_at.try(:strftime, ("%e %B %Y")) %></td>
                 <td><%= user.confirmed_at.try(:strftime, ("%e %B %Y")) %></td>
                 <td><button type="button" class="btn btn-primary"><%= link_to "Profil", user_path(user), class: "link-light" %></button></td>
-                <%# <td><button type="button" class="btn btn-danger"><%= link_to "Suprimer", users_path(user_id: user.id), class: "link-light", method: :delete %></button></td>  %>
             <tr>
         <% end %>
     </tbody>

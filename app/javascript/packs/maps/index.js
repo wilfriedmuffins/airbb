@@ -1,7 +1,7 @@
 
 
 document.addEventListener("turbolinks:load", function(){
-    //console.log("turbolinks loads....")
+    
     var map = new GMaps({
         div: '#map',
         lat: 48.856614,
