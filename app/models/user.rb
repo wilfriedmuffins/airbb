@@ -4,12 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable, :confirmable
 
-  validates :name, length: { maximum: 500 } 
+  validates :name, length: { maximum: 100 } 
           
   has_many :bookings, dependent: :destroy
   has_many :logements, dependent: :destroy
 
-
+  mount_uploader :avatar, AvatarUploader
+  #serialize :avatar
+  
   # validate :admin
 
   # def admin

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-
-helper_method :check_status, :current_user
+    before_action :configure_permitted_parameters, if: :devise_controller?
+    helper_method :check_status, :current_user
 
 
     def check_status(id)
@@ -20,6 +20,13 @@ helper_method :check_status, :current_user
             @status = "séjour_effectué"
         end
         
+    end
+
+
+    protected
+
+    def configure_permitted_parameters
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :avatar])
     end
 
 end
