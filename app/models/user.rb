@@ -13,7 +13,8 @@ class User < ApplicationRecord
   
 
   def set_default_avatar
-    puts "methods work"
+    puts @user
+    puts ":params user"
   end
   
 end
