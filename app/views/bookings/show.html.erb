@@ -1,45 +1,55 @@
-<div class="position-relative">
-    <div class="position-absolute top-0 start-50 translate-middle-x" >
-        <div class="d-flex flex-column ">
-            <h2>Date de reservation</h2>
 
-            <div>
-                <p>Du <%= @booking.start_booking.try(:strftime, ("%e %B %Y")) %> jusqu'au <%= @booking.end_booking.try(:strftime, ("%e %B %Y")) %> </p>
-            </div>
+<div class="container mt-2">
+    <div class="d-flex flex-column ">
 
-            <div>
-                <h2>Reservation</h2> 
+        <h2>Date de reservation</h2>
 
-                <div class="d-flex flex-column flex-md-row">
-                    <div class="d-flex flex-column m-2">
-                        <h4>Logement</h4>
-                        <div><%= image_tag @booking.logement.images[0].url, style:"max-height: 200px;" %></div>
+        <div>
+            <p>Du <%= @booking.start_booking.try(:strftime, ("%e %B %Y")) %> jusqu'au <%= @booking.end_booking.try(:strftime, ("%e %B %Y")) %> </p>
+        </div>
+
+        <div>
+            <h2>Reservation</h2> 
+
+            <div class="d-flex flex-column flex-md-row">
+                <div class="d-flex flex-column m-2">
+                    <h4>Logement</h4>
+                    <%= link_to image_tag(@booking.logement.images[0].url, style:"max-height: 200px" ), logement_path(@booking.logement_id)  %>
+                    
+                </div>
+
+                <div class="d-flex flex-column m-2">
+                    <h4>Adresse</h4>
+                    <div><%= @booking.logement.adresse%><%= @booking.logement.city%><%= @booking.logement.zipcode%></div>
+                </div>
+
+                <div class="d-flex flex-column m-2">
+                    <h4>Nombre de voyageur</h4>
+                    <div><%= @booking.voyageur%></div>
+                </div>
+
+                <div class="d-flex flex-column m-2">
+                    <h4>Prix Total</h4>
+                    <div><p><%= @booking.t_price %>€</p></div>
+                </div>
+
+                <div class="d-flex flex-row">
+                    <div class="align-self-center">
+                        <button type="button" class="btn btn-primary m-2"><%= link_to "Edit booking", edit_booking_path(@booking), class: "link-light" %></buttton>
                     </div>
-
-                    <div class="d-flex flex-column m-2">
-                        <h4>Adresse</h4>
-                        <div><%= @booking.logement.adresse%><%= @booking.logement.city%><%= @booking.logement.zipcode%></div>
-                    </div>
-
-                    <div class="d-flex flex-column m-2">
-                        <h4>Nombre de voyageur</h4>
-                        <div><%= @booking.voyageur%></div>
-                    </div>
-
-                    <div class="d-flex flex-column m-2">
-                        <h4>Prix Total</h4>
-                        <div><p><%= @booking.t_price %>€</p></div>
-                    </div>
-
-                    <div class="d-flex flex-row">
-                        <div class="align-self-center">
-                            <button type="button" class="btn btn-primary m-2"><%= link_to "Edit booking", edit_booking_path(@booking), class: "link-light" %></buttton>
-                        </div>
-                        <div class="align-self-center">
-                            <button type="button" class="btn btn-danger m-2"><%= link_to "Delete", booking_path(@booking), class: "link-light", method: :delete, data: { confirm: "Are you sure?" } %></button>
-                        </div>
+                    <div class="align-self-center">
+                        <button type="button" class="btn btn-danger m-2"><%= link_to "Delete", booking_path(@booking), class: "link-light", method: :delete, data: { confirm: "Are you sure?" } %></button>
                     </div>
                 </div>
+
             </div>
+
         </div>
+
+    </div>
 </div>
+
+
+
+
+
