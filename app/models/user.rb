@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_create :set_default_avatar
   mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # , :lockable, :timeoutable, :trackable and :omniauthable
@@ -10,12 +11,9 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :logements, dependent: :destroy
   
-  # validate :admin
 
-  # def admin
-  #   if @user.id = 11
-  #     @user.admin = true
-  #   end
-  # end
+  def set_default_avatar
+    puts "methods work"
+  end
   
 end
