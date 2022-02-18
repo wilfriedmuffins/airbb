@@ -15,6 +15,8 @@ class LogementsController < ApplicationController
     end
 
     def show
+        @comment = Comment.new
+        
         @logement1 = Logement.find(params[:id])
         @user_id = []
         @logement1.bookings.each do |id|
@@ -37,7 +39,7 @@ class LogementsController < ApplicationController
         @logement = Logement.new(logement_params)
         @logement.user = current_user
         if @logement.save
-            puts current_user.email.inspect
+            #puts current_user.email.inspect
             LogementMailer.send_signup_email(current_user).deliver_now
             redirect_to logement_path(@logement)
         else

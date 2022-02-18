@@ -22,7 +22,7 @@
         <% @bookings.each do |reservation| %>
             <tr>
                 <td><%= reservation.id %>  </td>
-                <td><%= reservation.user_id %>  </td>
+                <td><%= reservation.user_id %> : <%= reservation.user.name %>  </td>
                 <td><%= reservation.logement_id %>  </td>
                 <td><%= reservation.start_booking.try(:strftime, ("%e %B %Y")) %></td> 
                 <td><%= reservation.end_booking.try(:strftime, ("%e %B %Y")) %></td>

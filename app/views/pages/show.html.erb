@@ -44,7 +44,25 @@
         <% @logement.comments.each do |comment| %>
             <p>
                 <strong>Commenter:</strong>
-                <%= comment.user.name %>
+                
+
+                <%# <% if @logement.comments.user.avatar.empty? %>
+                   <%#  <%= image_tag avatar.url, class:"d-block w-100" %>  
+                <%# <% end %>
+
+                <%# <% if @user.avatar.present? %>
+             <%#  <%else %>
+                <%#   <%= image_tag @user.avatar.url, class:"d-block w-100" %> 
+             <%#  <% end %> 
+                <% if comment.user.avatar.url.empty? %> 
+                    <%= image_tag comment.user.avatar.url, class:"d-block w-100" %>
+                <%else %>
+                    <%= image_tag comment.user.avatar.url, class:"d-block w-100" %>
+                <% end %>
+                <%= image_tag comment.user.avatar.url, class:"d-block w-100" %>
+                <%= comment.body %>
+                <%= comment.created_at.try(:strftime, ("%e %B %Y")) %>
+
             </p>
 
             <p>

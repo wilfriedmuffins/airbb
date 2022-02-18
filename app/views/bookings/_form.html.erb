@@ -5,7 +5,7 @@
 
     <%= form_with model: @booking, local: true do |form| %>
 
-        <%= hidden_field_tag :logement_id, value= @logement.id%>
+        <%= hidden_field_tag :logement_id, value= @logement.id %>
 
             <div class="form-label">
                 <%= form.label @logement.price.to_s+'€/nuit' %>

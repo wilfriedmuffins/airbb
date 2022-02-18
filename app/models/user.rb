@@ -10,11 +10,5 @@ class User < ApplicationRecord
           
   has_many :bookings, dependent: :destroy
   has_many :logements, dependent: :destroy
-  
 
-  def set_default_avatar
-    puts @user
-    puts ":params user"
-  end
-  
 end

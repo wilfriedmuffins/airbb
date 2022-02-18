@@ -1,0 +1,19 @@
+
+<%= render 'shared/flash_errors', obj: @comment %> 
+    
+<h3> Add a comment </h3>
+
+<%= form_with model: @comment, local: true do |form| %>
+
+    <%= hidden_field_tag :logement_id, value= @logement.id %>
+
+    <%= hidden_field_tag :user_id, value= current_user.id %>
+
+    <div class="mb-3">
+        <%= form.label :body, class:"form-label" %><br>
+        <%= form.text_area :body, class:"form-control" %>
+    </div>
+
+    <%= form.submit class:"btn btn-primary mb-3"%>
+    
+<% end %>
