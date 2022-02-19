@@ -1,0 +1,27 @@
+<% if !@logement.comments.empty? %>
+                <h3>Commentaire</h3>
+
+                <% @logement.comments.each do |comment| %>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex flex-row align-items-center">
+                                
+                                <div>
+                                    <% if comment.user.avatar.url.empty? %> 
+                                        <%= image_tag comment.user.avatar.url, class:"rounded-circle", style:"max-width: 96px;" %>
+                                    <% else %>
+                                        <%= image_tag comment.user.avatar.url, class:"rounded-circle", style:"max-width: 96px;" %>
+                                    <% end %>
+                                </div>
+
+                                <div class="d-flex flex-column m-2" >
+                                    <div class="fw-bold"><%= comment.user.name%></div>
+
+                                    <div class="fst-italic"><%= comment.body %></div><div class="fw-lighter"><%= comment.created_at.try(:strftime,(" %B %Y")) %></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %> 

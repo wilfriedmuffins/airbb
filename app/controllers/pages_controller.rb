@@ -12,7 +12,13 @@ class PagesController < ApplicationController
         @arrive = params[:arrive]
         @voyageur = params[:voyageur]
 
-        @jour = (@depart.to_date-@arrive.to_date).to_i
+        puts @depart.inspect
+        puts @arrive.inspect
+        puts @voyageur.inspect
+
+        @jour = ( (@depart).to_date - (@arrive).to_date).to_i
+
+        puts @jour
 
         @total = (@jour*@logement.price).to_s
 

@@ -35,45 +35,22 @@
                     </div>
                 </div>  
             <% end %>
+        <div>
 
-            <div>
+        <div class="dropdown-divider "></div>
 
-                <% if !@logement.comments.empty? %>
-                     <div class="dropdown-divider "></div>
+        <div>
+            <%= render 'comments/show' %>
+        </div>
 
-                    <h3>Commentaire</h3>
+        <div class="dropdown-divider "></div>
 
-                    <% @logement.comments.each do |comment| %>
-
-                        <%= comment.body %>
-
-                        <%= comment.created_at.try(:strftime, ("%e %B %Y")) %>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <%= comment.user.name %>
-
-                                <% if comment.user.avatar.url.empty? %> 
-                                    <%= image_tag comment.user.avatar.url, class:"d-block w-100" %>
-                                <% else %>
-                                    <%= image_tag comment.user.avatar.url, class:"d-block w-100" %>
-                                <% end %>
-
-                            </div>
-
-                        </div>
-
-                    <% end %>
-
-                <% end %> 
-
-                <div class="dropdown-divider "></div>
-
-                <% if @user_booked %>
-                    <%= render 'comments/form' %>
-                <% end %>
-            
-            </div>
+        <% if @user_booked %>
+            <%= render 'comments/form' %>
+        <% end %>
+        
+        </div>
+        
         </div>
     </div>
 
