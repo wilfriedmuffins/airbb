@@ -2,10 +2,17 @@
 
 <div class="d-flex flex-column flex-md-row flex-sm-row m-5">
 
-    <div class="col-8">
+    <div class="col-7">
         <div class="d-flex flex-column m-4">
-            <%= @logement.city %>
-            <%= @logement.title %>
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h1 class="display-4"><%= @logement.title %></h1>
+
+                <div class="d-flex flex-row mx-5">
+                    <%= render "svg/pointer" %> 
+                    <%= @logement.city.capitalize %> 
+                </div>
+            </div>
 
             <div class="dropdown-divider "></div>
 
@@ -14,30 +21,35 @@
             <div class="dropdown-divider "></div>
 
             <% @logement.equipments.each do |key| %>
-                <td><%= render "svg/#{key}" %></td>            
-                <td><%= key %></td>
+                <div class="d-flex flex-row ">
+                    <div class="m-2 align-self-center">
+                        <%= render "svg/#{key}" %> 
+                    </div>
+                    <div class="m-2 align-self-center">
+                        <%= key %>  
+                    </div>
+                </div>  
             <% end %>
             
             <div class="dropdown-divider "></div>
+
+            <div>
+                <%= render 'comments/show' %>
+            </div>
+
         </div>
     </div>
 
-    <div class="col-4">
-
-        <div class="sticky-top p-2 shadow-lg p-3 mb-5 bg-body rounded">
-
+    <div class="col-5">
+        <div class="sticky-top shadow-lg p-3 mb-5 bg-body rounded">
             <div class="d-flex flex-column"> 
                 <h1 class="container">Booking</h1>
                 <%= render 'bookings/form' %>
             </div>
-
         </div>
 
-    </div>
+    </div>    
 </div>
 
-    <div class="m-5">
-        <%= render 'comments/show' %>
-    </div>
 
 <%= tag.div id: "map", data: { markers: @logement.to_json(methods: [:address])} %> 
