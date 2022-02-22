@@ -26,7 +26,7 @@ gem 'active_model_serializers', '~> 0.10.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'geocoder', '~> 1.6', '>= 1.6.7'
+gem 'geocoder', '~> 1.7', '>= 1.7.3'
 gem 'redis', '~> 4.3', '>= 4.3.1'
 gem 'figaro', '~> 1.2'
 gem 'devise', '~> 4.8'
@@ -34,6 +34,8 @@ gem 'responders'
 gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 gem 'image_processing', '~> 1.12', '>= 1.12.1'
 gem 'image_magick', '~> 0.1.9'
+gem 'pg', '~> 1.2', '>= 1.2.3'
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
 
 group :development, :test do
@@ -51,7 +53,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 2.1', '>= 2.1.1'
   gem 'spring-watcher-listen', '~> 2.0', '>= 2.0.1'
-  gem 'pg', '~> 1.2', '>= 1.2.3'
 
 end
 
@@ -67,8 +68,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
-  gem 'pg', '~> 1.2', '>= 1.2.3'
-  gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 end
 
 

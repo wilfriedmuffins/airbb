@@ -21,4 +21,3 @@ Geocoder.configure(
   # distances: :linear     
   cache: Redis.new,     # :spherical or :linear
 )
- 

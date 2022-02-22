@@ -23,17 +23,6 @@ class PagesController < ApplicationController
         @total = (@jour*@logement.price).to_s
 
         puts @total.inspect
-        @user_id = []
-
-        @logement.bookings.each do |id|
-            @user_id.push(id.user_id)
-        end
-        
-        @index = [0]
-        
-        @user_id.uniq!
-        
-        @test = @user_id.include? current_user.id
         
     end
 

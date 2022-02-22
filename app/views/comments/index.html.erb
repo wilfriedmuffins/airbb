@@ -1,0 +1,26 @@
+<div class="container">
+    <h1 class="container-fluid text-center">Commentaires du site <%= @comments.count%></h1>
+</div>
+
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+          <th scope="col">user_Id</th>
+          <th scope="col">Name user</th>
+          <th scope="col">Logement </th>
+          <th scope="col">body</th>
+      </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+          <td><%= comment.user.id %></td>
+          <td><%= comment.user.name%></td>
+          <td><%= comment.logement_id %></td>
+          <td><%= comment.body %></td>
+          <td><button type="button" class="btn btn-primary"><%= link_to "show", logement_path(comment.logement_id), class: "link-light" %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

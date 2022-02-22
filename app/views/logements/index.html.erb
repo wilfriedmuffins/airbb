@@ -34,13 +34,14 @@
             <td><%= logement.price %></td>
             <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
             <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
-           
             <td><button type="button" class="btn btn-primary"><%= link_to "show", logement_path(logement), class: "link-light" %></button></td>
             <%# <td><button type="button" class="btn btn-danger"><%= link_to "Delete", logement_path(logement), class: "link-light", method: :delete %></button></td> 
         </tr>
       <% end %>
     </tbody>
   </table>
+
+  <%= paginate @logements %>
 
   <%= tag.div id: "map", data: { markers: @logements.to_json(methods: [:address])} %>
 

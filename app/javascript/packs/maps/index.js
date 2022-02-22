@@ -1,5 +1,4 @@
 
-
 document.addEventListener("turbolinks:load", function(){
     
     var map = new GMaps({

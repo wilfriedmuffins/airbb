@@ -10,7 +10,8 @@ class LogementsController < ApplicationController
         if current_user.admin? == false
             redirect_to root_path
         else
-            @logements = Logement.all
+            #@logements = Logement.all.page 
+            @logements = Logement.all.order(:id).page params[:page]
         end
     end
 
@@ -18,17 +19,14 @@ class LogementsController < ApplicationController
         @comment = Comment.new
         
         @logement1 = Logement.find(params[:id])
-        @user_id = []
-        @logement1.bookings.each do |id|
-            @user_id.push(id.user_id)
-        end
-
-        @user_id.uniq!
-        @user_booked = @user_id.include? current_user.id
+        @booked1 = @logement1.bookings.exists?(user_id: current_user.id)
+        
         
         #je suis ni le onwer ni l'admin ni booker => je ne peux voir le logement 
-        if ( @user_booked || (current_user.id == @logement1.user_id) ) || ( current_user.admin ) 
+        if ( @booked1 || (current_user.id == @logement1.user_id) ) || ( current_user.admin ) 
             @logement = Logement.includes(:comments).find(params[:id])
+            @comments = @logement.comments.order(:created_at).page params[:page]
+            @booked = @logement1.bookings.exists?(user_id: current_user.id)
         else
             redirect_to root_path
         end

@@ -2,6 +2,8 @@ class Logement < ApplicationRecord
     mount_uploaders :images, ImageUploader
     serialize :images
 
+    paginates_per 5
+
     geocoded_by :address
 
     before_save {self.city.downcase!}
