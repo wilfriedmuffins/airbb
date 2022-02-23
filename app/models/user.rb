@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  before_create :set_default_avatar
+  #before_create :set_default_avatar
   mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # , :lockable, :timeoutable, :trackable and :omniauthable
