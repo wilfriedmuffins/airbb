@@ -32,12 +32,12 @@
                       
                     <% end %>
 
-                    <li><%= link_to "Sign Out", destroy_session_path(current_user), method: :delete, class:"dropdown-item" %></li>
+                    <li><%= link_to "Deconnection", destroy_session_path(current_user), method: :delete, class:"dropdown-item" %></li>
 
                     <% else %>
-                      <li class="nav-item" > <%= link_to "Sign Up", new_user_registration_path, class:"nav-link active" %> </li> 
+                      <li class="nav-item" > <%= link_to "Inscription", new_user_registration_path, class:"nav-link active" %> </li> 
 
-                <li class="nav-item" > <%= link_to "Sign In", new_user_session_path, class:"nav-link active" %>  </li>
+                <li class="nav-item" > <%= link_to "Connexion", new_user_session_path, class:"nav-link active" %>  </li>
 
             </ul>
 

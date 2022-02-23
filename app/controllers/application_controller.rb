@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :check_status, :current_user
+    helper_method :check_status
 
 
     def check_status(id)
@@ -20,7 +20,5 @@ class ApplicationController < ActionController::Base
         end
         
     end
-
-   
 
 end
