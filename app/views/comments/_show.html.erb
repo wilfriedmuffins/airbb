@@ -1,4 +1,4 @@
-<% if !@comments.empty? %>
+<% if @comments.any? %>
     <h3>Commentaire</h3>
 
     <% @comments.each do |comment| %>
@@ -27,4 +27,4 @@
     <% end %>
 <% end %> 
 
- <%= paginate @comments %>
+<%= paginate @comments %>

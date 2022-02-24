@@ -2,9 +2,6 @@ class Comment < ApplicationRecord
   belongs_to :logement, counter_cache: true
   belongs_to :user
 
-  paginates_per 5
-
-
   validate :check_double
 
   private

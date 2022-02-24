@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="container-fluid text-center">Commentaires du site <%= @comments.count%></h1>
+    <h1 class="container-fluid text-center">Commentaires du site</h1>
 </div>
 
 <div class="container">
@@ -24,3 +24,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= paginate @comments %>

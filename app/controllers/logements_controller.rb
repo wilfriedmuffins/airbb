@@ -11,7 +11,7 @@ class LogementsController < ApplicationController
             redirect_to root_path
         else
             #@logements = Logement.all.page 
-            @logements = Logement.all.order(:id).page params[:page]
+            @logements = Logement.all.page(params[:page]).per(15)
         end
     end
 
@@ -25,7 +25,7 @@ class LogementsController < ApplicationController
         #je suis ni le onwer ni l'admin ni booker => je ne peux voir le logement 
         if ( @booked1 || (current_user.id == @logement1.user_id) ) || ( current_user.admin ) 
             @logement = Logement.includes(:comments).find(params[:id])
-            @comments = @logement.comments.order(:created_at).page params[:page]
+            @comments = @logement.comments.page(params[:page]).per((5))
             @booked = @logement1.bookings.exists?(user_id: current_user.id)
         else
             redirect_to root_path

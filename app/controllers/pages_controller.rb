@@ -7,6 +7,7 @@ class PagesController < ApplicationController
         @booking = Booking.new
         @comment = Comment.new
         @logement = Logement.find(params[:id])
+        @comments = @logement.comments.page(params[:page]).per(6)
         
         @depart = params[:depart]
         @arrive = params[:arrive]
