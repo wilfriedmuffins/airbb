@@ -1,26 +1,25 @@
-
-import { each } from "jquery";
 import { Controller } from "stimulus"
 export default class extends Controller {
-    static targets = ["city"]
+    static targets = ["city", "latitude", "longitude"]
 
-    // initialize() {
-    //     const element = this.cityTarget
-    //     const city = element.value
-    //     console.log(`Hello, ${city}!`)
-    //     console.log(this.cityTarget.value);
-    //     console.log("Hello, Stimulus!", this.element)
-    // }
+    initialize(){
 
-    copy() {
-        // const element = this.cityTarget
-        // const city = element.value
-        // console.log(`Hello, ${city}!`)
-        // console.log(this.cityTarget.value);
-        console.log("Hello, Stimulus!", this.element)
+        this.autocomplete = new google.maps.places.Autocomplete(this.cityTarget);
+        this.autocomplete.addListener('place_changed', this.placeChanged.bind(this));
+
     }
 
+    placeChanged(){
+        let place = this.autocomplete.getPlace();
+        let longitude = place.geometry.location.lng()
+        let latitude = place.geometry.location.lat() 
+  
+        this.latitudeTarget.value = place.geometry.location.lat()
+        this.longitudeTarget.value = place.geometry.location.lng()
+  
+        console.log(this.place.geometry.location.lat())
+        console.log(this.place.geometry.location.lng())
+    }
     
+
 }
-
-

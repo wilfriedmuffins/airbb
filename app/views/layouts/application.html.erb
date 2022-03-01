@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:google, :api_key_google)%>" async defer data-turbolinks-eval="false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%=Rails.application.credentials.dig(:google, :api_key_google)%>&libraries=places" data-turbolinks-eval="false"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
@@ -17,3 +17,4 @@
     <%= render partial: "shared/footer"%>
   </body>
 </html>
+

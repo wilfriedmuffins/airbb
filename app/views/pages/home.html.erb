@@ -1,4 +1,5 @@
 <div class="container-fluid">
+
   <div class="carousel slide carousel-fade " id="carouselExampleFade" data-bs-ride="carousel">
 
     <div class="carousel-inner">
@@ -32,33 +33,40 @@
         </div>
       </div>
 
-      <div class="search position-absolute bottom-0 start-50 translate-middle-x bg-light mb-5 p-3" data-controller="places">
-        <%= form_with url: "/search", method: :get, class:"d-flex flex-column flex-md-row", local: true do |form|%>
-            <%= form.text_field :city, placeholder:"Où allez-vous?", class:" input m-2 rounded-pill form-control" %>
+      <div class="search position-absolute bottom-0 start-50 translate-middle-x bg-light mb-3">
 
-            <div class="vr d-none d-md-block"></div>
-            <div class="dropdown-divider d-block d-sm-block d-md-none"></div>
-        
-            <%= form.date_field :arrive, class:"input m-2 rounded-pill form-control" %>
+        <%= form_with url: "/search", method: :get, class:"d-flex flex-column flex-md-row", data: { controller:"places" }, local: true do |form|%>
 
-            <div class="vr d-none d-md-block"></div>
-            <div class="dropdown-divider d-block d-md-none"></div>
-          
-            <%= form.date_field :depart, class:"input m-2 rounded-pill form-control" %>
+          <%= form.text_field :city, placeholder:"city", class:"input m-2 rounded-pill form-control", data: { places_target: "city"} %>
 
-            <div class="vr d-none d-md-block"></div>
-            <div class="dropdown-divider d-block d-md-none"></div>
-        
-            <%= form.number_field :voyageur, placeholder:"Ajouter des voyageurs", class:" input m-2 rounded-pill form-control" %>
-
-            <%= form.submit "Recherche", class:" input m-2 rounded-pill btn btn-outline-info", data: { action:"click->places#copy" } %>
-        
-        <% end %>
-      </div>
+          <div class="vr d-none d-md-block"></div>
+          <div class="dropdown-divider d-block d-sm-block d-md-none"></div>
     
+          <%= form.date_field :arrive, class:"input m-2 rounded-pill form-control" %>
 
-    </div>
-  </div>
+          <div class="vr d-none d-md-block"></div>
+          <div class="dropdown-divider d-block d-md-none"></div>
+      
+          <%= form.date_field :depart, class:"input m-2 rounded-pill form-control" %>
+
+          <div class="vr d-none d-md-block"></div>
+          <div class="dropdown-divider d-block d-md-none"></div>
+      
+          <%= form.number_field :voyageur, placeholder:"Ajouter des voyageurs", class:" input m-2 rounded-pill form-control" %>
+
+          <%= form.text_field :latitude, placeholder:"latitude", class:"form-control form-control-lg", data: { places_target: "latitude"} %>
+
+          <%= form.text_field :longitude, placeholder:"longitude", class:"form-control form-control-lg", data: { places_target: "longitude"} %>
+
+          <%= form.submit "Recherche", class:" input m-2 rounded-pill btn btn-outline-info" %>
+          
+
+        <% end %>
+        
+      </div>
+  
+    </div>  
+  </div> 
 
   <div class="d-flex flex-column flex-md-row m-5">
 
@@ -96,6 +104,6 @@
           <h5 class="card-title">New York</h5>
         </div>
       </div>
+    </div>
 
-  </div>
-</div>
+<div>
