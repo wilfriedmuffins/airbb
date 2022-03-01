@@ -54,9 +54,18 @@
       
           <%= form.number_field :voyageur, placeholder:"Ajouter des voyageurs", class:" input m-2 rounded-pill form-control" %>
 
-          <%= form.text_field :latitude, placeholder:"latitude", class:"form-control form-control-lg", data: { places_target: "latitude"} %>
+          <div class="vr d-none d-md-block"></div>
+          <div class="dropdown-divider d-block d-md-none"></div>
 
-          <%= form.text_field :longitude, placeholder:"longitude", class:"form-control form-control-lg", data: { places_target: "longitude"} %>
+          <%= form.text_field :latitude, placeholder:"latitude", class:"input m-2 rounded-pill form-control", data: { places_target: "latitude"} %>
+
+          <div class="vr d-none d-md-block"></div>
+          <div class="dropdown-divider d-block d-md-none"></div>
+
+          <%= form.text_field :longitude, placeholder:"longitude", class:"input m-2 rounded-pill form-control", data: { places_target: "longitude"} %>
+
+          <div class="vr d-none d-md-block"></div>
+          <div class="dropdown-divider d-block d-md-none"></div>
 
           <%= form.submit "Recherche", class:" input m-2 rounded-pill btn btn-outline-info" %>
           
