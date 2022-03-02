@@ -27,7 +27,6 @@ gem 'active_model_serializers', '~> 0.10.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'geocoder', '~> 1.7', '>= 1.7.3'
-#gem 'redis', '~> 4.3', '>= 4.3.1'
 gem 'redis-namespace'
 gem 'figaro', '~> 1.2'
 gem 'devise', '~> 4.8'

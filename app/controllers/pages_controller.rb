@@ -37,8 +37,8 @@ class PagesController < ApplicationController
             @depart = params[:depart]
             @arrive = params[:arrive]
             @voyageur = params[:voyageur]
-            @latitude  = params[:latitude]
-            @longitude  = params[:longitude]
+            @latitude = params[:latitude]
+            @longitude = params[:longitude]
             puts @latitude.inspect
             puts @longitude.inspect
             logement_non_disponible = Logement.joins(:bookings).where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.start_booking <= ? and bookings.end_booking >= ?", @city, @arrive, @depart, @voyageur, @depart, @arrive])
