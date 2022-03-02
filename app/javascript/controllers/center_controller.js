@@ -15,12 +15,13 @@ export default class extends Controller {
 
       this.markersValue.forEach((markers) => {
         const marker = new google.maps.Marker({
-          position: { lat: markers.latitude, lng: markers.longitude },
+          position: { lat: markers.latitude, lng: markers.latitude },
           map: this.map,
           title: `${markers.title}`,
           label: `${markers.price}€`,
           optimized: false,
         })
+        console.log(markers.latitude,markers.latitude);
       })
 
     }
