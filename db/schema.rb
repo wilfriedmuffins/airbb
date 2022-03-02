@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2022_02_14_124920) do
     t.integer "comments_count", default: 0
     t.integer "price"
     t.string "description"
-    t.text "equipments", default: [], array: true
+    t.text "equipments"
     t.index ["user_id"], name: "index_logements_on_user_id"
   end
 

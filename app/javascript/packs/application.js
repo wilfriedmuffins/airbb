@@ -16,13 +16,3 @@ import { Carousel } from "bootstrap";
 
 import "controllers"
 
-
-
-//window.GMaps = GMaps;
-
-// document.addEventListener("turbolinks:load", () => {
-
-//     var someStr = 'He said "Hello, my name is Foo"';
-//     console.log(someStr.replace(/['"]+/g, ''));
-
-// });
