@@ -1,12 +1,17 @@
 import { Controller } from "stimulus"
 export default class extends Controller {
-    static targets = [ "map", "latitude", "longitude"]
+    static targets = [ "map"]//latitude", "longitude"]
     static values = {
-      markers : Array, 
-      latitude : Number,
-      longitude : Number}
+      markers : Array}
+      // , 
+      // latitude : Number,
+      // longitude : Number}
 
     initialize() {
+
+      console.log("in initialize");
+
+      console.log(markers.latitude,markers.latitude);
 
       this.map = new google.maps.Map(this.mapTarget, {
         center: { lat: 48.856614 , lng: 2.3522219 },
@@ -21,7 +26,7 @@ export default class extends Controller {
       //     label: `${markers.price}€`,
       //     optimized: false,
       //   })
-      //   console.log(markers.latitude,markers.latitude);
+      //  
       // })
 
     }

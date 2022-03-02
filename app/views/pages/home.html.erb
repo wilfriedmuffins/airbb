@@ -35,9 +35,8 @@
 
       <div class="search position-absolute bottom-0 start-50 translate-middle-x bg-light mb-3">
 
-        <%= form_with url: "/search", method: :get, class:"d-flex flex-column flex-md-row", data: { controller:"places" }, local: true do |form|%>
-
-          <%= form.text_field :city, class:"input m-2 rounded-pill form-control", data: { places_target: "city"} %>
+        <%= form_with url: "/search", method: :get, class:"d-flex flex-column flex-md-row", local: true do |form|%> <%# data: { controller:"places" }%>
+          <%= form.text_field :city, class:"input m-2 rounded-pill form-control" %> <%#, data: { places_target: "city"}%>
 
           <div class="vr d-none d-md-block"></div>
           <div class="dropdown-divider d-block d-sm-block d-md-none"></div>
@@ -54,9 +53,9 @@
       
           <%= form.number_field :voyageur, placeholder:"Ajouter des voyageurs", class:" input m-2 rounded-pill form-control" %>
 
-          <%= form.text_field :latitude, placeholder:"latitude", data: { places_target: "latitude"} %>
+          <%# <%= form.text_field :latitude, placeholder:"latitude", data: { places_target: "latitude"} %>
 
-          <%= form.text_field :longitude, placeholder:"longitude", data: { places_target: "longitude"} %>
+          <%# <%= form.text_field :longitude, placeholder:"longitude", data: { places_target: "longitude"} %> 
 
           <%= form.submit "Recherche", class:" input m-2 rounded-pill btn btn-outline-info" %>
           
