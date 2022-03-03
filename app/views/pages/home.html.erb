@@ -1,31 +1,74 @@
 
+<div class="container-fluid">
 
+  <div class="carousel slide carousel-fade " id="carouselExampleFade" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+
+      <div class="carousel-item active" data-bs-interval="5900">
+      <%= video_tag ["production_id_3783242.mp4"], :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
+        <div class=" carousel-caption">
+          <h1>Envie d'évasion?</h1>
+          <h1 class="title"> ready to get next holiday</h1>
+        </div>
+      </div>
+      
+      <div class="carousel-item" data-bs-interval="5010" >
+        <%= video_tag ["video.mp4"], :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
+        <div class=" carousel-caption">
+          <h1 class="title">Dans une destination de rêve?</h1>
+        </div>    
+      </div>
+
+      <div class="carousel-item" data-bs-interval="5010">
+        <%= video_tag ["tropical.mp4"], :size => "3840 x 2160", class:"d-block w-100 cover", autoplay: :autoplay, loop: :loop, muted: :muted %>
+        <div class=" carousel-caption">
+          <h1 class="title">Dans une destination de rêve?</h1>
+        </div>
+      </div>
+
+      <div class="carousel-item" data-bs-interval="6010">
+        <%= video_tag ["pexels_videos_2252797.mp4"], :size => "3840 x 2160", class:"d-block w-100 ", autoplay: :autoplay, loop: :loop, muted: :muted %>
+        <div class=" carousel-caption">
+          <h1 class="title">Alors envole toi par ici!</h1>
+        </div>
+      </div>
+
+      <div class="search position-absolute bottom-0 start-50 translate-middle-x bg-light m-1 p-2">
         <%= form_with url: "/search", method: :get, class:"d-flex flex-column flex-md-row", data: { controller:"places" }, local: true do |form|%> <%# }%>
-          <%= form.text_field :city, class:"input m-2 rounded-pill form-control", data: { places_target: "city"} %> 
+          <%= form.text_field :city, class:"input rounded-pill form-control-lg", data: { places_target: "city"} %> 
 
-          <%= form.date_field :arrive, placeholder:"Arrivé", class:"input m-2 rounded-pill form-control" %>
+          <div class="vr d-none d-md-block"></div>
+          <div class="dropdown-divider d-block d-md-none"></div>
+
+          <%= form.date_field :arrive, placeholder:"Arrivé", class:"input rounded-pill form-control" %>
 
           <div class="vr d-none d-md-block"></div>
           <div class="dropdown-divider d-block d-md-none"></div>
       
-          <%= form.date_field :depart, placeholder:"Départ", class:"input m-2 rounded-pill form-control" %>
+          <%= form.date_field :depart, placeholder:"Départ", class:"input rounded-pill form-control" %>
 
           <div class="vr d-none d-md-block"></div>
           <div class="dropdown-divider d-block d-md-none"></div>
       
-          <%= form.number_field :voyageur, placeholder:"Ajouter des voyageurs" %>
+          <%= form.number_field :voyageur, placeholder:"Ajouter des voyageurs", class:"input rounded-pill form-control" %>
 
-          <%= form.text_field :latitude, placeholder:"latitude", data: { places_target: "latitude"} %>
+          <%= form.text_field :latitude, type:"hidden", placeholder:"latitude", data: { places_target: "latitude"} %>
 
-          <%= form.text_field :longitude, placeholder:"longitude", data: { places_target: "longitude"} %>
+          <%= form.text_field :longitude, type:"hidden",  placeholder:"longitude", data: { places_target: "longitude"} %>
 
-          <%= form.submit "Recherche"  %>
+          <div class="vr d-none d-md-block"></div>
+          <div class="dropdown-divider d-block d-md-none"></div>
+
+          <%= form.submit "Recherche", class:"input rounded-pill form-control"  %>
           
         <% end %>
-        
-  
+      </div>
+    </div>
+  </div>
+</div>
 
-
+    <h2 class="container">Quelqules idées pour votre prochain voyage</h2>
 
   
     <div class="d-flex flex-column flex-md-row m-5">
