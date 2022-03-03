@@ -1,22 +1,23 @@
 
 
-        <%= form_with url: "/search", method: :get, local: true do |form|%> <%# class:"d-flex flex-column flex-md-row", data: { controller:"places" }%>
-          <%= form.text_field :city %> <%#, data: { places_target: "city"}%>
+        <%= form_with url: "/search", method: :get, class:"d-flex flex-column flex-md-row", data: { controller:"places" }, local: true do |form|%> <%# }%>
+          <%= form.text_field :city, class:"input m-2 rounded-pill form-control", data: { places_target: "city"} %> 
 
-         
-    
-          <%= form.date_field :arrive %>
+          <%= form.date_field :arrive, placeholder:"Arrivé", class:"input m-2 rounded-pill form-control" %>
 
-
+          <div class="vr d-none d-md-block"></div>
+          <div class="dropdown-divider d-block d-md-none"></div>
       
-          <%= form.date_field :depart %>
+          <%= form.date_field :depart, placeholder:"Départ", class:"input m-2 rounded-pill form-control" %>
 
+          <div class="vr d-none d-md-block"></div>
+          <div class="dropdown-divider d-block d-md-none"></div>
       
           <%= form.number_field :voyageur, placeholder:"Ajouter des voyageurs" %>
 
-          <%# <%= form.text_field :latitude, placeholder:"latitude", data: { places_target: "latitude"} %>
+          <%= form.text_field :latitude, placeholder:"latitude", data: { places_target: "latitude"} %>
 
-          <%# <%= form.text_field :longitude, placeholder:"longitude", data: { places_target: "longitude"} %> 
+          <%= form.text_field :longitude, placeholder:"longitude", data: { places_target: "longitude"} %>
 
           <%= form.submit "Recherche"  %>
           
@@ -24,4 +25,44 @@
         
   
 
+
+
   
+    <div class="d-flex flex-column flex-md-row m-5">
+
+      <div class="card bg-dark text-white m-2 align-self-sm-center " style="width: 20rem;">
+        <%= image_tag "pexels-mart-lmj-2563986.jpg", class: "img-card" %>
+        <div class="card-img-overlay">
+          <h5 class="card-title">Paris</h5>
+        </div>
+      </div>
+
+      <div class="card bg-dark text-white m-2 align-self-sm-center " style="width: 20rem;">
+        <%= image_tag "remi-thorel-304R7qkgHe8-unsplash.jpg", class: "img-card" %>
+        <div class="card-img-overlay">
+          <h5 class="card-title">San francisco</h5>
+        </div>
+      </div>
+
+      <div class="card bg-dark text-white m-2 align-self-sm-center " style="width: 20rem;">
+        <%= image_tag "maarten-van-den-heuvel-Siuwr3uCir0-unsplash.jpg", class: "img-card" %>
+        <div class="card-img-overlay">
+          <h5 class="card-title">Guadeloupe</h5>
+        </div>
+      </div>
+
+      <div class="card bg-dark text-white m-2 align-self-sm-center" style="width: 20rem;">
+        <%= image_tag "pexels-erica-zhao-5033690.jpg", class: "img-card" %>
+        <div class="card-img-overlay">
+          <h5 class="card-title">Espagne</h5>
+        </div>
+      </div>
+
+      <div class="card bg-dark text-white m-2 align-self-sm-center" style="width: 20rem;">
+        <%= image_tag "aussieactive-1brtlzDq-o8-unsplash.jpg", class: "img-card" %>
+        <div class="card-img-overlay">
+          <h5 class="card-title">New York</h5>
+        </div>
+      </div>
+
+    </div>

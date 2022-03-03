@@ -5,7 +5,7 @@ class Logement < ApplicationRecord
 
     geocoded_by :address
 
-    before_save {self.city.downcase!}
+    #before_save {self.city.downcase!}
     
     after_validation :geocode, if: :address_changed?
 

@@ -5,7 +5,7 @@
     <div class="col-7">
     
         <% if current_user.id == @logement.user_id%>
-            <h2 class="container"><%= link_to "Edit", edit_logement_path(@logement), class:"link-primary" %></h2> 
+            <h2><%= link_to "Edit", edit_logement_path(@logement), class:" container link-primary" %></h2> 
         <% end %>
         
         <div class="d-flex flex-column m-4">
@@ -23,22 +23,22 @@
 
             <%= @logement.description %>
 
+            
+            <% if @logement.equipments.present? %>
             <div class="dropdown-divider "></div>
 
-            <% @logement.equipments.each do |key| %>
-                <div class="d-flex flex-row ">
-                    <div class="m-2 align-self-center">
-                        <%= render "svg/#{key}" %> 
-                    </div>
-                    <div class="m-2 align-self-center">
-                        <%= key %>  
-                    </div>
-                </div>  
+                <% @logement.equipments.each do |key| %>
+                    <div class="d-flex flex-row ">
+                        <div class="m-2 align-self-center">
+                            <%= render "svg/#{key}" %> 
+                        </div>
+                        <div class="m-2 align-self-center">
+                            <%= key %>  
+                        </div>
+                    </div>  
+                <% end %>
             <% end %>
-
         </div>
-
-        <div class="dropdown-divider "></div>
 
         <div>
             <%= render 'comments/show' %>

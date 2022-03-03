@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 2022_02_14_124920) do
     t.float "longitude"
     t.bigint "user_id"
     t.string "images"
-    t.integer "bookings_count", default: 0, null: false
-    t.integer "comments_count", default: 0, null: false
+    t.integer "bookings_count"
+    t.integer "comments_count"
     t.integer "price"
     t.string "description"
     t.text "equipments"
