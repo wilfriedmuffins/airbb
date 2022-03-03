@@ -34,7 +34,7 @@ gem 'responders'
 gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 gem 'image_processing', '~> 1.12', '>= 1.12.1'
 gem 'image_magick', '~> 0.1.9'
-gem 'pg', '~> 1.2', '>= 1.2.3'
+gem 'pg', '~> 1.3', '>= 1.3.3'
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
 
@@ -43,7 +43,7 @@ group :development, :test do
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
 gem 'byebug', '~> 11.1.3' , platforms: [:mri, :mingw, :x64_mingw]
-gem 'pg', '~> 1.2', '>= 1.2.3'
+gem 'pg', '~> 1.3', '>= 1.3.3'
 
 end
 
@@ -54,7 +54,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 2.1', '>= 2.1.1'
   gem 'spring-watcher-listen', '~> 2.0', '>= 2.0.1'
-  gem 'pg', '~> 1.2', '>= 1.2.3'
+  gem 'pg', '~> 1.3', '>= 1.3.3'
 
 end
 
@@ -70,6 +70,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
+  gem 'pg', '~> 1.3', '>= 1.3.3'
 end
 
 
