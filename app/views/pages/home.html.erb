@@ -1,109 +1,27 @@
-<div class="container-fluid">
 
-  <div class="carousel slide carousel-fade " id="carouselExampleFade" data-bs-ride="carousel">
-
-    <div class="carousel-inner">
-
-      <div class="carousel-item active" data-bs-interval="5900">
-      <%= video_tag ["production_id_3783242.mp4"], :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
-        <div class=" carousel-caption">
-          <h1>Envie d'évasion?</h1>
-          <h1 class="title"> ready to get next holiday</h1>
-        </div>
-      </div>
-      
-      <div class="carousel-item" data-bs-interval="5010" >
-        <%= video_tag ["video.mp4"], :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
-        <div class=" carousel-caption">
-          <h1 class="title">Dans une destination de rêve?</h1>
-        </div>    
-      </div>
-
-      <div class="carousel-item" data-bs-interval="5010">
-        <%= video_tag ["tropical.mp4"], :size => "3840 x 2160", class:"d-block w-100 cover",autoplay: :autoplay, loop: :loop, muted: :muted %>
-        <div class=" carousel-caption">
-          <h1 class="title">Dans une destination de rêve?</h1>
-        </div>
-      </div>
-
-      <div class="carousel-item" data-bs-interval="6010">
-        <%= video_tag ["pexels_videos_2252797.mp4"], :size => "3840 x 2160", class:"d-block w-100 ", autoplay: :autoplay, loop: :loop, muted: :muted %>
-        <div class=" carousel-caption">
-          <h1 class="title">Alors envole toi par ici!</h1>
-        </div>
-      </div>
-
-      <div class="search position-absolute bottom-0 start-50 translate-middle-x bg-light mb-3">
 
         <%= form_with url: "/search", method: :get, local: true do |form|%> <%# class:"d-flex flex-column flex-md-row", data: { controller:"places" }%>
-          <%= form.text_field :city, class:"input m-2 rounded-pill form-control" %> <%#, data: { places_target: "city"}%>
+          <%= form.text_field :city %> <%#, data: { places_target: "city"}%>
 
-          <div class="vr d-none d-md-block"></div>
-          <div class="dropdown-divider d-block d-sm-block d-md-none"></div>
+         
     
-          <%= form.date_field :arrive, class:"input m-2 rounded-pill form-control" %>
+          <%= form.date_field :arrive %>
 
-          <div class="vr d-none d-md-block"></div>
-          <div class="dropdown-divider d-block d-md-none"></div>
-      
-          <%= form.date_field :depart, class:"input m-2 rounded-pill form-control" %>
 
-          <div class="vr d-none d-md-block"></div>
-          <div class="dropdown-divider d-block d-md-none"></div>
       
-          <%= form.number_field :voyageur, placeholder:"Ajouter des voyageurs", class:" input m-2 rounded-pill form-control" %>
+          <%= form.date_field :depart %>
+
+      
+          <%= form.number_field :voyageur, placeholder:"Ajouter des voyageurs" %>
 
           <%# <%= form.text_field :latitude, placeholder:"latitude", data: { places_target: "latitude"} %>
 
           <%# <%= form.text_field :longitude, placeholder:"longitude", data: { places_target: "longitude"} %> 
 
-          <%= form.submit "Recherche", class:" input m-2 rounded-pill btn btn-outline-info" %>
+          <%= form.submit "Recherche"  %>
           
         <% end %>
         
-      </div>
   
-    </div>  
-  </div> 
 
-  <h2 class="container" >Quelqules idées pour votre prochain voyage</h2>
-
-  <div class="d-flex flex-column flex-md-row m-5">
-
-      <div class="card bg-dark text-white m-2 align-self-sm-center " style="width: 20rem;">
-        <%= image_tag "pexels-mart-lmj-2563986.jpg", class: "img-card" %>
-        <div class="card-img-overlay">
-          <h5 class="card-title">Paris</h5>
-        </div>
-      </div>
-
-      <div class="card bg-dark text-white m-2 align-self-sm-center " style="width: 20rem;">
-        <%= image_tag "remi-thorel-304R7qkgHe8-unsplash.jpg", class: "img-card" %>
-        <div class="card-img-overlay">
-          <h5 class="card-title">San francisco</h5>
-        </div>
-      </div>
-
-      <div class="card bg-dark text-white m-2 align-self-sm-center " style="width: 20rem;">
-        <%= image_tag "maarten-van-den-heuvel-Siuwr3uCir0-unsplash.jpg", class: "img-card" %>
-        <div class="card-img-overlay">
-          <h5 class="card-title">Guadeloupe</h5>
-        </div>
-      </div>
-
-      <div class="card bg-dark text-white m-2 align-self-sm-center" style="width: 20rem;">
-        <%= image_tag "pexels-erica-zhao-5033690.jpg", class: "img-card" %>
-        <div class="card-img-overlay">
-          <h5 class="card-title">Espagne</h5>
-        </div>
-      </div>
-
-      <div class="card bg-dark text-white m-2 align-self-sm-center" style="width: 20rem;">
-        <%= image_tag "aussieactive-1brtlzDq-o8-unsplash.jpg", class: "img-card" %>
-        <div class="card-img-overlay">
-          <h5 class="card-title">New York</h5>
-        </div>
-      </div>
-    </div>
-
-<div>
+  

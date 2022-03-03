@@ -3,8 +3,8 @@ class PagesController < ApplicationController
     def home
         @latitude  = params[:latitude]
         @longitude  = params[:logitude]
-        puts @latitude.inspect
-        puts @longitude.inspect
+        # puts @latitude.inspect
+        # puts @longitude.inspect
     end
 
     def show
@@ -39,8 +39,8 @@ class PagesController < ApplicationController
             @voyageur = params[:voyageur]
             @latitude = params[:latitude]
             @longitude = params[:longitude]
-            puts @latitude.inspect
-            puts @longitude.inspect
+            # puts @latitude.inspect
+            # puts @longitude.inspect
             logement_non_disponible = Logement.joins(:bookings).where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.start_booking <= ? and bookings.end_booking >= ?", @city, @arrive, @depart, @voyageur, @depart, @arrive])
             @logements_disponible = Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings_count = ?", @city, @arrive, @depart, @voyageur, 0]).or(Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.start_booking > ?", @city, @arrive, @depart, @voyageur, @depart])).or(Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.end_booking < ?", @city, @arrive, @depart, @voyageur, @arrive])).left_outer_joins(:bookings).distinct.without(logement_non_disponible)
         else
