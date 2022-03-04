@@ -8,8 +8,7 @@
       <div class="carousel-item active" data-bs-interval="5900">
       <%= video_tag ["production_id_3783242.mp4"], :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
         <div class=" carousel-caption">
-          <h1>Envie d'évasion?</h1>
-          <h1 class="title"> ready to get next holiday</h1>
+          <h1 class="title"> Envie d'évasion?</h1>
         </div>
       </div>
       
@@ -34,44 +33,53 @@
         </div>
       </div>
 
-      <div class="search position-absolute bottom-0 start-50 translate-middle-x bg-light m-1 p-2">
-        <%= form_with url: "/search", method: :get, class:"d-flex flex-column flex-md-row", data: { controller:"places" }, local: true do |form|%> <%# }%>
-          <%= form.text_field :city, class:"input rounded-pill form-control-lg", data: { places_target: "city"} %> 
+      <div class="relative">
+        <div class="search position-absolute bottom-0 start-50 translate-middle-x bg-light m-1 p-2">
 
-          <div class="vr d-none d-md-block"></div>
-          <div class="dropdown-divider d-block d-md-none"></div>
+          <%= form_with url: "/search", method: :get, data: { controller:"places" }, local: true do |form|%>
+          <div class="d-flex flex-column flex-md-row">
 
-          <%= form.date_field :arrive, placeholder:"Arrivé", class:"input rounded-pill form-control" %>
+            <div>
+              <%= form.text_field :city, placeholder:"Ville", class:" form-control p-1", data: { places_target: "city"} %> 
+            </div> 
 
-          <div class="vr d-none d-md-block"></div>
-          <div class="dropdown-divider d-block d-md-none"></div>
-      
-          <%= form.date_field :depart, placeholder:"Départ", class:"input rounded-pill form-control" %>
+            <div class="vr d-none d-md-block m-1"></div>
+            <div class="dropdown-divider d-block d-md-none m-1"></div>
 
-          <div class="vr d-none d-md-block"></div>
-          <div class="dropdown-divider d-block d-md-none"></div>
-      
-          <%= form.number_field :voyageur, placeholder:"Ajouter des voyageurs", class:"input rounded-pill form-control" %>
+              <div><%= form.date_field :arrive, placeholder:"Arrivé", class:" form-control p-1" %></div>
 
-          <%= form.text_field :latitude, type:"hidden", placeholder:"latitude", data: { places_target: "latitude"} %>
+            <div class="vr d-none d-md-block m-1"></div>
+            <div class="dropdown-divider d-block d-md-none m-1"></div>
+        
+            <div><%= form.date_field :depart, placeholder:"Départ", class:" form-control p-1" %></div>
 
-          <%= form.text_field :longitude, type:"hidden",  placeholder:"longitude", data: { places_target: "longitude"} %>
+            <div class="vr d-none d-md-block m-1"></div>
+            <div class="dropdown-divider d-block d-md-none m-1"></div>
 
-          <div class="vr d-none d-md-block"></div>
-          <div class="dropdown-divider d-block d-md-none"></div>
+            <div><%= form.number_field :voyageur, placeholder:"Voyageurs", class:" form-control p-1" %></div>
 
-          <%= form.submit "Recherche", class:"input rounded-pill form-control"  %>
-          
-        <% end %>
+            <%= form.text_field :latitude, type:"hidden", placeholder:"latitude", data: { places_target: "latitude"} %>
+
+            <%= form.text_field :longitude, type:"hidden",  placeholder:"longitude", data: { places_target: "longitude"} %>
+
+            <div class="vr d-none d-md-block m-1"></div>
+            <div class="dropdown-divider d-block d-md-none m-1"></div>
+
+            <div><%= form.submit "Recherche", class:" form-control p-1" %></div>
+
+          </div>
+          <% end %>
+            
+        </div>
       </div>
+      
     </div>
   </div>
 </div>
 
-    <h2 class="container">Quelqules idées pour votre prochain voyage</h2>
+    <h2 class="text-center m-5">Quelqules idées pour votre prochain voyage</h2>
 
-  
-    <div class="d-flex flex-column flex-md-row m-5">
+    <div class="d-flex flex-column flex-md-row m-2">
 
       <div class="card bg-dark text-white m-2 align-self-sm-center " style="width: 20rem;">
         <%= image_tag "pexels-mart-lmj-2563986.jpg", class: "img-card" %>
