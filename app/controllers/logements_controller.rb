@@ -11,7 +11,7 @@ class LogementsController < ApplicationController
             redirect_to root_path
         else
             #@logements = Logement.all.page 
-            @logements = Logement.all.page(params[:page]).per(15)
+            @logements = Logement.all.order(:id).page(params[:page]).per(15)
         end
     end
 
