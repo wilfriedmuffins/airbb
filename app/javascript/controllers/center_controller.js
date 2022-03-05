@@ -12,7 +12,7 @@ export default class extends Controller {
 
       this.map = new google.maps.Map(this.mapTarget, {
         center: { lat: this.latitudeValue, lng: this.longitudeValue },
-        zoom: 11,
+        zoom: 10,
       });
 
       this.markersValue.forEach((markers) => {
@@ -23,7 +23,6 @@ export default class extends Controller {
           label: `${markers.price}€`,
           optimized: false,
         })
-       
       })
 
     }

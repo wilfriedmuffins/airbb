@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   resources :bookings
   resources :pages, only: [:show]
 
+  get "guadeloupe",to: "pages#guadeloupe"
+  get "paris",to: "pages#paris"
+  get "sanfrancisco",to: "pages#sanfrancisco"
+  get "new_york",to: "pages#new_york"
+  get "espagne",to: "pages#espagne"
+
   get "search", to: "pages#search"
   post "pages/:id", to: 'pages#show'
   post "logements/:id", to: 'logements#show'

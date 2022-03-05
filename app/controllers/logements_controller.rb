@@ -9,8 +9,7 @@ class LogementsController < ApplicationController
     def index
         if current_user.admin? == false
             redirect_to root_path
-        else
-            #@logements = Logement.all.page 
+        else 
             @logements = Logement.all.order(:id).page(params[:page]).per(15)
         end
     end

@@ -31,7 +31,6 @@ csv.each do |row|
     t.price = row['price']
     t.description = row['description']
     t.equipments = row['equipments'].split(" ")
-    #puts "#{t.equipments}"
     t.save
     puts "#{t.title} saved"
 end
