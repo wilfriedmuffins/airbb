@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   get "guadeloupe",to: "pages#guadeloupe"
   get "paris",to: "pages#paris"
-  get "sanfrancisco",to: "pages#sanfrancisco"
+  get "san_francisco",to: "pages#san_francisco"
   get "new_york",to: "pages#new_york"
   get "espagne",to: "pages#espagne"
 
