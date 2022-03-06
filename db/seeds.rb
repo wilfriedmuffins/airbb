@@ -8,7 +8,7 @@
 
 require 'csv'
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'logement_test.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'san_francisco.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
     t = Logement.new
