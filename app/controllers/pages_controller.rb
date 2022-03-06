@@ -75,4 +75,4 @@ class PagesController < ApplicationController
         puts @logements_disponible.inspect
     end
 
-end
+end 
