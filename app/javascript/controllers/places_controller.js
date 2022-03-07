@@ -1,11 +1,11 @@
 import { Controller } from "stimulus"
 export default class extends Controller {
-    static targets = ["city", "adresse", "latitude", "longitude",]
+    static targets = ["city", "latitude", "longitude",]
 
     initialize(){
 
         this.autocomplete = new google.maps.places.Autocomplete(this.cityTarget);
-        this.autocomplete = new google.maps.places.Autocomplete(this.adresseTarget);
+        //this.autocomplete = new google.maps.places.Autocomplete(this.adresseTarget);
         this.autocomplete.addListener('place_changed', this.placeChanged.bind(this));
 
     }
