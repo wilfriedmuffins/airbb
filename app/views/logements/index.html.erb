@@ -15,7 +15,6 @@
           <th scope="col">Title </th>
           <th scope="col">Adresse</th>
           <th scope="col">City</th>
-          <th scope="col">Zip Code</th>
           <th scope="col">voyageurs</th>
           <th scope="col">Prix €/nuit</th>
           <th scope="col">Date de début de disponibilité</th>
@@ -31,7 +30,6 @@
             <td><%= logement.title %></td>
             <td><%= logement.adresse %></td>
             <td><%= logement.city %></td> 
-            <td><%= logement.zipcode %></td> 
             <td><%= logement.voyageur %></td>
             <td><%= logement.price %></td>
             <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 

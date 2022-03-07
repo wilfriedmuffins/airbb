@@ -3,19 +3,18 @@ class Logement < ApplicationRecord
     serialize :images
     serialize :equipments
 
-    geocoded_by :address
+    geocoded_by :adresse
 
     #before_save {self.city.downcase!}
     
     after_validation :geocode, if: :address_changed?
 
     def address
-        [adresse, city, zipcode].compact.join(", ")
+        [adresse].compact
     end
 
-
     def address_changed?
-        adresse_changed? | city_changed? | zipcode_changed?
+        adresse_changed?
     end
 
     belongs_to :user
@@ -27,7 +26,7 @@ class Logement < ApplicationRecord
     validates :end_date_of_availability, presence: true
     validates :voyageur, presence: true
     validates :city, presence: true
-    validates :zipcode, presence: true
+    #validates :zipcode, presence: true
 
     ICONS = %i[cuisine couverts refrigirateur mini_refrigirateur four micro_onde lave_vaisselle congelateur lave_linge seche_linge baignoire savon_pour_le_corps shampooing fer seche_cheveux armoire cintre draps oreillers_couettes wifi work tv animaux clim fumeur no_smock]
     #
