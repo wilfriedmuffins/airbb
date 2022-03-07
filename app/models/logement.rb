@@ -7,15 +7,7 @@ class Logement < ApplicationRecord
 
     #before_save {self.city.downcase!}
     
-    after_validation :geocode, if: :address_changed?
-
-    def address
-        [adresse].compact
-    end
-
-    def address_changed?
-        adresse_changed?
-    end
+    after_validation :geocode, if: :adresse_changed?
 
     belongs_to :user
     has_many :bookings, dependent: :destroy
