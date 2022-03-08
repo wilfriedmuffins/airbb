@@ -24,9 +24,10 @@ class Logement < ApplicationRecord
     private 
 
     def reset_counter_cache
-        Logement.reset_counters(Logement.last, :bookings_count)
-        Logement.reset_counters(Logement.last, :comments_count)
+        logement = Logement.last
+        Logement.reset_counters(logement.id, :bookings_count)
+        Logement.reset_counters(logement.id, :comments_count)
     end
 
     #
-end
+end 
