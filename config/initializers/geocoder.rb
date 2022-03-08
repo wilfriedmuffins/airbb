@@ -19,5 +19,5 @@ Geocoder.configure(
   # Calculation options
   units: :km,                 # :km for kilometers or :mi for miles
   # distances: :linear     
-  cache: Redis.new,     # :spherical or :linear
+  #cache: Redis.new,     # :spherical or :linear
 )
