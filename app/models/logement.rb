@@ -16,10 +16,10 @@ class Logement < ApplicationRecord
     validates :end_date_of_availability, presence: true
     validates :voyageur, presence: true
     validates :city, presence: true
-    
+
     ICONS = %i[cuisine couverts refrigirateur mini_refrigirateur four micro_onde lave_vaisselle congelateur lave_linge seche_linge baignoire savon_pour_le_corps shampooing fer seche_cheveux armoire cintre draps oreillers_couettes wifi work tv animaux clim fumeur no_smock]
 
-    after_save :reset_count_cache
+    #after_create :reset_count_cache
 
     private 
 
