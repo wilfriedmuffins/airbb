@@ -81,7 +81,7 @@
 
       <div class="card bg-dark text-white m-2 align-self-sm-center " style="width: 20rem;">
         <%= image_tag "pexels-mart-lmj-2563986.jpg", class: "img-card" %>
-        <div class="card-img-overlay">
+        <div class="card-img-overlay" data-controller="center" data-center-lat_paris-target="<%= @lat_paris%>" data-center-lng_paris-target="<%= @lng_paris%>">
           <h5 class="card-title">Paris</h5>
         </div>
       </div>
@@ -89,6 +89,7 @@
       <div class="card bg-dark text-white m-2 align-self-sm-center " style="width: 20rem;">
         <%= image_tag "remi-thorel-304R7qkgHe8-unsplash.jpg", class: "img-card" %>
         <div class="card-img-overlay">
+
           <h5 class="card-title">San francisco</h5>
         </div>
       </div>
