@@ -27,7 +27,6 @@ csv.each do |row|
     t.created_at = row['created_at']
     t.updated_at = row['updated_at']
     t.city = row['city']
-    t.zipcode = row['zipcode']
     t.latitude = row['latitude']
     t.longitude = row['longitude']
     t.user_id = row['user_id']
