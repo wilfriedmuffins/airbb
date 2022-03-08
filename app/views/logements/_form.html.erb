@@ -12,28 +12,28 @@
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label"><%= form.label :adresse %></label>
             <div class="col-sm-3">
-                <%= form.text_field :adresse , class: "form-control" %>
+                <%= form.text_field :adresse , class: "form-control", data: { places_target:"city"} %>
             </div>
         </div>
 
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label"><%= form.label :city %></label>
             <div class="col-sm-3" >
-                <%= form.text_field :city, placeholder:"Ville", class: "form-control", data: { places_target:"city"} %>
+                <%= form.text_field :city, placeholder:"Ville", class: "form-control" %>
             </div>
         </div>
 
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label"><%= form.label :start_date_of_availability %></label>
             <div class="col-sm-3">
-                <%= form.date_field :start_date_of_availability , class: "form-control"%>
+                <%= form.date_field :start_date_of_availability, class: "form-control"%>
             </div>
         </div>
 
         <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label"><%= form.label :end_date_of_availability %></label>
             <div class="col-sm-3">
-                <%= form.date_field :end_date_of_availability , class: "form-control"%>
+                <%= form.date_field :end_date_of_availability, class: "form-control"%>
             </div>
         </div>
 
