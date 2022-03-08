@@ -19,11 +19,11 @@ class Logement < ApplicationRecord
 
     ICONS = %i[cuisine couverts refrigirateur mini_refrigirateur four micro_onde lave_vaisselle congelateur lave_linge seche_linge baignoire savon_pour_le_corps shampooing fer seche_cheveux armoire cintre draps oreillers_couettes wifi work tv animaux clim fumeur no_smock]
 
-    #after_create :reset_count_cache
+    after_create :reset_counter_cache
 
     private 
 
-    def reset_count_cache
+    def reset_counter_cache
         Logement.reset_counters(Logement.last, :bookings_count)
         Logement.reset_counters(Logement.last, :comments_count)
     end
