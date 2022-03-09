@@ -12,7 +12,11 @@
             
             <% @logements_disponible.each do |logement| %>
                 <div class="card m-auto" style="width: 20rem;">
-                    <%= image_tag logement.images[0].url, class: "card-img-top", style:"max-height: 200px;" %>
+                    
+                    <% if logement.images.present? %>
+                        <%= image_tag logement.images[0].url, class: "card-img-top", style:"max-height: 200px;" %>
+                    <% end %>
+        
                     <div class="card-body">
                         <h5 class="card-title"><%= logement.title%></h5>
                         <p class="card-text"></p>
