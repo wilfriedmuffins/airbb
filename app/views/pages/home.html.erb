@@ -56,9 +56,12 @@
 
             <div><%= form.number_field :voyageur, placeholder:"Voyageurs", class:" form-control p-1" %></div>
 
+
             <%= form.text_field :latitude, type:"hidden", data: { places_target: "latitude"} %>
 
             <%= form.text_field :longitude, type:"hidden", data: { places_target: "longitude"} %>
+
+            <%# <%= form.text_field :adresse, type:"hidden", data: { places_target: "adresse"} %> %>
 
             <div class="vr d-none d-md-block m-1"></div>
             <div class="dropdown-divider d-block d-md-none m-1"></div>
@@ -81,7 +84,7 @@
 
       <div class="card bg-dark text-white m-2 align-self-sm-center " style="width: 20rem;">
         <%= image_tag "pexels-mart-lmj-2563986.jpg", class: "img-card" %>
-        <div class="card-img-overlay" data-controller="center" data-center-lat_paris-target="<%= @lat_paris%>" data-center-lng_paris-target="<%= @lng_paris%>">
+        <div class="card-img-overlay">
           <h5 class="card-title">Paris</h5>
         </div>
       </div>

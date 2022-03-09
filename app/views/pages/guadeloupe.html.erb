@@ -26,7 +26,7 @@
     </div>  
 
     <div class="col-6 sticky-top">
-        <div data-controller="center" data-center-target="map" data-center-latitude-value="<%= @latitude%>" data-center-longitude-value="<%= @longitude%>" data-center-markers-value="<%= @logements_disponible.to_json(methods: [:address])%>" style="height: 700px;"></div>
+        <div data-controller="center" data-center-target="map" data-center-latitude-value="<%= @latitude%>" data-center-longitude-value="<%= @longitude%>" data-center-markers-value="<%= @logements_disponible.to_json()%>" style="height: 700px;"></div>
     </div>
 
 </div>

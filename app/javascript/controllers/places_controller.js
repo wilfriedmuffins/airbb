@@ -1,6 +1,6 @@
 import { Controller } from "stimulus"
 export default class extends Controller {
-    static targets = ["city", "latitude", "longitude",]
+    static targets = ["city", "adresse", "latitude", "longitude",]
 
     initialize(){
 
