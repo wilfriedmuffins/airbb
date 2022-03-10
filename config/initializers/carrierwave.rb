@@ -10,7 +10,7 @@ CarrierWave.configure do |config|
     # Use AWS storage if in production
     if Rails.env.production?
       CarrierWave.configure do |config|
-        config.storage = :aws
+        config.storage = :fog
       end
     end
     
