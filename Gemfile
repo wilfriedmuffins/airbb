@@ -36,6 +36,7 @@ gem 'image_processing', '~> 1.12', '>= 1.12.1'
 gem 'image_magick', '~> 0.1.9'
 gem 'pg', '~> 1.3', '>= 1.3.3'
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
+gem 'fog-aws', '~> 3.13'
 
 
 group :development, :test do
