@@ -20,6 +20,8 @@ CarrierWave.configure do |config|
       :aws_secret_access_key  => Rails.application.credentials.dig(:aws, :secret_access_key),     # required
       :region                 => 'eu-central-1'                        # optional, defaults to 'us-east-1'
     }
+
+    config.fog_provider = 'fog/aws'
     config.fog_directory  = 'airbibi'               # required
     #config.fog_host       = 'https://assets.example.com'           # optional, defaults to nil
     #config.fog_public     = false                                  # optional, defaults to true
