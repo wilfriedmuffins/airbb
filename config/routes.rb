@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get "paris",to: "pages#paris"
   get "san_francisco",to: "pages#san_francisco"
   get "new_york",to: "pages#new_york"
-  get "espagne",to: "pages#espagne"
+  get "barcelone",to: "pages#barcelone"
 
   get "search", to: "pages#search"
   post "pages/:id", to: 'pages#show'
