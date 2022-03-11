@@ -18,7 +18,6 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'logement.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'UTF-8')
 csv.each do |row|
     t = Logement.new
-    #t.id = row['id']
     t.title = row['title']
     t.adresse = row['adresse']
     t.start_date_of_availability = row['start_date_of_availability']
