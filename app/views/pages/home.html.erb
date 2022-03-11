@@ -81,46 +81,49 @@
     <div class="d-flex flex-column flex-md-row m-2">
 
       <div class="card bg-dark text-white m-2 align-self-sm-center " style="width: 20rem;">
-        <%= image_tag "pexels-mart-lmj-2563986.jpg", class: "img-card" %>
-        <div class="card-img-overlay">
-          <h5 class="card-title">Paris</h5>
-        </div>
+        <a href="<%=paris_path()%>" style="color: #FFFFFF;">
+          <%= image_tag "pexels-mart-lmj-2563986.jpg", class: "img-card" %>
+          <div class="card-img-overlay">
+            <h5 class="card-title">Paris</h5>
+          </div>
+        </a>
+      </div>
+      <div class="card bg-dark text-white m-2 align-self-sm-center " style="width: 20rem;">
+        <a href="<%= san_francisco_path()%>" style="color: #FFFFFF;">
+          <%= image_tag "remi-thorel-304R7qkgHe8-unsplash.jpg", class: "img-card" %>
+          <div class="card-img-overlay">
+            <h5 class="card-title">San francisco</h5>
+          </div>
+        </a>
       </div>
 
       <div class="card bg-dark text-white m-2 align-self-sm-center " style="width: 20rem;">
-        <%= image_tag "remi-thorel-304R7qkgHe8-unsplash.jpg", class: "img-card" %>
-        <div class="card-img-overlay">
-
-          <h5 class="card-title">San francisco</h5>
-        </div>
-      </div>
-
-      <div class="card bg-dark text-white m-2 align-self-sm-center " style="width: 20rem;">
-        <%= image_tag "maarten-van-den-heuvel-Siuwr3uCir0-unsplash.jpg", class: "img-card" %>
-        <div class="card-img-overlay">
-          <h5 class="card-title">Guadeloupe</h5>
-        </div>
+        <a href="<%= guadeloupe_path()%>" style="color: #FFFFFF;">
+          <%= image_tag "maarten-van-den-heuvel-Siuwr3uCir0-unsplash.jpg", class: "img-card" %>
+          <div class="card-img-overlay">
+            <h5 class="card-title">Guadeloupe</h5>
+          </div>
+        </a>
       </div>
 
       <div class="card bg-dark text-white m-2 align-self-sm-center" style="width: 20rem;">
-        <%= image_tag "pexels-erica-zhao-5033690.jpg", class: "img-card" %>
-        <div class="card-img-overlay">
-          <h5 class="card-title">Barcelona</h5>
-        </div>
+        <a href="<%= barcelone_path()%>" style="color: #FFFFFF;">
+          <%= image_tag "pexels-erica-zhao-5033690.jpg", class: "img-card" %>
+          <div class="card-img-overlay">
+            <h5 class="card-title">Barcelone</h5>
+          </div>
+        </a>
       </div>
 
       <div class="card bg-dark text-white m-2 align-self-sm-center" style="width: 20rem;">
-        <%= image_tag "aussieactive-1brtlzDq-o8-unsplash.jpg", class: "img-card" %>
-        <div class="card-img-overlay">
-          <h5 class="card-title">New York</h5>
-        </div>
+        <a href="<%= new_york_path()%>" style="color: #FFFFFF;">
+          <%= image_tag "aussieactive-1brtlzDq-o8-unsplash.jpg", class: "img-card" %>
+          <div class="card-img-overlay">
+            <h5 class="card-title">New York</h5>
+          </div>
+        </a>
       </div>
 
     </div>
 
-<%= link_to "guadeloupe", guadeloupe_path() %>
-<%= link_to "paris", paris_path() %>
-<%= link_to "san_francisco", san_francisco_path() %>
-<%= link_to "barcelone", barcelone_path() %>
-<%= link_to "new_york", new_york_path() %> 
 
