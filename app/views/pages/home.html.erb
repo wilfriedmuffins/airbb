@@ -34,7 +34,7 @@
       </div>
 
       <div class="relative">
-        <div class="search position-absolute bottom-0 start-50 translate-middle-x bg-light m-1 p-2">
+        <div class="search position-absolute bottom-0 start-50 translate-middle-x bg-light m-1 p-2 rounded">
 
           <%= form_with url: "/search", method: :get, data: { controller:"places" }, local: true do |form|%>
           <div class="d-flex flex-column flex-md-row">
@@ -80,7 +80,7 @@
 
     <div class="d-flex flex-column flex-md-row m-2">
 
-      <div class="card bg-dark text-white m-2 align-self-sm-center " style="width: 20rem;">
+      <div class="card bg-dark text-white m-2 align-self-lg-center rounded " style="width: 20rem;">
         <a href="<%=paris_path()%>" style="color: #FFFFFF;">
           <%= image_tag "pexels-mart-lmj-2563986.jpg", class: "img-card" %>
           <div class="card-img-overlay">
@@ -125,5 +125,4 @@
       </div>
 
     </div>
-
 
