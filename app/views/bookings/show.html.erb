@@ -12,10 +12,16 @@
             <h2>Reservation</h2> 
 
             <div class="d-flex flex-column flex-md-row">
-                <div class="d-flex flex-column m-2">
-                    <h4>Logement</h4>
-                    <%= link_to image_tag(@booking.logement.images[0].url, style:"max-height: 200px" ), logement_path(@booking.logement_id)  %>
-                </div>
+
+                
+                <% if @booking.logement.images.present?%>
+                
+                    <div class="d-flex flex-column m-2">
+                        <h4>Logement</h4>
+                        <%= link_to image_tag(@booking.logement.images[0].url, style:"max-height: 200px" ), logement_path(@booking.logement_id)  %>
+                    </div>
+
+                <% end %>
 
                 <div class="d-flex flex-column m-2">
                     <h4>Adresse</h4>
