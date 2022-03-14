@@ -43,7 +43,7 @@
         <div class="sticky-top shadow-lg p-3 mb-5 bg-body rounded">
             <div class="d-flex flex-column"> 
         
-                <h3 class="container">Booking du <%= Date.parse(@arrive).strftime("%B %e") %> au <%= Date.parse(@depart).strftime("%B %e %Y ") %></h3> 
+                <h3 class="container">Pour réservation du <%= l Date.parse(@arrive), format: :long %>  au <%= l Date.parse(@depart), format: :long %> </h3> 
                 <%= render 'bookings/form' %>
             </div>
         </div>

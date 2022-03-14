@@ -39,22 +39,22 @@
           <%= form_with url: "/search", method: :get, data: { controller:"places" }, local: true do |form|%>
           <div class="d-flex flex-column flex-md-row">
 
-            <div><%= form.text_field :city, placeholder:"Ville", class:" form-control p-1", data: { places_target: "city"} %></div> 
+            <div><%= form.text_field :city, placeholder:"Ville", class:"form-control", data: { places_target: "city"} %></div> 
 
             <div class="vr d-none d-md-block m-1"></div>
             <div class="dropdown-divider d-block d-md-none m-1"></div>
 
-            <div><%= form.date_field :arrive, placeholder:"Arrivé", class:" form-control p-1" %></div>
+            <div><%= form.date_field :arrive, placeholder:"Arrivé", class:" form-control" %></div>
 
             <div class="vr d-none d-md-block m-1"></div>
             <div class="dropdown-divider d-block d-md-none m-1"></div>
         
-            <div><%= form.date_field :depart, placeholder:"Départ", class:" form-control p-1" %></div>
+            <div><%= form.date_field :depart, placeholder:"Départ", class:" form-control" %></div>
 
             <div class="vr d-none d-md-block m-1"></div>
             <div class="dropdown-divider d-block d-md-none m-1"></div>
 
-            <div><%= form.number_field :voyageur, placeholder:"Voyageurs", class:" form-control p-1" %></div>
+            <div><%= form.number_field :voyageur, placeholder:"Voyageurs", class:"form-control" %></div>
 
             <%= form.text_field :latitude, type:"hidden", data: { places_target: "latitude"} %>
 
@@ -63,7 +63,7 @@
             <div class="vr d-none d-md-block m-1"></div>
             <div class="dropdown-divider d-block d-md-none m-1"></div>
 
-            <div><%= form.submit "Recherche", class:" form-control p-1" %></div>
+            <div><%= form.submit "Recherche", class:" form-control" %></div>
 
           </div>
           <% end %>
@@ -77,9 +77,9 @@
 
     <h2 class="text-center m-5">Quelquels idées pour votre prochain voyage</h2>
 
-    <div class="d-flex flex-column flex-md-row m-2">
+  <div class="d-flex flex-column justify-content-md-center flex-md-row justify-content-md-center">  <%# </div> lex-row flex-xxl-row "> %>
 
-      <div class="card bg-dark text-white m-2 align-self-lg-center rounded " style="width: 20rem;">
+      <div class="card bg-dark text-white m-2 align-self-center " style="width: 20rem;">
         <a href="<%=paris_path()%>" style="color: #FFFFFF;">
           <%= image_tag "pexels-mart-lmj-2563986.jpg", class: "img-card" %>
           <div class="card-img-overlay">
@@ -87,7 +87,8 @@
           </div>
         </a>
       </div>
-      <div class="card bg-dark text-white m-2 align-self-sm-center " style="width: 20rem;">
+
+      <div class="card bg-dark text-white m-2 align-self-center" style="width: 20rem;">
         <a href="<%= san_francisco_path()%>" style="color: #FFFFFF;">
           <%= image_tag "remi-thorel-304R7qkgHe8-unsplash.jpg", class: "img-card" %>
           <div class="card-img-overlay">
@@ -96,7 +97,7 @@
         </a>
       </div>
 
-      <div class="card bg-dark text-white m-2 align-self-sm-center " style="width: 20rem;">
+      <div class="card bg-dark text-white m-2 align-self-center" style="width: 20rem;">
         <a href="<%= guadeloupe_path()%>" style="color: #FFFFFF;">
           <%= image_tag "maarten-van-den-heuvel-Siuwr3uCir0-unsplash.jpg", class: "img-card" %>
           <div class="card-img-overlay">
@@ -105,7 +106,7 @@
         </a>
       </div>
 
-      <div class="card bg-dark text-white m-2 align-self-sm-center" style="width: 20rem;">
+      <div class="card bg-dark text-white m-2 align-self-center" style="width: 20rem;">
         <a href="<%= barcelone_path()%>" style="color: #FFFFFF;">
           <%= image_tag "pexels-erica-zhao-5033690.jpg", class: "img-card" %>
           <div class="card-img-overlay">
@@ -114,7 +115,7 @@
         </a>
       </div>
 
-      <div class="card bg-dark text-white m-2 align-self-sm-center" style="width: 20rem;">
+      <div class="card bg-dark text-white m-2 align-self-center" style="width: 20rem;">
         <a href="<%= new_york_path()%>" style="color: #FFFFFF;">
           <%= image_tag "aussieactive-1brtlzDq-o8-unsplash.jpg", class: "img-card" %>
           <div class="card-img-overlay">

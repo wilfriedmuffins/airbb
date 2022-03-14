@@ -1,77 +1,74 @@
-
 <div class="container">
-    <h1 class="container p-5">Edit <%= resource_name.to_s.humanize %></h1>
+    
+  <h1 class="container p-5"><%= t('.title', resource: resource.model_name.human) %></h1>
 
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-        <div class="row mb-3">
-            <label class="col-sm-2 col-form-label"><%= f.label :avatar %></label>
-            <div class="col-sm-3">
-              <% if @user.avatar.present? %>
-                  <%= image_tag @user.avatar.url, class:"d-block w-100" %> 
-              <%else %>
-                  <%= image_tag @user.avatar.url, class:"d-block w-100" %> 
-              <% end %> 
-              <%= f.file_field :avatar, class: "form-control" %>
-            </div>
+      <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"><%= f.label :avatar %></label>
+        <div class="col-sm-3">
+          <% if @user.avatar.present? %>
+              <%= image_tag @user.avatar.url, class:"d-block w-100" %> 
+          <%else %>
+              <%= image_tag @user.avatar.url, class:"d-block w-100" %> 
+          <% end %> 
+          <%= f.file_field :avatar, class: "form-control" %>
         </div>
+      </div>
 
-        <div class="row mb-3">
-            <label class="col-sm-2 col-form-label"><%= f.label :name %></label>
-            <div class="col-sm-3">
-                <%= f.text_field :name, class: "form-control"%>
-            </div>
+      <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"><%= f.label :name %></label>
+        <div class="col-sm-3">
+            <%= f.text_field :name, class: "form-control"%>
         </div>
+      </div>
 
-        <div class="row mb-3">
-            <label class="col-sm-2 col-form-label"><%= f.label :email %></label>
-            <div class="col-sm-3">
-                <%= f.text_field :email, autofocus: true, autocomplete: "email", class: "form-control"%>
-            </div>
+      <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"><%= f.label :email %><br /></label>
+        <div class="col-sm-3">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
         </div>
+      </div>
 
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
+    <% end %>
+
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label"><%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br /></label>
+      <div class="col-sm-3">
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
         <% end %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label"><%= f.label :password_confirmation %><br /></label>
+      <div class="col-sm-3">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label"><%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br /></label>
+      <div class="col-sm-3">
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+      </div>
+    </div>
 
 
-      <div class="row mb-3">
-            <label class="col-sm-2 col-form-label"><%= f.label :password %> <i>(leave blank if you don't want to change it)</i></label>
-            <div class="col-sm-3">
-                <%= f.password_field :password, autocomplete: "new-password", autofocus: true, class: "form-control"%>
-                <% if @minimum_password_length %>
-                  <br />
-                  <em><%= @minimum_password_length %> characters minimum</em>
-                <% end %>
-            </div>
-        </div>
+    <div class="actions">
+      <%= f.submit t('.update'), class: "btn btn-primary" %>
+    </div>
+  <% end %>
 
-      <div class="row mb-3">
-            <label class="col-sm-2 col-form-label"><%= f.label :password_confirmation %></label>
-            <div class="col-sm-3">
-              <%= f.password_field :current_password, autofocus: true, class: "form-control", autocomplete: "current-password" %> <br/>
-            </div>
-        </div>
+<h3><%= t('.cancel_my_account') %></h3>
 
-        <div class="row mb-3">
-            <label class="col-sm-2 col-form-label"><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br /></label>
-            <div class="col-sm-3">
-              <%= f.password_field :password_confirmation, autofocus: true, class: "form-control", autocomplete: "new-password" %> <br/>
-            </div>
-        </div>
+<p><%= t('.unhappy') %> <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete, class: "btn btn-danger" %></p>
 
-        <div class="actions">
-          <%= f.submit "Update", class: "btn btn-primary" %>
-        </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete , class: "btn btn-danger" %></p>
-
-<%= link_to "Back", :back %>
-
-</div>
-
+<%= link_to t('devise.shared.links.back'), :back %>
+ </div>

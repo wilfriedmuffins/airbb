@@ -63,7 +63,7 @@ class LogementsController < ApplicationController
     private
 
     def logement_params
-        params.require(:logement).permit(:title, :adresse, :city, :latitude, :longitude, :start_date_of_availability, :end_date_of_availability, :voyageur, :description, :price, equipments: [], images: [])
+        params.require(:logement).permit(:title, :adresse, :city, :latitude, :longitude, :start_date_of_availability, :end_date_of_availability, :voyageur, :description, :price, equipments: [], images: [], images_cache: [])
     end
 
     def set_logement

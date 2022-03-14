@@ -12,7 +12,7 @@
             </div>
 
             <div class="form-label">
-                <%= form.label :start_booking %>
+                <%= form.label :Arrivé %>
             </div>
 
             <div class="mb-3">
@@ -20,7 +20,7 @@
             </div>
 
             <div class="form-label">
-                <%= form.label :end_booking %>
+                <%= form.label :Départ %>
             </div>
 
             <div class="mb-3">
@@ -41,6 +41,6 @@
                 <%= form.number_field :voyageur , in: 1...20, step: 1, value: @voyageur, class: "form-control" %>
             </div>
         
-            <%= form.submit "Reserver" %>
+            <%= form.submit "Reserver", class:"btn btn-success" %>
     <% end %>
 </div>

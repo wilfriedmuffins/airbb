@@ -5,7 +5,7 @@
         <h2>Date de reservation</h2>
 
         <div>
-            <p>Du <%= @booking.start_booking.try(:strftime, ("%e %B %Y")) %> jusqu'au <%= @booking.end_booking.try(:strftime, ("%e %B %Y")) %> </p>
+            <p>Du <%= @booking.start_booking.try( :strftime, ("%e %B %Y")) %> jusqu'au <%= @booking.end_booking.try(:strftime, ("%e %B %Y")) %> </p>
         </div>
 
         <div>

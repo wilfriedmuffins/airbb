@@ -1,13 +1,5 @@
+<p><%= t('.greeting', recipient: @email) %></p>
 
+<p><%= t('.instruction') %></p>
 
-<p> Hey bienvenu à toi cher <%= @name %>! </p>
-
-<p> Merci d'avoir rejoint Airbibi.</p>
-
-<p> Encore une dernière étape, j'ai besoin que tu confirmes ton adresse mail pour compléter ton inscription.</p>
-
-<p>Cliquez sur le lien ci-dessous:</p>
-
-<p><%= link_to 'Confirme ton email', confirmation_url(@resource, confirmation_token: @token) %></p>
-
-<p>Bien à toi! </p>
+<p><%= link_to t('.action'), confirmation_url(@resource, confirmation_token: @token) %></p>
