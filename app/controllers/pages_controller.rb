@@ -1,39 +1,6 @@
 class PagesController < ApplicationController
     
     def home
-        @city_paris = "Paris, France"
-        # @city_guadeloupe = "Guadeloupe"
-        # @city_san_francisco = "San Francisco, Californie, États-Unise"
-        # @city_Barcelona = "Barcelona, Espagne"
-        # @city_new_york= "New York, État de New York, États-Unis"
-
-        # @latitude  = params[:latitude]
-        # @longitude  = params[:logitude]
-
-        # @latitude  = params[:latitude]
-        # @longitude  = params[:logitude]
-
-        # @latitude  = params[:latitude]
-        # @longitude  = params[:logitude]
-
-        # @latitude  = params[:latitude]
-        # @longitude  = params[:logitude]
-
-       
-        
-
-
-        # @lat_san_francisco  = 
-        # @lng_san_francisco = 
-
-        # @lat_paris  = 
-        # @lng_paris = 
-        # @lat_paris  = 
-        # @lng_paris =  
-
-        # @lat_paris  = 
-        # @lng_san_francisco = 
-
         @latitude  = params[:latitude]
         @longitude  = params[:logitude]
 

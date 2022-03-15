@@ -33,28 +33,30 @@
         </div>
       </div>
 
-      <div class="relative">
-        <div class="search position-absolute bottom-0 start-50 translate-middle-x bg-light m-1 p-2 rounded">
 
-          <%= form_with url: "/search", method: :get, data: { controller:"places" }, local: true do |form|%>
-          <div class="d-flex flex-column flex-md-row">
 
-            <div><%= form.text_field :city, placeholder:"Ville", class:"form-control", data: { places_target: "city"} %></div> 
+      <div class="relative d-none d-md-block bg-light">
+        <div class="search position-absolute bottom-0 start-50 translate-middle-x p-1 rounded">
+
+          <%= form_with url: "/search", method: :get, data: { controller:"places" }, class: "", local: true do |form|%>
+          <div class="d-flex flex-row">
+
+            <div class = "col-md-2"><%= form.text_field :city, placeholder:"Ville", class:"form-control", data: { places_target: "city"} %></div> 
 
             <div class="vr d-none d-md-block m-1"></div>
             <div class="dropdown-divider d-block d-md-none m-1"></div>
 
-            <div><%= form.date_field :arrive, placeholder:"Arrivé", class:" form-control" %></div>
+            <div><%= form.date_field :arrive, placeholder:"Arrivé", class:"form-control" %></div>
 
             <div class="vr d-none d-md-block m-1"></div>
             <div class="dropdown-divider d-block d-md-none m-1"></div>
         
-            <div><%= form.date_field :depart, placeholder:"Départ", class:" form-control" %></div>
+            <div class = "col-md-"><%= form.date_field :depart, placeholder:"Départ", class:"form-control" %></div>
 
             <div class="vr d-none d-md-block m-1"></div>
             <div class="dropdown-divider d-block d-md-none m-1"></div>
 
-            <div><%= form.number_field :voyageur, placeholder:"Voyageurs", class:"form-control" %></div>
+            <div class = "col-md-2"><%= form.number_field :voyageur, placeholder:"Voyageurs", class:"form-control" %></div>
 
             <%= form.text_field :latitude, type:"hidden", data: { places_target: "latitude"} %>
 
@@ -125,4 +127,3 @@
       </div>
 
     </div>
-

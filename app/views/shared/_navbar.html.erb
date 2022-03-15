@@ -1,48 +1,91 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
-  <div class="container">
-
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <div class="container-fluid">
     <%= link_to "AIRBIBI", root_path(), class:"navbar-brand" %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-<div class="collapse navbar-collapse" id="navbarScroll">
-  <ul class="navbar-nav navbar-nav-scroll ms-auto">
-
-    <% if user_signed_in?  %>
-      <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#" aria-disabled="true" data-bs-toggle="modal" data-bs-target="#exampleModal">Recherche d'appartement</a>
+        </li>
+      </ul>
+      
+      <ul class="navbar-nav  mb-2 mb-lg-0">
+      
+      
+      <div class="d-flex">
+         <% if user_signed_in?  %>
+          <li class="nav-item dropdown"> 
+            <a class="nav-link dropdown-toggle active link-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Menu
             </a>
-
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarScrollingDropdown">
-              
-              <li><%= link_to "Profil", user_path(current_user), class:"dropdown-item"%></li>
+  
+            <ul class="dropdown-menu  dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><%= link_to "Profil", user_path(current_user), class:"dropdown-item"%></li>
+              <% if user_signed_in?  && current_user.admin %>
+                <li><%= link_to "Liste des logements", logements_path, class:"dropdown-item" %></li>
+                <li><%= link_to "Liste des bookings", bookings_path, class:"dropdown-item" %></li>
+                <li><%= link_to "Utilisateurs du site", users_path, class:"dropdown-item" %></li>
+                <li><%= link_to "Commentaires du site", comments_path, class:"dropdown-item" %></li>
+              <% end %>  
               <li><hr class="dropdown-divider"></li>
-
-                    <% if user_signed_in?  && current_user.admin %>
-                      
-                      <li><%= link_to "Liste des logements", logements_path, class:"dropdown-item" %></li>
-                      <li><%= link_to "Liste des bookings", bookings_path, class:"dropdown-item" %></li>
-                      <li><%= link_to "Utilisateurs du site", users_path, class:"dropdown-item" %></li>
-                      <li><%= link_to "Commentaires du site", comments_path, class:"dropdown-item" %></li>
-
-                    <li><hr class="dropdown-divider"></li>
-                      
-                    <% end %>
-
-                    <li><%= link_to "Deconnection", destroy_session_path(current_user), method: :delete, class:"dropdown-item" %></li>
-
-                    <% else %>
-                      <li class="nav-item" > <%= link_to "Inscription", new_user_registration_path, class:"nav-link active" %> </li> 
-
-                <li class="nav-item" > <%= link_to "Connexion", new_user_session_path, class:"nav-link active" %>  </li>
-
+              <li><%= link_to "Deconnection", destroy_session_path(current_user), method: :delete, class:"dropdown-item" %></li>
             </ul>
-
+          </li>
         <% end %>
-     
+
+        <% if !user_signed_in?  %>
+          <div class="d-flex flex-column flex-md-row">
+            <li><%= link_to "Inscription", new_user_registration_path, class:"link-dark m-1" %> </li>
+            <li><%= link_to "Connexion", new_user_session_path, class:"link-dark m-1" %>  </li>
+          </div>
+        <% end %>
+      </div>
+      </ul>
     </div>
   </div>
 </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Recherche d'appartement</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= form_with url: "/search", method: :get, data: { controller:"places" }, class: "", local: true do |form|%>
+          <div class="d-flex flex-column">
+
+            <div class="city" ><%= form.text_field :city, placeholder:"Ville", class:"form-control", data: { places_target: "city"} %></div> 
+
+            <div class="dropdown-divider"></div>
+
+            <div><%= form.date_field :arrive, placeholder:"Arrivé", class:" form-control" %></div>
+
+            <div class="dropdown-divider d-block"></div>
+        
+            <div><%= form.date_field :depart, placeholder:"Départ", class:" form-control" %></div>
+
+            <div class="dropdown-divider d-block"></div>
+
+            <div><%= form.number_field :voyageur, placeholder:"Voyageurs", class:"form-control" %></div>
+
+            <%= form.text_field :latitude, type:"hidden", data: { places_target: "latitude"} %>
+
+            <%= form.text_field :longitude, type:"hidden", data: { places_target: "longitude"} %>
+
+             <div class="dropdown-divider d-block"></div>
+    
+            <div><%= form.submit "Recherche", class:" form-control" %></div>
+
+          </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
