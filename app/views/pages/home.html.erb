@@ -6,7 +6,7 @@
     <div class="carousel-inner">
 
       <div class="carousel-item active" data-bs-interval="5900">
-      <%= video_tag ["production_id_3783242.mp4"], :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
+        <%= video_tag ["production_id_3783242.mp4"], :size => "3840 x 2160", class:"d-block w-100", autoplay: :autoplay, loop: :loop, muted: :muted %>
         <div class=" carousel-caption">
           <h1 class="title"> Envie d'évasion?</h1>
         </div>
@@ -32,47 +32,27 @@
           <h1 class="title">Alors envole toi par ici!</h1>
         </div>
       </div>
-
-
-
-      <div class="relative d-none d-md-block bg-light">
-        <div class="search position-absolute bottom-0 start-50 translate-middle-x p-1 rounded">
-
-          <%= form_with url: "/search", method: :get, data: { controller:"places" }, class: "", local: true do |form|%>
-          <div class="d-flex flex-row">
-
-            <div class = "col-md-2"><%= form.text_field :city, placeholder:"Ville", class:"form-control", data: { places_target: "city"} %></div> 
-
-            <div class="vr d-none d-md-block m-1"></div>
-            <div class="dropdown-divider d-block d-md-none m-1"></div>
-
-            <div><%= form.date_field :arrive, placeholder:"Arrivé", class:"form-control" %></div>
-
-            <div class="vr d-none d-md-block m-1"></div>
-            <div class="dropdown-divider d-block d-md-none m-1"></div>
-        
-            <div class = "col-md-"><%= form.date_field :depart, placeholder:"Départ", class:"form-control" %></div>
-
-            <div class="vr d-none d-md-block m-1"></div>
-            <div class="dropdown-divider d-block d-md-none m-1"></div>
-
-            <div class = "col-md-2"><%= form.number_field :voyageur, placeholder:"Voyageurs", class:"form-control" %></div>
-
-            <%= form.text_field :latitude, type:"hidden", data: { places_target: "latitude"} %>
-
-            <%= form.text_field :longitude, type:"hidden", data: { places_target: "longitude"} %>
-
-            <div class="vr d-none d-md-block m-1"></div>
-            <div class="dropdown-divider d-block d-md-none m-1"></div>
-
-            <div><%= form.submit "Recherche", class:" form-control" %></div>
-
-          </div>
-          <% end %>
-            
-        </div>
-      </div>
       
+      <div class="search position-absolute bottom-0 start-50 translate-middle-x p-1 d-none d-md-block">
+
+        <%= form_with url: "/search", method: :get, data: { controller:"places" }, class: "bg-light", local: true do |form|%>
+        <div class="d-flex flex-row justify-content-center">
+
+          <div class = "col-md-2"><%= form.text_field :city, placeholder:"Ville", class:"form-control", data: { places_target: "city"} %></div> 
+          
+          <div ><%= form.date_field :arrive, placeholder:"Arrivé", class:"form-control" %></div>
+          
+          <div ><%= form.date_field :depart, placeholder:"Départ", class:"form-control" %></div>
+          
+          <div class = "col-md-3" ><%= form.number_field :voyageur, placeholder:"Voyageurs", class:"form-control" %></div>
+          
+          <%= form.text_field :latitude, type:"hidden", data: { places_target: "latitude"} %>
+          <%= form.text_field :longitude, type:"hidden", data: { places_target: "longitude"} %>
+          <div class = "col-md-3"><%= form.submit "Recherche", class:" form-control" %></div>
+        </div>
+        
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
