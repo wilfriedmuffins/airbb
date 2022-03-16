@@ -18,8 +18,6 @@ class BookingsController < ApplicationController
     end
 
     def create
-
-        
         @booking = Booking.new(booking_params)
         @booking.logement = Logement.find(params[:logement_id])
         @booking.user = current_user
@@ -38,9 +36,22 @@ class BookingsController < ApplicationController
     end
 
     def edit
+        puts @booking.logement_id
+
+        @logement = Logement.find(@booking.logement_id)
+
+        @jour = (@booking.end_booking-@booking.start_booking).to_i
+
+        price = @jour*@logement.price
+
+        puts "le prix est:#{+price}"
+
+        #@booking.update_attribute(:t_price, "Some Value")
     end
 
     def update
+        
+
         if @booking.update(booking_params)
             redirect_to booking_path(@booking)
         else

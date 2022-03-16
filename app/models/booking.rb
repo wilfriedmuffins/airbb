@@ -6,8 +6,9 @@ class Booking < ApplicationRecord
 
   validates :end_booking, presence: true
   validates :start_booking, presence: true
-  validate :check_start_booking, :check_end_booking, :check_voyageur
+  validate :check_start_booking, :check_end_booking, :check_voyageur, :check_price_create
 
+  before_update :check_start_booking, :check_end_booking, :check_voyageur#, :check_price_update
   
   def check_start_booking
     @logement = Logement.find(logement_id)
@@ -33,5 +34,23 @@ class Booking < ApplicationRecord
     end
   end
 
+  # def check_price_update
+  #   @booking = Booking.find(id)
+  #   puts @booking.inspect
+
+  #   @logement = Logement.find(@booking.logement_id)
+  #   puts @logement.price
+    
+  #   puts (((@booking.end_booking-@booking.start_booking).to_i)*@logement.price)
+  #   self.t_price = ((@booking.end_booking-@booking.start_booking).to_i)*@logement.price
+  # end
+
+  def check_price_create
+    @logement = Logement.find(logement_id)
+    puts @logement.price
+    
+    puts (((end_booking-start_booking).to_i)*@logement.price)
+    self.t_price = (((end_booking-start_booking).to_i)*@logement.price)
+  end
 
 end
