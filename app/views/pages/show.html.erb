@@ -40,11 +40,12 @@
     </div>
 
     <div class="col-5">
-        <div class="sticky-top shadow-lg p-3 mb-5 bg-body rounded">
-            <div class="d-flex flex-column"> 
-        
-                <h3 class="container">Pour réservation du <%= l Date.parse(@arrive), format: :long %>  au <%= l Date.parse(@depart), format: :long %> </h3> 
-                <%= render 'bookings/form' %>
+        <div class="sticky-top">
+            <div class=" shadow-lg p-3 mb-5 bg-body rounded">
+                <div class="d-flex flex-column"> 
+                    <h3 class="container">Pour réservation du <%= l Date.parse(@arrive), format: :long %>  au <%= l Date.parse(@depart), format: :long %> </h3> 
+                    <%= render 'bookings/form' %>
+                </div>
             </div>
         </div>
     </div>    

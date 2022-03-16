@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
-  <div class="container-fluid">
+  <div class="container">
     <%= link_to "AIRBIBI", root_path(), class:"navbar-brand" %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +16,7 @@
       <ul class="navbar-nav  mb-2 mb-lg-0">
       
       <div class="d-flex">
-         <% if user_signed_in?  %>
+        <% if user_signed_in?  %>
           <li class="nav-item dropdown"> 
             <a class="nav-link dropdown-toggle active link-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Menu

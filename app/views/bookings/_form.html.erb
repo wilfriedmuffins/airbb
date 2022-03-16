@@ -40,7 +40,13 @@
             <div class="mb-3">
                 <%= form.number_field :voyageur , in: 1...20, step: 1, value: @voyageur, class: "form-control" %>
             </div>
-        
-            <%= form.submit "Reserver", class:"btn btn-success" %>
+
+            <% if user_signed_in?  %>
+                <%= form.submit "Reserver", class:"btn btn-success" %>
+            <% else %>
+                <%# <%= render 'devise/sessions/new' %> 
+                <h3>Connectez-vous avant de reverser</h3>
+            <% end %>
+            
     <% end %>
 </div>

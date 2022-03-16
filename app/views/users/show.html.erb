@@ -3,7 +3,11 @@
 
     <h2 class="container-fluid text-center">Mes logements</h2>
 
-    <a class="badge badge-primary text center"><%= link_to "Nouveau logement", new_logement_path %></a>
+    <a class="badge badge-primary"><%= link_to "Nouveau logement", new_logement_path, class:"btn btn-primary link-light" %></a>
+
+    <% if current_user.id ==  @user.id %>
+        <a class="badge badge-primary"><%= link_to "Modifier profil", edit_user_registration_path, class:"btn btn-primary link-light" %></a>
+    <% end %>
 </div>
 
 <div class="d-flex flex-column">
@@ -31,8 +35,8 @@
                         <td><%= logement.voyageur %></td>
                         <td><%= logement.start_date_of_availability.try(:strftime, ("%e %B %Y")) %></td> 
                         <td><%= logement.end_date_of_availability.try(:strftime, ("%e %B %Y")) %></td>
-                        <td><button type="button" class="btn btn-primary"><%= link_to "show", logement_path(logement), class: "link-light" %></button></td>
-                        <td><button type="button" class="btn btn-danger"><%= link_to "Delete", logement_path(logement), class: "link-light", method: :delete %></button></td>
+                        <td><button type="button" class="btn btn-primary"><%= link_to "show", logement_path(logement), class: "link-light", style: "text-decoration:none" %></button></td>
+                        <td><button type="button" class="btn btn-danger"><%= link_to "Delete", logement_path(logement), class: "link-light", method: :delete, style: "text-decoration:none" %></button></td>
                     </tr>
                 <% end %>
             </tbody>
@@ -41,21 +45,18 @@
 
     <% end %>
 
-    <div class="m-auto">
-
         <h2 class="container-fluid text-center">Mes Reservations</h2>
-
-        <% @user.bookings.each do |booking| %>
-            <p>Réservation du <%= booking.start_booking.try(:strftime, ("%e %B %Y"))%>  au <%= booking.end_booking.try(:strftime, ("%e %B %Y")) %>
-            <button type="button" class="btn btn-primary"><%= link_to "Ajouter commentaire", logement_path(booking.logement_id), class: "link-light", style: "text-decoration:none" %></button>
-            <button type="button" class="btn btn-primary"><%= link_to "show", booking_path(booking.id), class: "link-light", style: "text-decoration:none" %></button></p>
-        <%end%>
-
-
-        <% if current_user.id ==  @user.id %>
-            <%= link_to "Modifier profil", edit_user_registration_path %>
-        <% end %>
-    
-    </div>
-    
+        
+        <div class="m-auto">
+            <% @user.bookings.each do |booking| %>
+                <div class="d-flex justify-content-end">
+                    <div class="d-flex flex-row">
+                        <p>Réservation du <%= booking.start_booking.try(:strftime, ("%e %B %Y"))%>  au <%= booking.end_booking.try(:strftime, ("%e %B %Y")) %>
+                        <button type="button" class="btn btn-primary"><%= link_to "Ajouter commentaire", logement_path(booking.logement_id), class: " btn btn-primary link-light", style: "text-decoration:none" %></button>
+                        <button type="button" class="btn btn-primary"><%= link_to "show", booking_path(booking.id), class: " btn btn-primary link-light", style: "text-decoration:none" %></button></p>
+                    </div>
+                </div>
+            <%end%>
+        </div>
+        
 </div>

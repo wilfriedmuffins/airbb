@@ -8,8 +8,8 @@ export default class extends Controller {
 
     initialize() {
 
-      console.log(this.latitudeValue)
-      console.log(this.longitudeValue);
+      // console.log(this.latitudeValue)
+      // console.log(this.longitudeValue);
 
       this.map = new google.maps.Map(this.mapTarget, {
         center: { lat: this.latitudeValue, lng: this.longitudeValue},
@@ -17,8 +17,8 @@ export default class extends Controller {
       });
 
       this.markersValue.forEach((markers) => {
-        console.log(markers.latitude);
-        console.log(markers.longitude);
+        // console.log(markers.latitude);
+        // console.log(markers.longitude);
         const marker = new google.maps.Marker({
           position: { lat: markers.latitude, lng: markers.longitude },
           map: this.map,

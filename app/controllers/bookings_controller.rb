@@ -18,6 +18,8 @@ class BookingsController < ApplicationController
     end
 
     def create
+
+        
         @booking = Booking.new(booking_params)
         @booking.logement = Logement.find(params[:logement_id])
         @booking.user = current_user
