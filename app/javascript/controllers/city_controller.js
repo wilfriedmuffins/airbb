@@ -7,7 +7,6 @@ export default class extends Controller {
         this.autocomplete = new google.maps.places.Autocomplete(this.cityTarget);
         this.autocomplete = new google.maps.places.Autocomplete(this.addressTarget);
         this.autocomplete.addListener('place_changed', this.placeChanged.bind(this));
-
     }
 
     placeChanged(){
@@ -18,10 +17,8 @@ export default class extends Controller {
         this.latitudeTarget.value = place.geometry.location.lat()
         this.longitudeTarget.value = place.geometry.location.lng()
 
-
-  
-        // console.log(this.place.geometry.location.lat())
-        // console.log(this.place.geometry.location.lng())
+        console.log(this.place.geometry.location.lat())
+        console.log(this.place.geometry.location.lng())
     }
     
 

@@ -8,8 +8,8 @@ export default class extends Controller {
 
     initialize() {
 
-      // console.log(this.latitudeValue)
-      // console.log(this.longitudeValue);
+      console.log(this.latitudeValue)
+      console.log(this.longitudeValue);
 
       this.map = new google.maps.Map(this.mapTarget, {
         center: { lat: this.latitudeValue, lng: this.longitudeValue},

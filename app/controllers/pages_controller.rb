@@ -59,7 +59,7 @@ class PagesController < ApplicationController
         @voyageur = 2
         logements_non_disponible = Logement.joins(:bookings).where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.start_booking <= ? and bookings.end_booking >= ?", "Guadeloupe",  @arrive,  @depart, @voyageur,  @depart,  @arrive])
         @logements_disponible = Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings_count = ?", "Guadeloupe",  @arrive,  @depart, @voyageur, 0]).or(Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.start_booking > ?", "Guadeloupe",  @arrive,  @depart, @voyageur,  @depart])).or(Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.end_booking < ?", "Guadeloupe",  @arrive,  @depart, @voyageur,  @arrive])).left_outer_joins(:bookings).distinct.without(logements_non_disponible)
-        puts @logements_disponible.inspect
+        #puts @logements_disponible.inspect
     end
 
     def san_francisco
@@ -70,30 +70,30 @@ class PagesController < ApplicationController
         @voyageur = 2
         logements_non_disponible = Logement.joins(:bookings).where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.start_booking <= ? and bookings.end_booking >= ?", "San Francisco, Californie, États-Unis",  @arrive,  @depart, @voyageur,  @depart,  @arrive])
         @logements_disponible = Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings_count = ?",  "San Francisco, Californie, États-Unis",  @arrive,  @depart, @voyageur, 0]).or(Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.start_booking > ?", "San Francisco, Californie, États-Unis",  @arrive,  @depart, @voyageur,  @depart])).or(Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.end_booking < ?", "San Francisco, Californie, États-Unis",  @arrive,  @depart, @voyageur,  @arrive])).left_outer_joins(:bookings).distinct.without(logements_non_disponible)
-        puts @logements_disponible.inspect
+        #puts @logements_disponible.inspect
     end
 
     def paris
-        @lat_paris  = 48.856614
+        @lat_paris = 48.856614
         @lng_paris = 2.3522219
         @depart = Date.today+30
         @arrive = Date.today
         @voyageur = 2
         logements_non_disponible = Logement.joins(:bookings).where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.start_booking <= ? and bookings.end_booking >= ?", "Paris, France",  @arrive,  @depart, @voyageur,  @depart,  @arrive])
         @logements_disponible = Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings_count = ?",  "Paris, France",  @arrive,  @depart, @voyageur, 0]).or(Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.start_booking > ?", "Paris, France",  @arrive,  @depart, @voyageur,  @depart])).or(Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.end_booking < ?", "Paris, France", @arrive, @depart, @voyageur, @arrive])).left_outer_joins(:bookings).distinct.without(logements_non_disponible)
-        puts @logements_disponible.inspect
+        #puts @logements_disponible.inspect
     end
 
     def barcelone
-        @lat_bcl  = 43873974
+        @lat_bcl = 41.3873974
         @lng_bcl = 2.168568
         @depart = Date.today+30
         @arrive = Date.today
         @voyageur = 2
         logements_non_disponible = Logement.joins(:bookings).where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.start_booking <= ? and bookings.end_booking >= ?", "Barcelona, Espagne",  @arrive,  @depart, @voyageur,  @depart,  @arrive])
         @logements_disponible = Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings_count = ?",  "Barcelona, Espagne",  @arrive,  @depart, @voyageur, 0]).or(Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.start_booking > ?", "Barcelona, Espagne",  @arrive,  @depart, @voyageur,  @depart])).or(Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.end_booking < ?", "Barcelona, Espagne",  @arrive,  @depart, @voyageur,  @arrive])).left_outer_joins(:bookings).distinct.without(logements_non_disponible)
-        puts @logements_disponible.inspect
-        
+        #puts @logements_disponible.inspect
+
     end
 
     def new_york
@@ -104,7 +104,7 @@ class PagesController < ApplicationController
         @voyageur = 2
         logements_non_disponible = Logement.joins(:bookings).where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.start_booking <= ? and bookings.end_booking >= ?", "New York, État de New York, États-Unis",  @arrive,  @depart, @voyageur,  @depart,  @arrive])
         @logements_disponible = Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings_count = ?",  "New York, État de New York, États-Unis",  @arrive,  @depart, @voyageur, 0]).or(Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.start_booking > ?", "New York, État de New York, États-Unis",  @arrive,  @depart, @voyageur,  @depart])).or(Logement.where(["city = ? and start_date_of_availability <= ? and end_date_of_availability >= ? and logements.voyageur >= ? and bookings.end_booking < ?", "New York, État de New York, États-Unis",  @arrive,  @depart, @voyageur,  @arrive])).left_outer_joins(:bookings).distinct.without(logements_non_disponible)
-        puts @logements_disponible.inspect
+        #puts @logements_disponible.inspect
     end
 
 end 
